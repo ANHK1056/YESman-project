@@ -21,9 +21,10 @@ public class User implements UserDetails {
 
     //id is primary key
     @Id
+    // TODO: 2023-07-05 PK 맵핑에 대해 추후 검토
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
-    private String userId;
+    private Long userId;
 
     //setting name
     @Column(nullable = false)
@@ -43,7 +44,7 @@ public class User implements UserDetails {
     private String userPhNm;
 
     //email 형식
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String userEmail;
 
     //주소로 받음
@@ -51,16 +52,16 @@ public class User implements UserDetails {
     private String userAddress;
 
     @Builder
-    public User(String user_id,String user_name,String user_pw, String user_birth,
-                String user_gender,String user_pNm, String user_email,String user_address){
-        this.userId =user_id;
-        this.userName = user_name;
-        this.userPw =user_pw;
-        this.userBirth =user_birth;
-        this.userGender = user_gender;
-        this.userPhNm = user_pNm;
-        this.userEmail = user_email;
-        this.userAddress =user_address;
+    public User(/*Long userId,*/String userName,String userPw, String userBirth,
+                String userGender,String userPhNm, String userEmail,String userAddress,String auth){
+//        this.userId =userId;
+        this.userName = userName;
+        this.userPw =userPw;
+        this.userBirth =userBirth;
+        this.userGender = userGender;
+        this.userPhNm = userPhNm;
+        this.userEmail = userEmail;
+        this.userAddress =userAddress;
     }
 
 
@@ -73,7 +74,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userId;
+        return userEmail;
     }
     @Override
     public String getPassword() {

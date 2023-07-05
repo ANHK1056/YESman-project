@@ -1,10 +1,9 @@
 package com.kosa.projectdeveloper.service;
 
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -14,8 +13,8 @@ public class UserDetailService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String user_id) throws UsernameNotFoundException {
-        return userRepository.findById(user_id)
-                .orElseThrow(()-> new IllegalArgumentException((user_id)));
+    public User loadUserByUsername(String userEmail)  {
+        return userRepository.findByUserEmail(userEmail)
+                .orElseThrow(()-> new IllegalArgumentException(userEmail));
     }
 }
