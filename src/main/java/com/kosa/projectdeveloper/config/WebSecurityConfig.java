@@ -24,7 +24,9 @@ public class WebSecurityConfig {
     public WebSecurityCustomizer configure() {
         return  (web) -> web.ignoring()
                 .requestMatchers(toH2Console())
-                .requestMatchers("/static/**");
+                .requestMatchers("/static/**")
+                // TODO: 2023-07-06 개발 편의를 위해 로그인 리다이렉트 모두 비활성화
+                .requestMatchers("/**");
     }
 
     @Bean

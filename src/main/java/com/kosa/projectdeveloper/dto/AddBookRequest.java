@@ -19,16 +19,20 @@ public class AddBookRequest {
     private String bookTime;
     // TODO: 2023-07-05 타입 확인 필요
     private Long bookPay;
+    private String seatPosition;
+    private String showLocation;
 
     public Book toEntity() {
         return Book.builder()
-                .bookId(bookId)
+//                .bookId(bookId)
                 .userId(userId)
                 .showId(showId)
                 .bookMail(bookMail)
                 .bookDay(bookDay)
                 .bookTime(bookTime)
                 .bookPay(bookPay)
+                .seatPosition(seatPosition)
+                .showLocation(showLocation)
                 .build();
     }
 }
