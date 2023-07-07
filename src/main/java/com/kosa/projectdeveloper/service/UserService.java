@@ -2,7 +2,7 @@ package com.kosa.projectdeveloper.service;
 
 import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.AddUserRequest;
-import com.kosa.projectdeveloper.dto.UpdateUserRequest;
+//import com.kosa.projectdeveloper.dto.UpdateUserRequest;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

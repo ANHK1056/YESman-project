@@ -1,47 +1,49 @@
 package com.kosa.projectdeveloper.controller;
 
+import com.kosa.projectdeveloper.Api.Api;
+import com.kosa.projectdeveloper.domain.Show;
+import com.kosa.projectdeveloper.domain.ShowDetail;
+import com.kosa.projectdeveloper.repository.ShowDetailRepository;
+import com.kosa.projectdeveloper.repository.ShowRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
-import javax.lang.model.element.Element;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
-
+@RequiredArgsConstructor
 @RestController
 public class ApiController {
 
+    private static Api api = new Api();
+    private  final ShowRepository showRepository;
+    private  final ShowDetailRepository showDetailRepository;
+
     @GetMapping("/test")
-    public String callApiWithXml() {
-        StringBuffer result = new StringBuffer();
-        try {
-            String apiUrl = "http://kopis.or.kr/openApi/restful/pblprfr?" +
-                    "service=cabcdf578a394c1cbfca801665c8447c" +
-                    "&numOfRows=10" +
-                    "&page=1" ;
-            URL url = new URL(apiUrl);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
+    public ResponseEntity<List<Show>> initShow() {
+        List<Show> list = new ArrayList<Show>();
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-
-            String returnLine;
-            result.append("<xmp>");
-            while((returnLine = bufferedReader.readLine()) != null) {
-                result.append(returnLine + "\n");
-            }
-            urlConnection.disconnect();
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int pageNo = 1; pageNo < 4; pageNo++) {
+            list = api.ShowAPI(list, pageNo);
         }
 
-        return result + "</xmp>";
+
+        List<Show> result = showRepository.saveAll(list);
+        return ResponseEntity.ok()
+                .body(list);
     }
 
-}
+    @GetMapping("/test2")
+        public ResponseEntity<List<ShowDetail>> DetailIninShow (String show_id) {
+            List<ShowDetail> detailListist = new ArrayList<ShowDetail>();
 
+            detailListist = api.ShowDetailAPI(detailListist, show_id);
+
+            List<ShowDetail> detailResult = showDetailRepository.saveAll(detailListist);
+            return  ResponseEntity.ok()
+                    .body(detailListist);
+        }
+
+}

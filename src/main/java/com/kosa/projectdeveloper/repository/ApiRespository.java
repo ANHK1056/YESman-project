@@ -1,9 +1,14 @@
 package com.kosa.projectdeveloper.repository;
 
-import com.kosa.projectdeveloper.domain.Book;
+
+import com.kosa.projectdeveloper.domain.Show;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ApiRespository extend JpaRepository<Ap, Long>{
+import java.util.Optional;
 
+public interface ApiRespository extends JpaRepository<Show, String> {
+
+    Optional<Show> findById(String show_id);
 
 }
+

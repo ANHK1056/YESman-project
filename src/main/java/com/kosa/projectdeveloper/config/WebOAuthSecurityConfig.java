@@ -35,7 +35,7 @@ public class WebOAuthSecurityConfig {
         return (web) -> web.ignoring()
                 .requestMatchers(toH2Console())
                 .requestMatchers("/img/**", "/css/**", "/js/**")
-                .requestMatchers("/**/");
+                .requestMatchers("/**");
     }
 
     @Bean
