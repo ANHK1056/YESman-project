@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.dto;
 
+import com.kosa.projectdeveloper.domain.Show;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -105,6 +106,8 @@ public class ShowDto {
         return show_content;
     }
 
+
+
     @Override
     public String toString() {
         return "ShowDto{" +
@@ -129,6 +132,7 @@ public class ShowDto {
                 ", show_content='" + show_content + '\'' +
                 '}';
     }
+
 
 
 }

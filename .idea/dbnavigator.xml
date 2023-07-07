@@ -26,6 +26,8 @@ select  * from BOOK;]]></console>
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="ff2cb3f8-f6fb-49d5-b23f-d32a81571785" dataset="YESMAN.SHOW_DETAILS" active-filter-id="" />
+    <filter-actions connection-id="ff2cb3f8-f6fb-49d5-b23f-d32a81571785" dataset="YESMAN.SHOW_LIKE" active-filter-id="" />
     <filter-actions connection-id="ff2cb3f8-f6fb-49d5-b23f-d32a81571785" dataset="YESMAN.BOOK" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
