@@ -20,13 +20,10 @@ public class ApiController {
     public String callApiWithXml() {
         StringBuffer result = new StringBuffer();
         try {
-            String apiUrl = "http://www.kopis.or.kr/openApi/restful/pblprfr/PF132236?" +
+            String apiUrl = "http://kopis.or.kr/openApi/restful/pblprfr?" +
                     "service=cabcdf578a394c1cbfca801665c8447c" +
                     "&numOfRows=10" +
-                    "&pageNo=4";
-//            String apiUrl = "https://www.kopis.or.kr/openApi/restful/pblprfr?" +
-//                    "service=2d46a5d3c8ba49ff945546fa7e925398&stdate=20160601&eddate=20160630&cpage=1&rows=700";
-
+                    "&page=1" ;
             URL url = new URL(apiUrl);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -45,7 +42,6 @@ public class ApiController {
 
         return result + "</xmp>";
     }
-
 
 }
 
