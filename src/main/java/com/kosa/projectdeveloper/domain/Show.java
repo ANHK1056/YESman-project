@@ -2,6 +2,7 @@ package com.kosa.projectdeveloper.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,6 +12,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Getter
 @Entity
 public class Show {
+
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,5 +71,19 @@ public class Show {
     private String show_content;
 
 
+    ////
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "content", nullable = false)
+    private String content;
+
+
+
+    @Builder
+    public Show(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 
 }
