@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.domain;
 
+import com.kosa.projectdeveloper.dto.AddUserRequest;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -52,6 +53,7 @@ public class User implements UserDetails {
     private String userAddress;
 
 
+
     @Builder
     public User(/*Long userId,*/String userName,String userPw, String userBirth,
                 String userGender,String userPhNm, String userEmail,String userAddress){
@@ -64,9 +66,8 @@ public class User implements UserDetails {
         this.userEmail = userEmail;
         this.userAddress =userAddress;
     }
-
-    // 개인 정보 수정 페이지에서 사용가능
-    public void update(String userBirth, String userGender, String userPhNm,String userAddress){
+    public void update(String userBirth, String userGender, String userPhNm,
+                       String userAddress) {
         this.userBirth =userBirth;
         this.userGender=userGender;
         this.userPhNm = userPhNm;
@@ -116,6 +117,7 @@ public class User implements UserDetails {
         return this;
 
     }
+
 
 
 

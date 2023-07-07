@@ -2,12 +2,15 @@ package com.kosa.projectdeveloper.service;
 
 import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.AddUserRequest;
-import com.kosa.projectdeveloper.dto.UpdateUserRequest;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
+
 
 @RequiredArgsConstructor
 @Service
@@ -19,7 +22,6 @@ public class UserService {
 //    BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
     public Long save(AddUserRequest dto){
         BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
-        // TODO: 2023-07-05 error 발생시 Repository 수정
         return  userRepository.save(User.builder()
                 .userName(dto.getUserName())
                 .userPw(endcoder.encode(dto.getUserPw()))
@@ -30,6 +32,7 @@ public class UserService {
                 .userAddress(dto.getUserAddress())
                 .build()).getUserId();
     }
+
     public User findByUserId(Long userId){
         return userRepository.findByUserId(userId)
                 .orElseThrow(()-> new IllegalArgumentException("Unexpected user"));
@@ -39,5 +42,22 @@ public class UserService {
                 .orElseThrow(() -> new IllegalArgumentException("Unexpected user"));
     }
 
+    @Transactional
+    public User updateUser(OAuth2User oAuth2User,AddUserRequest request) {
+        Map<String, Object> attributes = oAuth2User.getAttributes();
+        String email = (String) attributes.get("email");
+        String name = (String) attributes.get("name");
 
+        User user = userRepository.findByUserEmail(email)
+                .orElseThrow(()->new IllegalArgumentException("Unexpected user"));
+
+        user.update(request.getUserBirth(),request.getUserGender(), request.getUserPhNm(), request.getUserAddress());
+
+
+
+
+        return user;
+
+
+    }
 }
