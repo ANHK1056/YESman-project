@@ -1,12 +1,12 @@
 package com.kosa.projectdeveloper.dto;
 
 import com.kosa.projectdeveloper.domain.Show;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Element;
 
-import javax.lang.model.element.Element;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.net.HttpURLConnection;
@@ -19,13 +19,14 @@ public class Api {
     public static String key = "2d46a5d3c8ba49ff945546fa7e925398";
     public static String showUrl   = "http://kopis.or.kr/openApi/restful/pblprfr";
 
-    public static List<Show> ShowAPI(List<Show> list, int pageNo) { // 축제
+    public static List<Show> ShowAPI(List<Show> list, int pageNo) {
         StringBuffer urlBuffer = new StringBuffer();
         urlBuffer.append(showUrl);
         urlBuffer.append("?" + "service=" + key);
         urlBuffer.append("&" + "pageNo=" + pageNo);
 
         try {
+            // parsing할 url 지정(API 키 포함해서)
             URL url = new URL(urlBuffer.toString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -39,8 +40,11 @@ public class Api {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(conn.getInputStream());
+            // root tag
             doc.getDocumentElement().normalize();
 
+
+            // 파싱할 tag
             NodeList nList = doc.getElementsByTagName("item");
 
             for (int i = 0; i < nList.getLength(); i++) {
@@ -53,27 +57,14 @@ public class Api {
                     String show_start_date = getTagValue("prfpdfrom", eElement);
                     String show_end_date = getTagValue("prfpdto", eElement);
                     String facility_id = getTagValue("fcltynm", eElement);
-                    String show_hall = getTagValue("PLACE", eElement);
-                    String show_actor = getTagValue("TITLE", eElement);
-                    String show_age = getTagValue("SUBTITLE", eElement);
-                    String fesMainPlace = getTagValue("MAIN_PLACE", eElement);
-                    String fesAddr1 = getTagValue("ADDR1", eElement);
-                    String fesAddr2 = getTagValue("ADDR2", eElement);
-                    String fesTel = getTagValue("CNTCT_TEL", eElement);
-                    String fesHomePageUrl = getTagValue("HOMEPAGE_URL", eElement);
-                    String fesTrfcInfo = getTagValue("TRFC_INFO", eElement);
-                    String fesUsageDay = getTagValue("USAGE_DAY", eElement);
-                    String fesUsageDayAndTime = getTagValue("USAGE_DAY_WEEK_AND_TIME", eElement);
-                    String fesUsageAmount = getTagValue("USAGE_AMOUNT", eElement);
-                    String fesImgNormal = getTagValue("MAIN_IMG_NORMAL", eElement);
-                    String fesImgThumb = getTagValue("MAIN_IMG_THUMB", eElement);
-                    String fesContent = getTagValue("ITEMCNTNTS", eElement);
-
-                  ShowDto showDto = new ShowDto(fesNo, fesMainTitle, fesGugun, fesLat, fesLng, fesPlace, fesTitle, fesSubtitle, fesMainPlace, fesAddr1,
-                            fesAddr2, fesTel, fesHomePageUrl, fesTrfcInfo, fesUsageDay, fesUsageDayAndTime, fesUsageAmount, fesImgNormal, fesImgThumb, fesContent);
-                    list.add(showDto);
+                    String location = getTagValue("poster", eElement);
+                    String show_hall = getTagValue("genrenm", eElement);
+                    String show_genre = getTagValue("prfstate", eElement);
+                    String show_state = getTagValue("openrun", eElement);
 
 
+//                  Show show= new Show(show_id,show_name,show_start_date,show_end_date,facility_id,show_hall,show_genre,show_state);
+                    list.add(show);
 
                 }
             }
@@ -83,7 +74,7 @@ public class Api {
         return list;
     }
 
-
+    // tag값의 정보를 가져오는 메소드
     private static String getTagValue(String tag, Element eElement) {
         NodeList nList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
         Node nValue = (Node) nList.item(0);

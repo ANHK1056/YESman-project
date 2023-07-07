@@ -1,6 +1,5 @@
 package com.kosa.projectdeveloper.dto;
 
-import com.kosa.projectdeveloper.domain.Show;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class ShowDto {
+public class ShowDetail {
     private String show_id;
     private String facility_id;
     private String show_name;
