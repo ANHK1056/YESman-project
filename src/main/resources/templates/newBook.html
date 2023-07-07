@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>예매 진행</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+    <h1 class="mb-3">예매</h1>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <article>
+                <input type="hidden" id="book-id" th:value="${book.bookId}"/>
+
+                <table>
+                    <tr>
+                        <td>예매자명</td>
+                        <td><input type="text" class="card-title" id="userId"></td>
+                    </tr>
+
+                    <tr>
+                        <td>연극명</td>
+                        <td><input type="text" class="card-title" id="showId"></td>
+                    </tr>
+
+                    <tr>
+                        <td>예약 메일</td>
+                        <td><input type="text" class="card-title" id="bookMail"></td>
+                    </tr>
+
+                    <tr>
+                        <td>공연 일자</td>
+                        <td><input type="text" class="card-title" id="bookDay"></td>
+                    </tr>
+
+                    <tr>
+                        <td>공연 시간</td>
+                        <td><input type="text" class="card-title" id="bookTime"></td>
+                    </tr>
+
+                    <tr>
+                        <td>좌석</td>
+                        <td><input type="text" class="card-title" id="seatPosition"></td>
+                    </tr>
+
+                    <tr>
+                        <td>연극 장소</td>
+                        <td><input type="text" class="card-title" id="showLocation"></td>
+                    </tr>
+
+                    <tr>
+                        <td>티켓 가격</td>
+                        <td><input type="text" class="card-title" id="bookPay"></td>
+                    </tr>
+
+                    <tr>
+                        <td><a th:href="@{/books}" class="btn btn-primary">목록으로</a></td>
+                    </tr>
+                </table>
+
+                <button type="button" id="create-btn" class="btn btn-primary btn-sm">예매하기</button>
+            </article>
+        </div>
+    </div>
+</div>
+
+<script src="/js/book.js"></script>
+</body>
