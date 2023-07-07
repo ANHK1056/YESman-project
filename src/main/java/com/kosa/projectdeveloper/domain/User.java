@@ -27,20 +27,20 @@ public class User implements UserDetails {
     private Long userId;
 
     //setting name
-    @Column(nullable = false)
+    @Column(unique = true)
     private String userName;
     // only english
-    @Column(nullable = false)
+    @Column()
     private String userPw;
     //date 형식으로 받음
-    @Column(nullable = false)
+    @Column()
     private String userBirth;
     // check box (남/여)
-    @Column(nullable = false)
+    @Column()
     private String userGender;
 
     //user_phoneNumber
-    @Column(nullable = false)
+    @Column()
     private String userPhNm;
 
     //email 형식
@@ -48,12 +48,13 @@ public class User implements UserDetails {
     private String userEmail;
 
     //주소로 받음
-    @Column(nullable = false)
+    @Column()
     private String userAddress;
+
 
     @Builder
     public User(/*Long userId,*/String userName,String userPw, String userBirth,
-                String userGender,String userPhNm, String userEmail,String userAddress,String auth){
+                String userGender,String userPhNm, String userEmail,String userAddress){
 //        this.userId =userId;
         this.userName = userName;
         this.userPw =userPw;
@@ -61,6 +62,14 @@ public class User implements UserDetails {
         this.userGender = userGender;
         this.userPhNm = userPhNm;
         this.userEmail = userEmail;
+        this.userAddress =userAddress;
+    }
+
+    // 개인 정보 수정 페이지에서 사용가능
+    public void update(String userBirth, String userGender, String userPhNm,String userAddress){
+        this.userBirth =userBirth;
+        this.userGender=userGender;
+        this.userPhNm = userPhNm;
         this.userAddress =userAddress;
     }
 
@@ -99,6 +108,13 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public User update(String userName) {
+        this.userName =userName;
+
+        return this;
+
     }
 
 
