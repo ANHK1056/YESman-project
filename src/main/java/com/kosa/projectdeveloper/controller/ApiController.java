@@ -1,21 +1,20 @@
 package com.kosa.projectdeveloper.controller;
 
-import com.kosa.projectdeveloper.domain.Show;
-import com.kosa.projectdeveloper.dto.ShowDto;
-import org.apache.tomcat.util.json.JSONParser;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import javax.lang.model.element.Element;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
+
 
 @RestController
 public class ApiController {
-
 
     @GetMapping("/test")
     public String callApiWithXml() {
@@ -43,4 +42,6 @@ public class ApiController {
 
         return result + "</xmp>";
     }
+
 }
+

@@ -5,7 +5,12 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDateTime;
+
+@EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
@@ -38,17 +43,32 @@ public class Book {
     @Column(nullable = false)
     private Long bookPay;
 
+    // TODO: 2023-07-06 좌석 위치 별도 추가, 확인 필요
+    @Column(nullable = false)
+    private String seatPosition;
+
+    // TODO: 2023-07-06 공연장 위치 별도 추가, 확인 필요
+    @Column(nullable = false)
+    private String showLocation;
+
+
+    @CreatedDate
+    @Column
+    private LocalDateTime createdAt;
+
+
     @Builder
-    public Book(Long bookId, String userId, String showId, String bookMail,
-                String bookDay, String bookTime, Long bookPay) {
-        this.bookId = bookId;
+    public Book(Long bookId, String userId, String showId, String bookMail, String bookDay,
+                String bookTime, Long bookPay, String seatPosition, String showLocation) {
+//        this.bookId = bookId;
         this.userId = userId;
         this.showId = showId;
         this.bookMail = bookMail;
         this.bookDay = bookDay;
         this.bookTime = bookTime;
         this.bookPay = bookPay;
-
+        this.seatPosition = seatPosition;
+        this.showLocation = showLocation;
     }
 
 }
