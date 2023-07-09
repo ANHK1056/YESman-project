@@ -71,19 +71,4 @@ public class Show {
     private String show_content;
 
 
-    ////
-    @Column(name = "title", nullable = false)
-    private String title;
-
-    @Column(name = "content", nullable = false)
-    private String content;
-
-
-
-    @Builder
-    public Show(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-
 }
