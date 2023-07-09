@@ -28,7 +28,7 @@ public class User implements UserDetails {
     private Long userId;
 
     //setting name
-    @Column(unique = true)
+    @Column()
     private String userName;
     // only english
     @Column()
@@ -55,9 +55,8 @@ public class User implements UserDetails {
 
 
     @Builder
-    public User(/*Long userId,*/String userName,String userPw, String userBirth,
+    public User(String userName,String userPw, String userBirth,
                 String userGender,String userPhNm, String userEmail,String userAddress){
-//        this.userId =userId;
         this.userName = userName;
         this.userPw =userPw;
         this.userBirth =userBirth;
