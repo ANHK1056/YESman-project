@@ -9,6 +9,7 @@ public class ShowRequest {
     private String show_name;
     private String show_start_date;
     private String show_end_date;
+    private String facility_id;
     private String show_hall;
     private String location;
     private String show_genre;
@@ -39,6 +40,7 @@ public class ShowRequest {
                 .show_name(show_name)
                 .show_start_date(show_start_date)
                 .show_end_date(show_end_date)
+                .facility_id(facility_id)
                 .show_hall(show_hall)
                 .location(location)
                 .show_genre(show_genre)

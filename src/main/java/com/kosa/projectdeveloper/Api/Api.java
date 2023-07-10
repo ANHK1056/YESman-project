@@ -21,6 +21,7 @@ import java.util.List;
 public class Api {
 
     public static String key = "2d46a5d3c8ba49ff945546fa7e925398";
+//    http://www.kopis.or.kr/openApi/restful/pblprfr?service={SeriveKey}&stdate=20160601&eddate=20160630&cpage=1&rows=5
     public static String showUrl   = "http://kopis.or.kr/openApi/restful/pblprfr";
 
     public static List<Show> ShowAPI(List<Show> list, int pageNo) {
@@ -31,9 +32,10 @@ public class Api {
         urlBuffer.append(showUrl);
         urlBuffer.append("?" + "service=" + key);
         urlBuffer.append("&" + "cpage=" + pageNo);
-        urlBuffer.append("&" + "stdate=" + "20160601");
-        urlBuffer.append("&" + "eddate=" + "20160630");
-        urlBuffer.append("&" + "rows=" + "5");
+        urlBuffer.append("&" + "stdate=" + "20230101");
+        urlBuffer.append("&" + "eddate=" + "20230630");
+        urlBuffer.append("&" + "rows=" + "10");
+        urlBuffer.append("&" + "shcate=" + "AAAA");
 
         System.out.println("urlBuffer: " + urlBuffer);
         try {
@@ -77,12 +79,13 @@ public class Api {
                     String show_end_date = getTagValue("prfpdto", eElement);
                     String facility_id = getTagValue("fcltynm", eElement);
                     String location = getTagValue("poster", eElement);
-                    String show_hall = getTagValue("genrenm", eElement);
-                    String show_genre = getTagValue("prfstate", eElement);
-                    String show_state = getTagValue("openrun", eElement);
+                    String show_genre = getTagValue("genrenm", eElement);
+                    String show_state = getTagValue("prfstate", eElement);
+                    String show_hall = getTagValue("openrun", eElement);
 
 
-                  Show show= new Show(show_id,show_name,show_start_date,show_end_date,facility_id,show_hall,show_genre,show_state);
+                  Show show= new Show(show_id,show_name,show_start_date,show_end_date,
+                          facility_id,location,show_hall,show_genre,show_state);
                   list.add(show);
 
                 }
@@ -110,9 +113,12 @@ public class Api {
 
     public static List<ShowDetail> ShowDetailAPI(List<ShowDetail> detailList, String fshow_id) {
         StringBuffer urlBuffer = new StringBuffer();
+
+
+
 //        http://kopis.or.kr/openApi/restful/pblprfr/{공연아이디}
         urlBuffer.append(showUrl);
-        urlBuffer.append("/" + "PF132236");
+        urlBuffer.append("/" + "");
         urlBuffer.append("?" + "service=" + key);
 
 
@@ -160,6 +166,7 @@ public class Api {
                     String show_hall = getTagValue("fcltynm", eElement);
                     String show_actor = getTagValue("prfcast", eElement);
                     String show_time = getTagValue("dtguidance", eElement);
+                    String runtime = getTagValue("prfruntime", eElement);
                     String show_age = getTagValue("prfage", eElement);
                     String company = getTagValue("entrpsnm", eElement);
                     String show_price = getTagValue("pcseguidance", eElement);
@@ -194,7 +201,7 @@ public class Api {
 //                            show_time,show_content);
 
                     ShowDetail showDetail= new ShowDetail(show_id,facility_id,show_name,show_start_date,show_end_date,show_hall
-                            ,show_actor,show_age,company,show_price,location,show_genre,show_state,show_image[0],show_image[1],
+                            ,show_actor,runtime,show_age,company,show_price,location,show_genre,show_state,show_image[0],show_image[1],
                             show_image[2],show_image[3], show_time,show_content);
                     detailList.add(showDetail);
 

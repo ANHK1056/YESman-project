@@ -40,6 +40,9 @@ public class ShowDetail {
     @Column(name = "show_age", updatable = false)
     private String show_age;
 
+    @Column(name = "runtime", updatable = false)
+    private String runtime;
+
     @Column(name = "company", updatable = false)
     private String company;
 
@@ -76,7 +79,7 @@ public class ShowDetail {
 
     @Builder
     public ShowDetail(String show_id, String facility_id, String show_name, String show_start_date, String show_end_date,
-                      String show_hall, String show_actor, String show_age, String company, String show_price, String location,
+                      String show_hall, String show_actor, String show_age,String runtime ,String company, String show_price, String location,
                       String show_genre, String show_state, String show_image1, String show_image2, String show_image3,
                       String show_image4, String show_time, String show_content) {
         this.show_id = show_id;
@@ -87,6 +90,7 @@ public class ShowDetail {
         this.show_hall = show_hall;
         this.show_actor = show_actor;
         this.show_age = show_age;
+        this.runtime = runtime;
         this.company = company;
         this.show_price = show_price;
         this.location = location;
