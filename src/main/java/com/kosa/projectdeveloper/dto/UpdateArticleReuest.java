@@ -1,17 +1,16 @@
 package com.kosa.projectdeveloper.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@Setter
-public class AddUserRequest {
-    private String userName;
-    private String userPw;
+public class UpdateArticleReuest {
     private String userBirth;
     private String userGender;
     private String userPhNm;
-    private String userEmail;
     private String userAddress;
+
 }
