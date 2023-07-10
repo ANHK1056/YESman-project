@@ -35,11 +35,8 @@ class TokenProviderTest {
         User testUser = userRepository.save(User.builder()
                         .userEmail("user@gmail.com")
                         .userPw("test")
-                        .userAddress("testAddress")
                         .userPhNm("testPhoneNumber")
                         .userName("testName")
-                        .userGender("Male")
-                        .userBirth("000101")
                         .build());
 
         // when
