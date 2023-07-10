@@ -15,12 +15,9 @@ public class Show {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "show_id", updatable = false)
     private String show_id;
-
-    @Column(name = "facility_id", updatable = false)
-    private String facility_id;
 
     @Column(name = "show_name", updatable = false)
     private String show_name;
@@ -34,41 +31,27 @@ public class Show {
     @Column(name = "show_hall", updatable = false)
     private String show_hall;
 
-    @Column(name = "show_actor", updatable = false)
-    private String show_actor;
-
-    @Column(name = "show_age", updatable = false)
-    private String show_age;
-
-    @Column(name = "company", updatable = false)
-    private String company;
-
-    @Column(name = "show_price", updatable = false)
-    private String show_price;
-
     @Column(name = "location", updatable = false)
     private String location;
 
-    @Column(name = "show_state", updatable = false)
+    @Column(name = "show_genre", updatable = false)
+    private String show_genre;
+
+    @Column(name = "show_state", nullable = false)
     private String show_state;
 
-    @Column(name = "show_image1", updatable = false)
-    private String show_image1;
 
-    @Column(name = "show_image2", updatable = false)
-    private String show_image2;
 
-    @Column(name = "show_image3", updatable = false)
-    private String show_image3;
-
-    @Column(name = "show_image4", updatable = false)
-    private String show_image4;
-
-    @Column(name = "show_time", updatable = false)
-    private String show_time;
-
-    @Column(name = "show_content", updatable = false)
-    private String show_content;
-
+    @Builder
+    public Show(String show_id, String show_name,String show_start_date, String show_end_date, String show_hall, String location, String show_genre, String show_state) {
+        this.show_id = show_id;
+        this.show_name = show_name;
+        this.show_start_date = show_start_date;
+        this.show_end_date = show_end_date;
+        this.show_hall = show_hall;
+        this.location = location;
+        this.show_genre = show_genre;
+        this.show_state = show_state;
+    }
 
 }
