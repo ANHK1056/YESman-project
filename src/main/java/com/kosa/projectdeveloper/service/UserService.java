@@ -20,17 +20,9 @@ public class UserService {
     // TODO: 2023-07-06 BCryptPasswordEncoder를 final 상수로 헀을 때 오류 
 //    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 //    BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
-    public Long save(AddUserRequest dto){
-        BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
-        return  userRepository.save(User.builder()
-                .userName(dto.getUserName())
-                .userPw(endcoder.encode(dto.getUserPw()))
-                .userBirth(dto.getUserBirth())
-                .userGender(dto.getUserGender())
-                .userPhNm(dto.getUserPhNm())
-                .userEmail(dto.getUserEmail())
-                .userAddress(dto.getUserAddress())
-                .build()).getUserId();
+    public User save(AddUserRequest request){
+
+        return userRepository.save(request.toEntity());
     }
 
     public User findByUserId(Long userId){
