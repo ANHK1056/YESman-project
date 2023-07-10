@@ -35,7 +35,7 @@ public class ShowReviewController {
         List<ShowReview> reviews = ShowReviewRepository.findAll();
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
-s
+
     // 특정 리뷰 조회
     @GetMapping("/{id}")
     public ResponseEntity<ShowReview> getReviewById(@PathVariable Long id) {
