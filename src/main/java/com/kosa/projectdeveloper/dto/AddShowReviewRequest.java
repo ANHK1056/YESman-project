@@ -16,8 +16,8 @@ public class AddShowReviewRequest {
 
     public Show toEntity() {
         return Show.builder()
-                .title(title)
-                .content(content)
+//                .title(title)
+//                .content(content)
                 .build();
     }
 
