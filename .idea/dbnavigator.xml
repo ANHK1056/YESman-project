@@ -18,7 +18,10 @@ delete from BOOK where SHOW_ID = '124';
 
 select  * from BOOK;
 
-DROP TABLE show;]]></console>
+DROP TABLE show;
+
+
+select  * from SHOW_REVIEW;]]></console>
     </connection>
     <connection id="a426ce53-2465-4834-a366-cf6524abd8c9">
       <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
@@ -83,7 +86,7 @@ DROP TABLE show;]]></console>
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
           <user value="yesman" />
-          <deprecated-pwd value="" />
+          <deprecated-pwd value="MTIzNA==" />
         </database>
         <properties>
           <auto-commit value="false" />

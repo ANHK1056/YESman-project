@@ -9,6 +9,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -39,9 +41,15 @@ public class Book {
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
 
+
+    @OneToOne(mappedBy = "showReview")
+    private ShowReview showReview;
+//    private List<ShowReview> showReviews = new ArrayList<>();
+
     @ManyToOne
     @JoinColumn(name = "SHOW_ID", nullable = false)
     private Show show;
+
 
     @Builder
     public Book(User user, Show show, String seat, String showDate) {
