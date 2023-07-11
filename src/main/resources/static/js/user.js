@@ -6,12 +6,12 @@ if (deleteButton) {
         let id = document.getElementById('userId').value;
         function success() {
             alert('삭제가 완료되었습니다.');
-            location.replace('/users');
+            location.replace('/user');
         }
 
         function fail() {
             alert('삭제 실패했습니다.');
-            location.replace('/users');
+            location.replace('/user');
         }
 
         httpRequest('DELETE',`/api/users/`+id, null, success, fail);
