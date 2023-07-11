@@ -51,16 +51,18 @@ if (createButton) {
     // 등록 버튼을 클릭하면 /api/articles로 요청을 보낸다
     createButton.addEventListener('click', event => {
         body = JSON.stringify({
-            title: document.getElementById('title').value,
-            content: document.getElementById('content').value
+            userEmail: document.getElementById('userEmail').value,
+            userPw: document.getElementById('userPw').value
+            userName: document.getElementById('userName').value
+            userPhNm: document.getElementById('userPhNm').value
         });
         function success() {
             alert('등록 완료되었습니다.');
-            location.replace('/user');
+            location.replace('/login');
         };
         function fail() {
             alert('등록 실패했습니다.');
-            location.replace('/user');
+            location.replace('/signup');
         };
 
         httpRequest('POST','/api/user', body, success, fail)

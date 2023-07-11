@@ -25,11 +25,7 @@ import java.util.List;
 @RestController
 public class UserApiController {
     // TODO: 2023-07-07 로그인 폼 구성 시 수정
-//    @PostMapping("/api/users")
-//    public String signup(AddUserRequest request){
-//        userService.save(request);
-//        return "redirect:/login";
-//    }
+
 
     private final UserService userService;
 
