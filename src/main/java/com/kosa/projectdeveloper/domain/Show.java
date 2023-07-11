@@ -28,6 +28,9 @@ public class Show {
     @Column(name = "show_end_date", updatable = false)
     private String show_end_date;
 
+    @Column(name = "facility_id", updatable = false)
+    private String facility_id;
+
     @Column(name = "show_hall", updatable = false)
     private String show_hall;
 
@@ -43,11 +46,12 @@ public class Show {
 
 
     @Builder
-    public Show(String show_id, String show_name,String show_start_date, String show_end_date, String show_hall, String location, String show_genre, String show_state) {
+    public Show(String show_id, String show_name,String show_start_date, String show_end_date,String facility_id ,String show_hall, String location, String show_genre, String show_state) {
         this.show_id = show_id;
         this.show_name = show_name;
         this.show_start_date = show_start_date;
         this.show_end_date = show_end_date;
+        this.facility_id = facility_id;
         this.show_hall = show_hall;
         this.location = location;
         this.show_genre = show_genre;

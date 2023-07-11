@@ -26,32 +26,31 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID", updatable = false)
     private Long userId;
-
     //setting name
     @Column()
     private String userName;
+    //email 형식
+    @Column(nullable = false, unique = true)
+    private String userEmail;
     // only english
     @Column()
     private String userPw;
-
     //user_phoneNumber
     @Column()
     private String userPhNm;
 
-    //email 형식
-    @Column(nullable = false, unique = true)
-    private String userEmail;
+
+
 
     @Builder
-    public User(String userName,String userPw,String userPhNm, String userEmail){
+    public User(String userName, String userEmail,
+                String userPw,String userPhNm){
         this.userName = userName;
+        this.userEmail = userEmail;
         this.userPw =userPw;
         this.userPhNm = userPhNm;
-        this.userEmail = userEmail;
     }
-    public void updatePhNm(String userPhNm) {
-        this.userPhNm = userPhNm;
-    }
+
 
 
 
@@ -90,9 +89,15 @@ public class User implements UserDetails {
         return true;
     }
 
-    public User update(String userName) {
+    public User updateName(String userName) {
         this.userName =userName;
 
+        return this;
+
+    }
+
+    public User updatePhNm(String userPhNm){
+        this.userPhNm =userPhNm;
         return this;
 
     }

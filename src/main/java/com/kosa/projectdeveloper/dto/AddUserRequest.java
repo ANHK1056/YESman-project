@@ -17,11 +17,10 @@ public class AddUserRequest {
     private String userEmail;
 
     public User toEntity(){
-//        BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
+        BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
         return  User.builder()
                 .userName(userName)
-                .userPw(userPw)
-//                .userPw(endcoder.encode(userPw))
+                .userPw(endcoder.encode(userPw))
                 .userEmail(userEmail)
                 .userPhNm(userPhNm)
                 .build();
