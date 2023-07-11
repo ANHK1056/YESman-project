@@ -14,7 +14,7 @@ if (deleteButton) {
             location.replace('/user');
         }
 
-        httpRequest('DELETE',`/api/users/`+id, null, success, fail);
+        httpRequest('DELETE',`/api/user/`+id, null, success, fail);
     });
 const modifyButton = document.getElementById('modify-btn');
 
@@ -31,15 +31,15 @@ if (modifyButton) {
 
         function success() {
             alert('수정 완료되었습니다.');
-            location.replace(`/users/${id}`);
+            location.replace(`/user/${id}`);
         }
 
         function fail() {
             alert('수정 실패했습니다.');
-            location.replace(`/users/${id}`);
+            location.replace(`/user/${id}`);
         }
 
-        httpRequest('PUT',`/api/users/${id}`, body, success, fail);
+        httpRequest('PUT',`/api/user/${id}`, body, success, fail);
     });
 }
 // 생성 기능
@@ -49,6 +49,7 @@ if (createButton) {
     // 등록 버튼을 클릭하면 /api/articles로 요청을 보낸다
     createButton.addEventListener('click', event => {
         body = JSON.stringify({
+            userEmail: document.getElementById('userEmail').value,
             userName: document.getElementById('userName').value,
             userPw: document.getElementById('userPw').value
             userPhNm: document.getElementById('userPhNm').value

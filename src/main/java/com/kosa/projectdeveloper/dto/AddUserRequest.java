@@ -20,7 +20,6 @@ public class AddUserRequest {
         BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
         return  User.builder()
                 .userName(userName)
-                .userPw(userPw)
                 .userPw(endcoder.encode(userPw))
                 .userEmail(userEmail)
                 .userPhNm(userPhNm)

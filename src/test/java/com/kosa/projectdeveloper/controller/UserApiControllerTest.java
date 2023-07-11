@@ -39,6 +39,7 @@ class UserApiControllerTest {
     @Autowired
     UserRepository userRepository;
 
+
     @BeforeEach
     public void mockMvcSetUP() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
@@ -55,7 +56,7 @@ class UserApiControllerTest {
 
 
         //given
-        final String url = "/api/users";
+        final String url = "/api/user";
         final String userName = "testName";
         final String userPw ="test";
         final String userPhNm = "010-111-111";
@@ -83,7 +84,7 @@ class UserApiControllerTest {
     @Test
     public void findAllUsers() throws Exception {
         //given
-        final String url = "/api/users";
+        final String url = "/api/user";
         final String userName = "testName";
         final String userPw ="test";
         final String userPhNm = "010-111-111";
@@ -108,7 +109,7 @@ class UserApiControllerTest {
     @Test
     public void findUsers() throws Exception {
         //given
-        final String url = "/api/users/{id}";
+        final String url = "/api/user/{id}";
         final String userName = "testName";
         final String userPw ="test";
         final String userPhNm = "010-111-111";
@@ -135,7 +136,7 @@ class UserApiControllerTest {
     public void deleteUser() throws Exception {
 
         //given
-        final String url = "/api/users/{id}";
+        final String url = "/api/user/{id}";
         final String userName = "testName";
         final String userPw ="test";
         final String userPhNm = "010-111-111";
@@ -159,7 +160,7 @@ class UserApiControllerTest {
     @DisplayName("updateUser: 유저 정보 수정에 성공한다.")
     @Test
     public void updateUser() throws  Exception{
-        final String url = "/api/users/{id}";
+        final String url = "/api/user/{id}";
         final String userName = "testName";
         final String userPw ="test";
         final String userPhNm = "010-111-111";

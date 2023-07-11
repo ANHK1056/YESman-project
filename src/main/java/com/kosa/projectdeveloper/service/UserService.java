@@ -41,11 +41,11 @@ public class UserService {
     }
 
     public void delete(long id) {
-        userRepository.deleteById(id);
-//        User user = userRepository.findByUserId(id)
-//                .orElseThrow(()-> new IllegalArgumentException("not found : " + id));
 
-//        userRepository.delete(user);
+        User user = userRepository.findByUserId(id)
+                .orElseThrow(()-> new IllegalArgumentException("not found : " + id));
+
+        userRepository.delete(user);
     }
 
 
