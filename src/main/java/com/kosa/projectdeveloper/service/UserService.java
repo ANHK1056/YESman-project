@@ -44,7 +44,6 @@ public class UserService {
 
         User user = userRepository.findByUserId(id)
                 .orElseThrow(()-> new IllegalArgumentException("not found : " + id));
-
         userRepository.delete(user);
     }
 
@@ -53,7 +52,6 @@ public class UserService {
     public User updateUser(long id, UpdateUserRequest request) {
         User user = userRepository.findByUserId(id)
                 .orElseThrow(()->new IllegalArgumentException("not found: "+ id));
-
 
         user.updatePhNm(request.getUserPhNm());
 

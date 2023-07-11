@@ -24,7 +24,7 @@ public class User implements UserDetails {
     @Id
     // TODO: 2023-07-05 PK 맵핑에 대해 추후 검토
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
+    @Column(name = "USER_ID", updatable = false)
     private Long userId;
     //setting name
     @Column()
@@ -38,6 +38,7 @@ public class User implements UserDetails {
     //user_phoneNumber
     @Column()
     private String userPhNm;
+
 
 
 
@@ -94,14 +95,10 @@ public class User implements UserDetails {
         return this;
 
     }
+
     public User updatePhNm(String userPhNm){
         this.userPhNm =userPhNm;
         return this;
 
     }
-
-
-
-
-
 }

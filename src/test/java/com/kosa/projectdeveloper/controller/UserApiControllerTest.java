@@ -62,6 +62,7 @@ class UserApiControllerTest {
         final String userPhNm = "010-111-111";
         final String userEmail = "testName@naver.com";
         final AddUserRequest userRequest = new AddUserRequest(userName,userPw,userPhNm,userEmail);
+
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 
 
@@ -79,6 +80,7 @@ class UserApiControllerTest {
 
         assertThat(users.get(0).getUserEmail()).isEqualTo(userEmail);
         assertThat(users.get(0).getUserPhNm()).isEqualTo(userPhNm);
+
     }
     @DisplayName("findAllUsers: 모든 유저 조회에 성공한다")
     @Test
