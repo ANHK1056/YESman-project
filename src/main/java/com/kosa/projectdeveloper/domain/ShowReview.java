@@ -10,6 +10,8 @@ import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
+
+
 @Entity
 @Table(name = "reviews")
 @Getter
@@ -20,7 +22,8 @@ public class ShowReview {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
-    private Long review_id;
+    private Long review_Id;
+
 
     // User 엔터티와 N:1(다대일)관계 매핑
     @ManyToOne
@@ -59,8 +62,8 @@ public class ShowReview {
     // 기본 생성자
     @Builder
     // 기본 생성자
-    public ShowReview(Long review_id, User user, Show show, Book book, String review_Title, String review_Content) {
-//      this.review_id = review_id;
+    public ShowReview(Long review_Id, User user, Show show, Book book, String review_Title, String review_Content) {
+//      this.review_Id = review_Id;
         this.user = user;
         this.show = show;
         this.book = book;
@@ -69,4 +72,6 @@ public class ShowReview {
     }
 
 
+    public void setId(Long review_Id) {
+    }
 }
