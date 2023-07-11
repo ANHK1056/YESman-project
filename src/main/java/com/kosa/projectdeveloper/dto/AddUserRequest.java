@@ -10,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
 public class AddUserRequest {
     private String userName;
     private String userPw;
