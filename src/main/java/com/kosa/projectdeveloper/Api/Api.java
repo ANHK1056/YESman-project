@@ -171,12 +171,6 @@ public class Api {
 
                     System.out.println("mt20id: " + getTagValue("mt20id", eElement));
 
-
-
-
-
-
-
                     String show_id = getTagValue("mt20id", eElement);
                     String show_name = getTagValue("prfnm", eElement);
                     String show_start_date = getTagValue("prfpdfrom", eElement);
@@ -212,13 +206,10 @@ public class Api {
     public static List<ShowDetail> ShowAndDetailAPI(List<ShowDetail> detailList, String fshow_id) {
         StringBuffer urlBuffer = new StringBuffer();
 
-
-
 //        http://kopis.or.kr/openApi/restful/pblprfr/{공연아이디}
         urlBuffer.append(showUrl);
         urlBuffer.append("/" + fshow_id);
         urlBuffer.append("?" + "service=" + key);
-
 
         System.out.println("urlBuffer: " + urlBuffer);
 
@@ -233,7 +224,6 @@ public class Api {
             if (respCode < 200 || respCode > 300) {
                 throw new Exception("리퀘스트 실패");
             }
-
 
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -276,8 +266,9 @@ public class Api {
                     String[] show_image = getTagValues("styurl", eElement);
 
                     ShowDetail showDetail= new ShowDetail(show_id,facility_id,show_name,show_start_date,show_end_date,show_hall
-                            ,show_actor,runtime,show_age,company,show_price,location,show_genre,show_state,show_image[0],show_image[1],
+                            ,show_actor,show_age,runtime,company,show_price,location,show_genre,show_state,show_image[0],show_image[1],
                             show_image[2],show_image[3], show_time,show_content);
+
                     detailList.add(showDetail);
 
                 }
@@ -289,7 +280,7 @@ public class Api {
         return detailList;
     }
 
-    public static List<?> ShowAndDetailAPI(List<Show> list, List<ShowDetail> detailList, int pageNo) {
+    public static void ShowAndDetailAPI(List<Show> list, List<ShowDetail> detailList, int pageNo) {
 //        http://www.kopis.or.kr/openApi/restful/pblprfr?service=
         // {SeriveKey}&stdate=20160601&eddate=20160630&cpage=1&rows=5
         // &prfstate=02&signgucode=11&signgucodesub=1111&kidstate=Y
@@ -348,14 +339,7 @@ public class Api {
                     String show_state = getTagValue("prfstate", eElement);
                     String show_hall = getTagValue("openrun", eElement);
 
-//                    List<ShowDetail> detailListist = new ArrayList<ShowDetail>();
-
-//                    ShowDetail showDetail;
-
                     detailList = ShowDetailAPI(detailList, show_id);
-//                    showDetail = detailListist.get(0);
-
-//                    showDetailRepository.save(showDetail);
 
                     Show show= new Show(show_id,show_name,show_start_date,show_end_date,
                             facility_id,location,show_hall,show_genre,show_state);
@@ -367,7 +351,12 @@ public class Api {
             e.printStackTrace();
         }
 
-        return list;
+//        List<List<?>> listList = new ArrayList<>();
+//        listList.add(list);
+//        listList.add(detailList);
+//
+//        return listList;
+
     }
 
 

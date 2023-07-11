@@ -42,7 +42,7 @@ public class Book {
     private User user;
 
 
-    @OneToOne(mappedBy = "showReview")
+    @OneToOne(mappedBy = "book")
     private ShowReview showReview;
 //    private List<ShowReview> showReviews = new ArrayList<>();
 
