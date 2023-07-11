@@ -1,6 +1,7 @@
 package com.kosa.projectdeveloper.domain;
 
 
+
 import com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -8,6 +9,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -28,6 +30,7 @@ public class ShowReview {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     private Long review_Id;
+
 
     // TODO: 2023-07-07 각 클래스?의 Id 형식 지정 필요할것 같습니다. 클래스명_Id  or  클래스명Id
 
@@ -50,6 +53,7 @@ public class ShowReview {
     private Book book;
 
 
+
     // 뮤지컬 리뷰 제목
     @Column(nullable = false)
     private String review_Title;
@@ -60,6 +64,7 @@ public class ShowReview {
 
     // 뮤지컬 리뷰 작성일
     @CreatedDate
+
     @Column(nullable = false)
     private LocalDate review_PostingDate;
 

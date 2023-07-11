@@ -16,6 +16,7 @@ public class AddUserRequest {
     private String userPhNm;
     private String userEmail;
 
+
     public User toEntity(){
         BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
         return  User.builder()

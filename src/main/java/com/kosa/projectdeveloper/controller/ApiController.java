@@ -43,6 +43,7 @@ public class ApiController {
             detailListist = api.ShowDetailAPI(detailListist, show_id);
 
             List<ShowDetail> detailResult = showDetailRepository.saveAll(detailListist);
+
             return  ResponseEntity.ok()
                     .body(detailListist);
         }
