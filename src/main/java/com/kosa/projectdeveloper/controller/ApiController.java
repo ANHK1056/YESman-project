@@ -8,6 +8,7 @@ import com.kosa.projectdeveloper.repository.ShowRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -35,8 +36,8 @@ public class ApiController {
                 .body(list);
     }
 
-    @GetMapping("/test2")
-        public ResponseEntity<List<ShowDetail>> DetailIninShow (String show_id) {
+    @GetMapping("/test2/{show_id}")
+        public ResponseEntity<List<ShowDetail>> DetailIninShow (@PathVariable String show_id) {
             List<ShowDetail> detailListist = new ArrayList<ShowDetail>();
 
             detailListist = api.ShowDetailAPI(detailListist, show_id);
