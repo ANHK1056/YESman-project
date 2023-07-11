@@ -43,10 +43,9 @@ public class WebOAuthSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.csrf().disable()
-//                .httpBasic().disable()
-//                .formLogin().disable()
-//                .logout().disable();
+        http.csrf().disable()
+                .httpBasic().disable()
+                .logout().disable();
 
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -55,20 +54,18 @@ public class WebOAuthSecurityConfig {
 
 
         http.authorizeRequests()
-                .requestMatchers("/api/token").permitAll()
-                .requestMatchers("/login", "/signup", "/user").permitAll()
+                .requestMatchers("/api/token","/login","/signup","/users").permitAll()
                 .requestMatchers("/api/user").authenticated()
-                .anyRequest().permitAll()
-                .and()
-                .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/user")
-                .and()
-                .logout()
-                    .logoutSuccessUrl("/login")
-                    .invalidateHttpSession(true)
-                .and()
-                .csrf().disable();
+                .anyRequest().permitAll();
+
+        http.formLogin()
+                 .loginPage("/login")
+                // TODO: 2023-07-11  후에 변경
+               .defaultSuccessUrl("/user")
+                 .and()
+                 .logout()
+                 .logoutSuccessUrl("/login")
+                 .invalidateHttpSession(true);
 
         http.oauth2Login()
                 .loginPage("/login")

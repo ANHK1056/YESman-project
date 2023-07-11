@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -40,6 +41,9 @@ public class User implements UserDetails {
     private String userPhNm;
 
 
+    // ShowReview 랑 Join 위해 넣었어요..!
+    @OneToMany(mappedBy = "review_Id")
+    private List<ShowReview> showReviews = new ArrayList<>();
 
 
     @Builder
@@ -50,7 +54,6 @@ public class User implements UserDetails {
         this.userPw =userPw;
         this.userPhNm = userPhNm;
     }
-
 
 
 
@@ -101,4 +104,5 @@ public class User implements UserDetails {
         return this;
 
     }
+
 }
