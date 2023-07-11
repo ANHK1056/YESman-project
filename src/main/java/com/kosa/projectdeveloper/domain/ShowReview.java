@@ -18,7 +18,7 @@ import java.util.List;
 
 
 
-@NoArgsConstructor
+
 @Table(name = "reviews")
 @NoArgsConstructor(access =  AccessLevel.PROTECTED)
 @Getter
