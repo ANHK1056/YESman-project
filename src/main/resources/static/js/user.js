@@ -11,7 +11,7 @@ if (deleteButton) {
 
         function fail() {
             alert('삭제 실패했습니다.');
-            location.replace('/user');
+            location.replace('/user/');
         }
 
         httpRequest('DELETE',`/api/user/${id}`, null, success, fail);
@@ -43,33 +43,6 @@ if (modifyButton) {
         httpRequest('PUT',`/api/user/${id}`, body, success, fail);
     });
 }
-
-// 생성 기능
-const createButton = document.getElementById('create-btn');
-
-if (createButton) {
-    // 등록 버튼을 클릭하면 /api/articles로 요청을 보낸다
-    createButton.addEventListener('click', event => {
-        body = JSON.stringify({
-            userEmail: document.getElementById('userEmail').value,
-            userPw: document.getElementById('userPw').value
-            userName: document.getElementById('userName').value
-            userPhNm: document.getElementById('userPhNm').value
-        });
-        function success() {
-            alert('등록 완료되었습니다.');
-            location.replace('/login');
-        };
-        function fail() {
-            alert('등록 실패했습니다.');
-            location.replace('/signup');
-        };
-
-        httpRequest('POST','/api/user', body, success, fail)
-    });
-}
-
-
 // 쿠키를 가져오는 함수
 function getCookie(key) {
     var result = null;
