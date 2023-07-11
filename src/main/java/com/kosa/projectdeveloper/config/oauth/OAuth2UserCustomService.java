@@ -33,10 +33,12 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
         String name = (String) attributes.get("name");
 
         User user = userRepository.findByUserEmail(email)
-                .map(entity -> entity.update(name))
+                .map(entity -> entity.updateName(name))
                 .orElse(User.builder()
                         .userEmail(email)
                         .userName(name)
+                        .userPhNm("수정 필요")
+                        .userPw("비밀번호 등록")
                         .build());
 
         return userRepository.save(user);

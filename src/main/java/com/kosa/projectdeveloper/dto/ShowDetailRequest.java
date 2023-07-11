@@ -13,6 +13,7 @@ public class ShowDetailRequest {
     private String show_hall;
     private String show_actor;
     private String show_age;
+    private String runtime;
     private String company;
     private String show_price;
     private String location;
@@ -25,8 +26,8 @@ public class ShowDetailRequest {
     private String show_time;
     private String show_content;
 
-    public ShowDetailRequest(String show_id, String facility_id, String show_name, String show_start_date, String show_end_date,
-                      String show_hall, String show_actor, String show_age, String company, String show_price, String location,
+    public ShowDetailRequest(String show_id, String facility_id, String show_name, String show_start_date,  String show_end_date,
+                      String show_hall, String show_actor, String show_age,String runtime ,String company, String show_price, String location,
                       String show_genre, String show_state, String show_image1, String show_image2, String show_image3,
                       String show_image4, String show_time, String show_content) {
 
@@ -44,6 +45,7 @@ public class ShowDetailRequest {
                 ", show_hall='" + show_hall + '\'' +
                 ", show_actor='" + show_actor + '\'' +
                 ", show_age='" + show_age + '\'' +
+                ", runtime='" + runtime + '\'' +
                 ", company='" + company + '\'' +
                 ", show_price='" + show_price + '\'' +
                 ", location='" + location + '\'' +
@@ -69,6 +71,7 @@ public class ShowDetailRequest {
                 .show_hall(show_hall)
                 .show_actor(show_actor)
                 .show_age(show_age)
+                .runtime(runtime)
                 .company(company)
                 .show_price(show_price)
                 .location(location)

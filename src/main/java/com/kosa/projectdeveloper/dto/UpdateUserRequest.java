@@ -9,10 +9,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class UpdateUserReuest {
-    private String userBirth;
-    private String userGender;
+public class UpdateUserRequest {
     private String userPhNm;
-    private String userAddress;
+
+
+
 
 }
