@@ -35,14 +35,14 @@ public class BookViewResponse {
 
     public BookViewResponse(Book book){
         this.bookId = book.getBookId();
-        this.userId = book.getUserId();
-        this.showId = book.getShowId();
-        this.bookMail = book.getBookMail();
-        this.bookDay = book.getBookDay();
-        this.bookTime = book.getBookTime();
-        this.bookPay = book.getBookPay();
-        this.seatPosition = book.getSeatPosition();
-        this.showLocation = book.getShowLocation();
-        this.createdAt = book.getCreatedAt();
+//        this.userId = book.getUserId();
+//        this.showId = book.getShowId();
+//        this.bookMail = book.getBookMail();
+//        this.bookDay = book.getBookDay();
+//        this.bookTime = book.getBookTime();
+//        this.bookPay = book.getBookPay();
+//        this.seatPosition = book.getSeatPosition();
+//        this.showLocation = book.getShowLocation();
+//        this.createdAt = book.getCreatedAt();
     }
 }

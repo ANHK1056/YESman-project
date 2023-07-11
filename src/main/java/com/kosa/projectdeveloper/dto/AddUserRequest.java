@@ -10,26 +10,21 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 public class AddUserRequest {
     private String userName;
     private String userPw;
-    private String userBirth;
-    private String userGender;
     private String userPhNm;
     private String userEmail;
-    private String userAddress;
+
 
     public User toEntity(){
-//        BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
+        BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
         return  User.builder()
                 .userName(userName)
-                .userAddress(userAddress)
-                .userPw(userPw)
-//                .userPw(endcoder.encode(userPw))
-                .userGender(userGender)
+                .userPw(endcoder.encode(userPw))
                 .userEmail(userEmail)
                 .userPhNm(userPhNm)
-                .userBirth(userBirth)
                 .build();
     }
 }

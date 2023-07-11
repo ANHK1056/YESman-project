@@ -3,6 +3,8 @@ package com.kosa.projectdeveloper.controller;
 import com.kosa.projectdeveloper.domain.ShowReview;
 import com.kosa.projectdeveloper.dto.AddShowReviewRequest;
 import com.kosa.projectdeveloper.dto.ShowReviewResponse;
+import com.kosa.projectdeveloper.dto.UpdateShowReviewRequest;
+
 import com.kosa.projectdeveloper.service.ShowReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -39,22 +41,23 @@ public class ShowReviewApiController {
         return ResponseEntity.ok()
                 .body(showReviews);
     }
+    // 리뷰 수정
+    @PutMapping("/api/show-review/{review_id}")
+    public ResponseEntity<ShowReview> updateShowReview(
+            @PathVariable Long review_id, @RequestBody UpdateShowReviewRequest request) {
+        ShowReview updatedShowReview = showReviewService.update(review_id, request);
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<ShowReview> updateShowReview(
-//            @PathVariable("id") Long id, @RequestBody ShowReview showReview) {
-//        showReview.setId(id);
-//        ShowReview updatedShowReview = showReviewService.updateShowReview(showReview);
-//        if (updatedShowReview != null) {
-//            return new ResponseEntity<>(updatedShowReview, HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> deleteShowReview(@PathVariable("id") Long id) {
-//        showReviewService.deleteShowReview(id);
-//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//    }
+        return ResponseEntity.ok()
+                .body(updatedShowReview);
+    }
+
+    // 리뷰 삭제
+    @DeleteMapping("/api/show-review/{review_id}")
+    public ResponseEntity<Void> deleteShowReview(@PathVariable Long review_id) {
+        showReviewService.delete(review_id);
+
+        return ResponseEntity.ok()
+                .build();
+    }
+
 }

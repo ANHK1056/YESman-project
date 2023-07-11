@@ -37,7 +37,7 @@
 //                 .and()
 //                 .formLogin()
 //                 .loginPage("/login")
-// //                .defaultSuccessUrl("/a")
+// //                .defaultSuccessUrl("/users")
 //                 .and()
 //                 .logout()
 //                 .logoutSuccessUrl("/login")
