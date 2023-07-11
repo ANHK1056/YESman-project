@@ -15,11 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@NoArgsConstructor
-@Entity
-@Table(name = "reviews")
-@Getter
 
+@NoArgsConstructor
+@Table(name = "reviews")
+@NoArgsConstructor(access =  AccessLevel.PROTECTED)
+@Getter
+@Entity
 public class ShowReview {
 
     // id is PK
@@ -48,6 +49,7 @@ public class ShowReview {
 //    @JoinColumn(name = "bookId", nullable = false)
     private Book book;
 
+
     // 뮤지컬 리뷰 제목
     @Column(nullable = false)
     private String review_Title;
@@ -73,6 +75,7 @@ public class ShowReview {
         this.review_Title = review_Title;
         this.review_Content = review_Content;
     }
+
 
 
     public void setId(Long review_Id) {

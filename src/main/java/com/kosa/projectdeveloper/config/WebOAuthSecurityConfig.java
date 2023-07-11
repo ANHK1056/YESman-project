@@ -34,8 +34,8 @@ public class WebOAuthSecurityConfig {
     public WebSecurityCustomizer configure() {
         return (web) -> web.ignoring()
                 .requestMatchers(toH2Console())
-                .requestMatchers("/img/**", "/css/**", "/js/**")
-                .requestMatchers("/**");
+                .requestMatchers("/img/**", "/css/**", "/js/**");
+//                .requestMatchers("/**");
     }
 
     @Bean
@@ -53,7 +53,7 @@ public class WebOAuthSecurityConfig {
 
         http.authorizeRequests()
                 .requestMatchers("/api/token").permitAll()
-                .requestMatchers("/api/**").authenticated()
+                .requestMatchers("/api/user").authenticated()
                 .anyRequest().permitAll();
 
         http.oauth2Login()
