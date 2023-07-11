@@ -1,6 +1,7 @@
 package com.kosa.projectdeveloper.dto;
 
 import com.kosa.projectdeveloper.domain.Show;
+import com.kosa.projectdeveloper.domain.ShowReview;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,13 +12,13 @@ import lombok.NoArgsConstructor;
 
 public class AddShowReviewRequest {
 
-    private String title;
-    private String content;
+    private String review_Title;
+    private String review_Content;
 
-    public Show toEntity() {
-        return Show.builder()
-//                .title(title)
-//                .content(content)
+    public ShowReview toEntity() {
+        return ShowReview.builder()
+                .review_Title(review_Title)
+                .review_Content(review_Content)
                 .build();
     }
 
