@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 
 
 
-@NoArgsConstructor
 @Table(name = "reviews")
 @NoArgsConstructor(access =  AccessLevel.PROTECTED)
 @Getter

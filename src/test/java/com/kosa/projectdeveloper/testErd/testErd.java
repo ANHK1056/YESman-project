@@ -52,7 +52,7 @@ public class testErd {
         final String seat = "seat";
 
         Show savedShow = showRepository.save(new Show("1", "2", "3", "4",
-                "5", "6", "7", "8"));
+                "5", "6", "7", "8", "9"));
 
 
 
@@ -72,9 +72,11 @@ public class testErd {
         //when
 
         Book savedBook = bookRepository.findByBookId(1).get();
+
+        //then
         assertThat(savedBook.getSeat()).isEqualTo(seat);
         assertThat(savedBook.getUser().getUserPw()).isEqualTo(userPw);
-        //then
+
     }
 
 }

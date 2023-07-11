@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.AddUserRequest;
 import com.kosa.projectdeveloper.dto.UpdateUserRequest;
+import com.kosa.projectdeveloper.repository.BookRepository;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -39,13 +40,16 @@ class UserApiControllerTest {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    BookRepository bookRepository;
+
 
     @BeforeEach
     public void mockMvcSetUP() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .build();
+        bookRepository.deleteAll();
         userRepository.deleteAll();
-
     }
 
 
