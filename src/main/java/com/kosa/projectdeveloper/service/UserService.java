@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -46,6 +47,17 @@ public class UserService {
                 .orElseThrow(()-> new IllegalArgumentException("not found : " + id));
         userRepository.delete(user);
     }
+
+    @Transactional
+    public User updateUser(OAuth2User oAuth2User,AddUserRequest request) {
+        Map<String, Object> attributes = oAuth2User.getAttributes();
+        String email = (String) attributes.get("email");
+        String name = (String) attributes.get("name");
+
+        User user = userRepository.findByUserEmail(email)
+                .orElseThrow(()->new IllegalArgumentException("Unexpected user"));
+
+        user.update(request.getUserBirth(),request.getUserGender(), request.getUserPhNm(), request.getUserAddress());
 
 
     @Transactional

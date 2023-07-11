@@ -271,7 +271,7 @@
     <div class="row" th:if="${shows.size() > 0}">
       <!-- blog item-->
       <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:src="${shows[0].show_hall}" alt="..."/></a>
+        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{show_id}(show_id=${shows[0].show_id})}"><img class="img-fluid card-img-top" th:src="${shows[0].show_hall}" alt="..."/></a>
           <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[0].show_genre} |" ></a>
             <h5 class="my-2" th:text="|${shows[0].show_name} |"><a class="text-dark" href="post.html"> </a></h5>
             <p class="text-gray-500 text-sm my-3" th:text="|${shows[0].show_start_date} |" ><i class="far fa-clock me-2"></i></p>
@@ -281,7 +281,7 @@
       </div>
       <!-- blog item-->
       <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:src="${shows[1].show_hall}" alt="..."/></a>
+        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{show_id}(show_id=${shows[1].show_id})}"><img class="img-fluid card-img-top" th:src="${shows[1].show_hall}" alt="..."/></a>
           <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[1].show_genre} |" ></a>
             <h5 class="my-2" th:text="|${shows[1].show_name} |" ><a class="text-dark" href="post.html"> </a></h5>
             <p class="text-gray-500 text-sm my-3" th:text="|${shows[1].show_start_date} |" ><i class="far fa-clock me-2"></i></p>

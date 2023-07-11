@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
+
 import java.util.List;
 @RequiredArgsConstructor
 @Controller
@@ -50,7 +51,6 @@ public class UserViewController {
             User user =userService.findByUserId(id);
             model.addAttribute("users", new UserViewResponse(user));
         }
-
         return "newUser";
     }
     // TODO: 2023-07-07 login form 구성 시 주석 해제
@@ -63,6 +63,7 @@ public class UserViewController {
     public String signup(){
         return "signup";
     }
+
 
 
 }

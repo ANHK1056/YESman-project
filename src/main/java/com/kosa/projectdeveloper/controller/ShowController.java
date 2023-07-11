@@ -24,7 +24,7 @@ public class ShowController {
 
         model.addAttribute("shows", shows);
 
-        return "index";
+        return "Show";
     }
 
 

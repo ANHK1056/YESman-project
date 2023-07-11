@@ -40,11 +40,13 @@ class UserApiControllerTest {
     @Autowired
     UserRepository userRepository;
 
+
     @Autowired
     BookRepository bookRepository;
 //    @Autowired
 //    @Autowired
 //    @Autowired
+
 
 
     @BeforeEach
@@ -64,13 +66,13 @@ class UserApiControllerTest {
 
 
         //given
+
         final String url = "/api/user";
         final String userName = "testName";
         final String userPw ="test";
         final String userPhNm = "010-111-111";
         final String userEmail = "testName@naver.com";
         final AddUserRequest userRequest = new AddUserRequest(userName,userPw,userPhNm,userEmail);
-
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 
 
@@ -85,7 +87,6 @@ class UserApiControllerTest {
         List<User> users = userRepository.findAll();
 
         assertThat(users.size()).isEqualTo(1);
-
         assertThat(users.get(0).getUserEmail()).isEqualTo(userEmail);
         assertThat(users.get(0).getUserPhNm()).isEqualTo(userPhNm);
 
@@ -200,9 +201,6 @@ class UserApiControllerTest {
         assertThat(user.getUserEmail()).isEqualTo(userEmail);
         assertThat(user.getUserPhNm()).isEqualTo(newPhNm);
     }
-
-
-
 
 
 }
