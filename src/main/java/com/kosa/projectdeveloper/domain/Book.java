@@ -42,14 +42,15 @@ public class Book {
     private User user;
 
 
-    @OneToOne(mappedBy = "showReview")
-    private ShowReview showReview;
-//    private List<ShowReview> showReviews = new ArrayList<>();
-
     @ManyToOne
     @JoinColumn(name = "SHOW_ID", nullable = false)
     private Show show;
 
+    // ShowReview 랑 Join 위해 넣었어요..!
+    @OneToOne(mappedBy = "book")
+    @JoinColumn(name = "bookId", nullable = false)
+    // @JoinColumn(name = "bookId", referencedColumnName = "id")
+    private ShowReview showReview;
 
     @Builder
     public Book(User user, Show show, String seat, String showDate) {

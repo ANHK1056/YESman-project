@@ -82,8 +82,8 @@ public class Api {
                     String show_state = getTagValue("openrun", eElement);
 
 
-                    Show show= new Show(show_id,show_name,show_start_date,show_end_date,facility_id,show_hall,show_genre,show_state);
-                    list.add(show);
+//                    Show show= new Show(show_id,show_name,show_start_date,show_end_date,facility_id,show_hall,show_genre,show_state);
+//                    list.add(show);
 
                 }
             }
@@ -193,10 +193,10 @@ public class Api {
 //                    ,show_actor,show_age,company,show_price,location,show_genre,show_state,show_image1,show_image2,show_image3,show_image4,
 //                            show_time,show_content);
 
-                    ShowDetail showDetail= new ShowDetail(show_id,facility_id,show_name,show_start_date,show_end_date,show_hall
-                            ,show_actor,show_age,company,show_price,location,show_genre,show_state,show_image[0],show_image[1],
-                            show_image[2],show_image[3], show_time,show_content);
-                    detailList.add(showDetail);
+//                    ShowDetail showDetail= new ShowDetail(show_id,facility_id,show_name,show_start_date,show_end_date,show_hall
+//                            ,show_actor,show_age,company,show_price,location,show_genre,show_state,show_image[0],show_image[1],
+//                            show_image[2],show_image[3], show_time,show_content);
+//                    detailList.add(showDetail);
 
                 }
             }

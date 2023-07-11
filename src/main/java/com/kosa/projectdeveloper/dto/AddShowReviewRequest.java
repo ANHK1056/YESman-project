@@ -16,7 +16,7 @@ public class AddShowReviewRequest {
 
     private String review_Title;
     private String review_Content;
-//    private Show show;
+    private Show show;
     private Book book;
 
 
@@ -24,8 +24,9 @@ public class AddShowReviewRequest {
         return ShowReview.builder()
                 .review_Title(review_Title)
                 .review_Content(review_Content)
-//                .show(show)
-//                .book(book)
+//                .user(uesr)
+                .show(show)
+                .book(book)
                 .build();
     }
 
