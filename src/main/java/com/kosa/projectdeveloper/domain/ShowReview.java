@@ -37,7 +37,7 @@ public class ShowReview {
     // User 엔터티와 N:1(다대일)관계 매핑
     @ManyToOne(fetch = FetchType.LAZY)
     // ShowReview 테이블의 FK 를 userId 로 지정해 User 엔터티와 연결
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     // Show 엔터티와 N:1(다대일)관계 매핑
@@ -52,8 +52,6 @@ public class ShowReview {
 //    @JoinColumn(name = "bookId", nullable = false)
     private Book book;
 
-
-
     // 뮤지컬 리뷰 제목
     @Column(nullable = false)
     private String review_Title;
@@ -64,7 +62,6 @@ public class ShowReview {
 
     // 뮤지컬 리뷰 작성일
     @CreatedDate
-
     @Column(nullable = false)
     private LocalDate review_PostingDate;
 
@@ -73,15 +70,9 @@ public class ShowReview {
     @Builder
     // 기본 생성자
     public ShowReview(Long review_Id, String review_Title, String review_Content) {
-//      this.review_Id = review_Id;
-//        this.user = user;
-//        this.show = show;
-//        this.book = book;
         this.review_Title = review_Title;
         this.review_Content = review_Content;
     }
-
-
 
     public void setId(Long review_Id) {
     }

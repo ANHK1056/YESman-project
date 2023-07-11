@@ -72,9 +72,11 @@ public class testErd {
         //when
 
         Book savedBook = bookRepository.findByBookId(1).get();
+
+        //then
         assertThat(savedBook.getSeat()).isEqualTo(seat);
         assertThat(savedBook.getUser().getUserPw()).isEqualTo(userPw);
-        //then
+
     }
 
 }

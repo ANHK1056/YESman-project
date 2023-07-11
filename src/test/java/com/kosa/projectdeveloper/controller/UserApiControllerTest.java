@@ -40,13 +40,8 @@ class UserApiControllerTest {
     @Autowired
     UserRepository userRepository;
 
-
     @Autowired
     BookRepository bookRepository;
-//    @Autowired
-//    @Autowired
-//    @Autowired
-
 
 
     @BeforeEach
@@ -55,7 +50,6 @@ class UserApiControllerTest {
                 .build();
         bookRepository.deleteAll();
         userRepository.deleteAll();
-
     }
 
 

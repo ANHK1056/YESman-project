@@ -88,6 +88,14 @@ public class WebOAuthSecurityConfig {
         return http.build();
     }
 
+    @Bean
+    public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder, UserDetailService userDetailService) throws Exception {
+        return http.getSharedObject(AuthenticationManagerBuilder.class)
+                .userDetailsService(userDetailService)
+                .passwordEncoder(bCryptPasswordEncoder)
+                .and()
+                .build();
+    }
 
     @Bean
     public OAuth2SuccessHandler oAuth2SuccessHandler() {
@@ -107,16 +115,6 @@ public class WebOAuthSecurityConfig {
     public OAuth2AuthorizationRequestBasedOnCookieRepository oAuth2AuthorizationRequestBasedOnCookieRepository() {
         return new OAuth2AuthorizationRequestBasedOnCookieRepository();
     }
-    @Bean
-     public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder,
-                                                        UserDetailService userDetailService)
-         throws  Exception {
-         return http.getSharedObject(AuthenticationManagerBuilder.class)
-                 .userDetailsService(userDetailService)
-                 .passwordEncoder(bCryptPasswordEncoder)
-                 .and()
-                 .build();
-     }
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
