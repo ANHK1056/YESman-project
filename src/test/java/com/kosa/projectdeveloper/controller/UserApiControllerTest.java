@@ -62,8 +62,7 @@ class UserApiControllerTest {
         final String userEmail = "testName@naver.com";
         final String userGender ="Male";
         final String userBirth = "010101";
-        final AddUserRequest userRequest = new AddUserRequest(userName,userPw,userBirth,userGender,userPhNm,userEmail
-                ,userAddress);
+        final AddUserRequest userRequest = new AddUserRequest();
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 
 
@@ -79,13 +78,10 @@ class UserApiControllerTest {
 
         assertThat(users.size()).isEqualTo(1);
 
-        assertThat(users.get(0).getUserAddress()).isEqualTo(userAddress);
         assertThat(users.get(0).getUserPw()).isEqualTo(userPw);
-        assertThat(users.get(0).getUserGender()).isEqualTo(userGender);
         assertThat(users.get(0).getUserEmail()).isEqualTo(userEmail);
         assertThat(users.get(0).getUserPhNm()).isEqualTo(userPhNm);
-        assertThat(users.get(0).getUserBirth()).isEqualTo(userBirth);
-        // TODO: 2023-07-09 userName이 userEmail로 들어감 수정 필요 
+        // TODO: 2023-07-09 userName이 userEmail로 들어감 수정 필요
         assertThat(users.get(0).getUsername()).isEqualTo(userName);
     }
 }

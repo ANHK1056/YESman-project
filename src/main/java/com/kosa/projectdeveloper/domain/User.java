@@ -24,7 +24,7 @@ public class User implements UserDetails {
     @Id
     // TODO: 2023-07-05 PK 맵핑에 대해 추후 검토
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
+    @Column(name = "USER_ID", updatable = false)
     private Long userId;
 
     //setting name
@@ -33,12 +33,6 @@ public class User implements UserDetails {
     // only english
     @Column()
     private String userPw;
-    //date 형식으로 받음
-    @Column()
-    private String userBirth;
-    // check box (남/여)
-    @Column()
-    private String userGender;
 
     //user_phoneNumber
     @Column()
@@ -48,29 +42,15 @@ public class User implements UserDetails {
     @Column(nullable = false, unique = true)
     private String userEmail;
 
-    //주소로 받음
-    @Column()
-    private String userAddress;
-
-
-
     @Builder
-    public User(String userName,String userPw, String userBirth,
-                String userGender,String userPhNm, String userEmail,String userAddress){
+    public User(String userName,String userPw,String userPhNm, String userEmail){
         this.userName = userName;
         this.userPw =userPw;
-        this.userBirth =userBirth;
-        this.userGender = userGender;
         this.userPhNm = userPhNm;
         this.userEmail = userEmail;
-        this.userAddress =userAddress;
     }
-    public void update(String userBirth, String userGender, String userPhNm,
-                       String userAddress) {
-        this.userBirth =userBirth;
-        this.userGender=userGender;
+    public void updatePhNm(String userPhNm) {
         this.userPhNm = userPhNm;
-        this.userAddress =userAddress;
     }
 
 
@@ -116,9 +96,4 @@ public class User implements UserDetails {
         return this;
 
     }
-
-
-
-
-
 }

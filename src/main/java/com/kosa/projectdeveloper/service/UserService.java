@@ -43,10 +43,7 @@ public class UserService {
         User user = userRepository.findByUserEmail(email)
                 .orElseThrow(()->new IllegalArgumentException("Unexpected user"));
 
-        user.update(request.getUserBirth(),request.getUserGender(), request.getUserPhNm(), request.getUserAddress());
-
-
-
+        user.update(request.getUserPhNm());
 
         return user;
 
