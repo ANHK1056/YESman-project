@@ -48,16 +48,6 @@ public class UserService {
         userRepository.delete(user);
     }
 
-    @Transactional
-    public User updateUser(OAuth2User oAuth2User,AddUserRequest request) {
-        Map<String, Object> attributes = oAuth2User.getAttributes();
-        String email = (String) attributes.get("email");
-        String name = (String) attributes.get("name");
-
-        User user = userRepository.findByUserEmail(email)
-                .orElseThrow(()->new IllegalArgumentException("Unexpected user"));
-
-        user.update(request.getUserBirth(),request.getUserGender(), request.getUserPhNm(), request.getUserAddress());
 
 
     @Transactional

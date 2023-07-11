@@ -55,7 +55,7 @@ public class WebOAuthSecurityConfig {
 
         http.authorizeRequests()
                 .requestMatchers("/api/token","/login","/signup","/users").permitAll()
-                .requestMatchers("/api/user").authenticated()
+//                .requestMatchers("/api/user").authenticated()
                 .anyRequest().permitAll();
 
         http.formLogin()
