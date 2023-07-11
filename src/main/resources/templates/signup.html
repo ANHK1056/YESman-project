@@ -20,12 +20,13 @@
         <p class="text-white-50 mt-2 mb-5">서비스 사용을 위한 회원 가입</p>
 
         <div class = "mb-2">
-          <form th:action="@{/user}" method="POST">
+          <form th:action="@{/api/user}" method="POST">
             <!-- 토큰을 추가하여 CSRF 공격 방지 -->
             <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
             <div class="mb-3">
               <label class="form-label text-white">Email address</label>
               <input type="userEmail" class="form-control" name="userEmail">
+
             </div>
             <div class="mb-3">
               <label class="form-label text-white">Password</label>
@@ -36,20 +37,8 @@
               <input type="userName" class="form-control" name="userName">
             </div>
             <div class="mb-3">
-              <label class="form-label text-white">Birth</label>
-              <input type="userBirth" class="form-control" name="userBirth">
-            </div>
-            <div class="mb-3">
-              <label class="form-label text-white">Gender</label>
-              <input type="userGender" class="form-control" name="userGender">
-            </div>
-            <div class="mb-3">
               <label class="form-label text-white">PhoneNumber</label>
               <input type="userPhNm" class="form-control" name="userPhNm">
-            </div>
-            <div class="mb-3">
-              <label class="form-label text-white">UserAddress</label>
-              <input type="userAddress" class="form-control" name="userAddress">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

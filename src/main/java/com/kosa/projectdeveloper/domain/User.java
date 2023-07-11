@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,53 +25,34 @@ public class User implements UserDetails {
     @Id
     // TODO: 2023-07-05 PK 맵핑에 대해 추후 검토
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
+    @Column(name = "USER_ID", updatable = false)
     private Long userId;
-
     //setting name
     @Column()
     private String userName;
+    //email 형식
+    @Column(nullable = false, unique = true)
+    private String userEmail;
     // only english
     @Column()
     private String userPw;
-    //date 형식으로 받음
-    @Column()
-    private String userBirth;
-    // check box (남/여)
-    @Column()
-    private String userGender;
-
     //user_phoneNumber
     @Column()
     private String userPhNm;
 
-    //email 형식
-    @Column(nullable = false, unique = true)
-    private String userEmail;
 
-    //주소로 받음
-    @Column()
-    private String userAddress;
-
+    // ShowReview 랑 Join 위해 넣었어요..!
+    @OneToMany(mappedBy = "review_Id")
+    private List<ShowReview> showReviews = new ArrayList<>();
 
 
     @Builder
-    public User(String userName,String userPw, String userBirth,
-                String userGender,String userPhNm, String userEmail,String userAddress){
+    public User(String userName, String userEmail,
+                String userPw,String userPhNm){
         this.userName = userName;
-        this.userPw =userPw;
-        this.userBirth =userBirth;
-        this.userGender = userGender;
-        this.userPhNm = userPhNm;
         this.userEmail = userEmail;
-        this.userAddress =userAddress;
-    }
-    public void update(String userBirth, String userGender, String userPhNm,
-                       String userAddress) {
-        this.userBirth =userBirth;
-        this.userGender=userGender;
+        this.userPw =userPw;
         this.userPhNm = userPhNm;
-        this.userAddress =userAddress;
     }
 
 
@@ -110,15 +92,17 @@ public class User implements UserDetails {
         return true;
     }
 
-    public User update(String userName) {
+    public User updateName(String userName) {
         this.userName =userName;
 
         return this;
 
     }
 
+    public User updatePhNm(String userPhNm){
+        this.userPhNm =userPhNm;
+        return this;
 
-
-
+    }
 
 }

@@ -9,6 +9,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,53 +24,39 @@ public class Book {
     @Column(updatable = false)
     private Long bookId;
 
+    // TODO: 2023-07-05 타입 확인 필요
+    @CreatedDate
     @Column(nullable = false)
-    private String userId;
-
-    @Column(nullable = false)
-    private String showId;
-
-    @Column(nullable = false)
-    private String bookMail;
+    private LocalDateTime bookDate;
 
     // TODO: 2023-07-05 타입 확인 필요
     @Column(nullable = false)
-    private String bookDay;
-
-    // TODO: 2023-07-05 타입 확인 필요
-    @Column(nullable = false)
-    private String bookTime;
-
-    // TODO: 2023-07-05 타입 확인 필요
-    @Column(nullable = false)
-    private Long bookPay;
+    private String showDate;
 
     // TODO: 2023-07-06 좌석 위치 별도 추가, 확인 필요
     @Column(nullable = false)
-    private String seatPosition;
+    private String seat;
 
-    // TODO: 2023-07-06 공연장 위치 별도 추가, 확인 필요
-    @Column(nullable = false)
-    private String showLocation;
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", nullable = false)
+    private User user;
 
 
-    @CreatedDate
-    @Column
-    private LocalDateTime createdAt;
+    @OneToOne(mappedBy = "showReview")
+    private ShowReview showReview;
+//    private List<ShowReview> showReviews = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "SHOW_ID", nullable = false)
+    private Show show;
 
 
     @Builder
-    public Book(Long bookId, String userId, String showId, String bookMail, String bookDay,
-                String bookTime, Long bookPay, String seatPosition, String showLocation) {
-//        this.bookId = bookId;
-        this.userId = userId;
-        this.showId = showId;
-        this.bookMail = bookMail;
-        this.bookDay = bookDay;
-        this.bookTime = bookTime;
-        this.bookPay = bookPay;
-        this.seatPosition = seatPosition;
-        this.showLocation = showLocation;
+    public Book(User user, Show show, String seat, String showDate) {
+        this.user = user;
+        this.show = show;
+        this.showDate = showDate;
+        this.seat = seat;
     }
 
 }

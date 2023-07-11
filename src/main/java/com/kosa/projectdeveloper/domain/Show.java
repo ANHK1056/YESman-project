@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -43,6 +46,9 @@ public class Show {
     @Column(name = "show_state", nullable = false)
     private String show_state;
 
+    // ShowReview 랑 Join 위해 넣었어요..!
+    @OneToMany(mappedBy = "review_Id")
+    private List<ShowReview> showReviews = new ArrayList<>();
 
 
     @Builder
