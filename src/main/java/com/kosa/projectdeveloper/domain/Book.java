@@ -9,6 +9,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -55,6 +57,11 @@ public class Book {
     @CreatedDate
     @Column
     private LocalDateTime createdAt;
+
+    @OneToOne(mappedBy = "showReview")
+    private ShowReview showReview;
+//    private List<ShowReview> showReviews = new ArrayList<>();
+
 
 
     @Builder
