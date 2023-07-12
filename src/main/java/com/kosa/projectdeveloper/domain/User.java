@@ -99,8 +99,9 @@ public class User implements UserDetails {
 
     }
 
-    public User updatePhNm(String userPhNm){
+    public User updatePhNm(String userPhNm,String userPw){
         this.userPhNm =userPhNm;
+        this.userPw=userPw;
         return this;
 
     }

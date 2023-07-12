@@ -28,6 +28,7 @@ if (modifyButton) {
 
         body = JSON.stringify({
             userPhNm: document.getElementById('userPhNm').value
+            userPw: document.getElementById('userPw').value
         })
 
         function success() {

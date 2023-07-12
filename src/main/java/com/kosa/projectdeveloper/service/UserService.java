@@ -51,7 +51,7 @@ public class UserService {
         User user = userRepository.findByUserId(id)
                 .orElseThrow(()->new IllegalArgumentException("not found: "+ id));
 
-        user.updatePhNm(request.getUserPhNm());
+        user.updatePhNm(request.getUserPhNm(), request.getUserPw());
 
         return  user;
 

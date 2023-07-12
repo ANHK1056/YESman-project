@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
+@Table(name="shows")
 public class Show {
 
 
@@ -64,5 +65,6 @@ public class Show {
         this.showGenre = showGenre;
         this.showState = showState;
     }
+
 
 }
