@@ -44,26 +44,6 @@ public class User implements UserDetails {
 //    // ShowReview 랑 Join 위해 넣었어요..!
 //    @OneToMany(mappedBy = "review_Id")
 //    private List<ShowReview> showReviews = new ArrayList<>();
-<<<<<<< HEAD
-=======
-
-//    @Column
-//    private boolean enabled;
-//
-//    @Column
-//    private String password;
-//
-//    @Column
-//    private boolean accountNonLocked;
-//
-//    @Column
-//    private boolean accountNonExpired;
-//
-//    @Column
-//    private boolean credentialsNonExpired;
-//
-////    "authorities":[{"authority":"user"}],
->>>>>>> f5e1c8fb9d7fd2061e60d2e5934d1263ad7ba531
 
     @Builder
     public User(String userName, String userEmail,
