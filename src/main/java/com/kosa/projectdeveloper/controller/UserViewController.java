@@ -20,11 +20,6 @@ public class UserViewController {
 
     private final UserService userService;
 
-//    @GetMapping("/login")
-//    public String oauthLogin(){
-//        return "oauthLogin";
-//    }
-
 
     @GetMapping("/user")
     public String getUsers(Model model) {
