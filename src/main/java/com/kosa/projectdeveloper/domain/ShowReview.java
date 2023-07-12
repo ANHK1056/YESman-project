@@ -34,7 +34,7 @@ public class ShowReview {
 
     // TODO: 2023-07-07 각 클래스?의 Id 형식 지정 필요할것 같습니다. 클래스명_Id  or  클래스명Id
 
-<<<<<<< HEAD
+
 //    // User 엔터티와 N:1(다대일)관계 매핑
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    // ShowReview 테이블의 FK 를 userId 로 지정해 User 엔터티와 연결
@@ -50,12 +50,8 @@ public class ShowReview {
 
     // Book 엔터티와 1:1(일대일)관계 매핑
     @OneToOne
-<<<<<<< HEAD
     // ShowReview 테이블의 FK 를 bookId 로 지정해 Book 엔터티와 연결
-=======
-//    // ShowReview 테이블의 FK 를 bookId 로 지정해 Book 엔터티와 연결
     @JoinColumn(name = "book_id", nullable = false)
->>>>>>> f5e1c8fb9d7fd2061e60d2e5934d1263ad7ba531
     private Book book;
 
     // 뮤지컬 리뷰 제목
