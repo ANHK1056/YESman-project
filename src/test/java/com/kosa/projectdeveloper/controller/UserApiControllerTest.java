@@ -5,6 +5,7 @@ import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.AddUserRequest;
 import com.kosa.projectdeveloper.dto.UpdateUserRequest;
 import com.kosa.projectdeveloper.repository.BookRepository;
+import com.kosa.projectdeveloper.repository.ShowRepository;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -43,7 +44,8 @@ class UserApiControllerTest {
 
     @Autowired
     BookRepository bookRepository;
-//    @Autowired
+    @Autowired
+    ShowRepository showRepository;
 //    @Autowired
 //    @Autowired
 
@@ -53,8 +55,11 @@ class UserApiControllerTest {
     public void mockMvcSetUP() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .build();
+
         bookRepository.deleteAll();
+        showRepository.deleteAll();
         userRepository.deleteAll();
+
 
     }
 
@@ -183,8 +188,9 @@ class UserApiControllerTest {
                 .build());
 
         final String newPhNm = "010-1111-1111";
+        final String newPw = "1111";
 
-        UpdateUserRequest request = new UpdateUserRequest(newPhNm);
+        UpdateUserRequest request = new UpdateUserRequest(newPhNm,newPw);
 
 
         // when
@@ -200,6 +206,7 @@ class UserApiControllerTest {
 
         assertThat(user.getUserEmail()).isEqualTo(userEmail);
         assertThat(user.getUserPhNm()).isEqualTo(newPhNm);
+        assertThat(user.getUserPw()).isEqualTo(newPw);
     }
 
 

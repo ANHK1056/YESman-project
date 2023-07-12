@@ -11,7 +11,7 @@ if (deleteButton) {
 
         function fail() {
             alert('삭제 실패했습니다.');
-            location.replace('/user/');
+            location.replace('/user');
         }
 
         httpRequest('DELETE',`/api/user/${id}`, null, success, fail);
@@ -28,6 +28,7 @@ if (modifyButton) {
 
         body = JSON.stringify({
             userPhNm: document.getElementById('userPhNm').value
+            userPw: document.getElementById('userPw').value
         })
 
         function success() {

@@ -23,11 +23,100 @@ DROP TABLE show;
 
 select  * from SHOW_REVIEW;]]></console>
     </connection>
-    <connection id="a426ce53-2465-4834-a366-cf6524abd8c9">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
-    </connection>
-    <connection id="a426ce53-2465-4834-a366-cf6524abd8c9">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main"></console>
+    <connection id="a4d77dc8-2126-487b-b337-d246f482cf84">
+      <console name="Connection-new" type="STANDARD" schema="yesman" session="Main"><![CDATA[use yesman;
+DROP table book;
+create table book (
+       book_id bigint AUTO_INCREMENT,
+        book_date timestamp(6) not null,
+        seat varchar(255) not null,
+        show_date varchar(255) not null,
+        show_id varchar(255) not null,
+        user_id bigint not null,
+        primary key (book_id)
+    );
+
+create table refresh_token (
+       id bigint AUTO_INCREMENT,
+        refresh_token varchar(255) not null,
+        user_id bigint not null,
+        primary key (id)
+    );
+
+create table reviews (
+       review_id bigint AUTO_INCREMENT,
+        review_content varchar(255) not null,
+        review_posting_date timestamp not null,
+        review_title varchar(255) not null,
+        book_book_id bigint,
+        show_id varchar(255) not null,
+        user_id bigint not null,
+        primary key (review_id)
+    );
+
+create table shows (
+--       show_id varchar(255) not null,
+        show_id bigint AUTO_INCREMENT,
+        facility_id varchar(255),
+        location varchar(255),
+        show_end_date varchar(255),
+        show_genre varchar(255),
+        show_hall varchar(255),
+        show_name varchar(255),
+        show_start_date varchar(255),
+        show_state varchar(255) not null,
+        primary key (show_id)
+    );
+
+create table show_detail (
+       show_id varchar(255) not null,
+        company varchar(255),
+        facility_id varchar(255),
+        location varchar(255),
+        runtime varchar(255),
+        show_actor varchar(255),
+        show_age varchar(255),
+        show_content varchar(255),
+        show_end_date varchar(255),
+        show_genre varchar(255),
+        show_hall varchar(255),
+        show_image1 varchar(255),
+        show_image2 varchar(255),
+        show_image3 varchar(255),
+        show_image4 varchar(255),
+        show_name varchar(255),
+        show_price varchar(255),
+        show_start_date varchar(255),
+        show_state varchar(255),
+        show_time varchar(255),
+        primary key (show_id)
+    );
+
+create table users (
+       user_id bigint AUTO_INCREMENT,
+        user_email varchar(255) not null,
+        user_name varchar(255),
+        user_ph_nm varchar(255),
+        user_pw varchar(255),
+        primary key (user_id)
+    );
+
+--book, refresh_token, reviews, shows, show_detail, users
+
+INSERT INTO `yesman`.`book`
+VALUES (1, current_timestamp() , 'b', 'c', 'd', 2);
+
+INSERT INTO `yesman`.`book`
+VALUES (default, current_timestamp() , 'b', 'c', 'd', 2);
+
+select * from yesman.book;
+
+INSERT INTO `yesman`.`users`
+VALUES (default, 'a' , 'b', 'c', 'd');
+
+select * from yesman.users;
+
+ALTER TABLE users AUTO_INCREMANT = 1;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -37,6 +126,8 @@ select  * from SHOW_REVIEW;]]></console>
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="a4d77dc8-2126-487b-b337-d246f482cf84" dataset="yesman.users" active-filter-id="" />
+    <filter-actions connection-id="a4d77dc8-2126-487b-b337-d246f482cf84" dataset="yesman.book" active-filter-id="" />
     <filter-actions connection-id="ff2cb3f8-f6fb-49d5-b23f-d32a81571785" dataset="YESMAN.SHOW_DETAILS" active-filter-id="" />
     <filter-actions connection-id="ff2cb3f8-f6fb-49d5-b23f-d32a81571785" dataset="YESMAN.SHOW_LIKE" active-filter-id="" />
     <filter-actions connection-id="ff2cb3f8-f6fb-49d5-b23f-d32a81571785" dataset="YESMAN.SHOW_DETAIL" active-filter-id="" />
@@ -46,11 +137,6 @@ select  * from SHOW_REVIEW;]]></console>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
-
-  <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/templates/data.sql" connection-id="ff2cb3f8-f6fb-49d5-b23f-d32a81571785" session-id="MAIN" current-schema="YESMAN" />
-  </component>
-
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
     <execution-history>
@@ -62,14 +148,6 @@ select  * from SHOW_REVIEW;]]></console>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
-  </component>
-  <component name="DBNavigator.Project.ParserDiagnosticsManager">
-    <diagnostics-history />
-  </component>
-  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces>
-      <mapping database-type="ORACLE" interface-id="DEFAULT" />
-    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
@@ -159,9 +237,9 @@ select  * from SHOW_REVIEW;]]></console>
           <object-name-filters />
         </object-filters>
       </connection>
-      <connection id="a426ce53-2465-4834-a366-cf6524abd8c9" active="true" signed="true">
+      <connection id="a4d77dc8-2126-487b-b337-d246f482cf84" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="Connection-new" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
@@ -170,100 +248,14 @@ select  * from SHOW_REVIEW;]]></console>
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="awseb-e-ckaiuevfsa-stack-awsebrdsdatabase-iwgmxv467nnv.cua9pcywngvm.ap-northeast-2.rds.amazonaws.com" />
+          <host value="database-yesman.cua9pcywngvm.ap-northeast-2.rds.amazonaws.com" />
           <port value="3306" />
-          <database value="mysql" />
+          <database value="yesman" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
-          <user value="yesman" />
-          <deprecated-pwd value="MXEydzNlNHIhISEh" />
-        </database>
-        <properties>
-          <auto-commit value="false" />
-        </properties>
-        <ssh-settings>
-          <active value="false" />
-          <proxy-host value="" />
-          <proxy-port value="22" />
-          <proxy-user value="" />
-          <deprecated-proxy-pwd value="" />
-          <auth-type value="PASSWORD" />
-          <key-file value="" />
-          <key-passphrase value="" />
-        </ssh-settings>
-        <ssl-settings>
-          <active value="false" />
-          <certificate-authority-file value="" />
-          <client-certificate-file value="" />
-          <client-key-file value="" />
-        </ssl-settings>
-        <details>
-          <charset value="UTF-8" />
-          <session-management value="true" />
-          <ddl-file-binding value="true" />
-          <database-logging value="true" />
-          <connect-automatically value="true" />
-          <restore-workspace value="true" />
-          <restore-workspace-deep value="false" />
-          <environment-type value="default" />
-          <connectivity-timeout value="30" />
-          <idle-time-to-disconnect value="30" />
-          <idle-time-to-disconnect-pool value="5" />
-          <credential-expiry-time value="10" />
-          <max-connection-pool-size value="7" />
-          <alternative-statement-delimiter value="" />
-        </details>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
-          <object-type-filter>
-            <object-type name="SCHEMA" enabled="true" />
-            <object-type name="USER" enabled="true" />
-            <object-type name="ROLE" enabled="true" />
-            <object-type name="PRIVILEGE" enabled="true" />
-            <object-type name="CHARSET" enabled="true" />
-            <object-type name="TABLE" enabled="true" />
-            <object-type name="VIEW" enabled="true" />
-            <object-type name="MATERIALIZED_VIEW" enabled="true" />
-            <object-type name="NESTED_TABLE" enabled="true" />
-            <object-type name="COLUMN" enabled="true" />
-            <object-type name="INDEX" enabled="true" />
-            <object-type name="CONSTRAINT" enabled="true" />
-            <object-type name="DATASET_TRIGGER" enabled="true" />
-            <object-type name="DATABASE_TRIGGER" enabled="true" />
-            <object-type name="SYNONYM" enabled="true" />
-            <object-type name="SEQUENCE" enabled="true" />
-            <object-type name="PROCEDURE" enabled="true" />
-            <object-type name="FUNCTION" enabled="true" />
-            <object-type name="PACKAGE" enabled="true" />
-            <object-type name="TYPE" enabled="true" />
-            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
-            <object-type name="ARGUMENT" enabled="true" />
-            <object-type name="DIMENSION" enabled="true" />
-            <object-type name="CLUSTER" enabled="true" />
-            <object-type name="DBLINK" enabled="true" />
-          </object-type-filter>
-          <object-name-filters />
-        </object-filters>
-      </connection>
-      <connection id="a426ce53-2465-4834-a366-cf6524abd8c9" active="true" signed="true">
-        <database>
-          <name value="Connection" />
-          <description value="" />
-          <database-type value="MYSQL" />
-          <config-type value="BASIC" />
-          <database-version value="8.0" />
-          <driver-source value="BUNDLED" />
-          <driver-library value="" />
-          <driver value="" />
-          <url-type value="DATABASE" />
-          <host value="awseb-e-ckaiuevfsa-stack-awsebrdsdatabase-iwgmxv467nnv.cua9pcywngvm.ap-northeast-2.rds.amazonaws.com" />
-          <port value="3306" />
-          <database value="mysql" />
-          <tns-folder value="" />
-          <tns-profile value="" />
-          <type value="USER_PASSWORD" />
-          <user value="yesman" />
-          <deprecated-pwd value="MXEydzNlNHIhISEh" />
+          <user value="admin" />
+          <deprecated-pwd value="MXEydzNlNHIhISE=" />
         </database>
         <properties>
           <auto-commit value="false" />
