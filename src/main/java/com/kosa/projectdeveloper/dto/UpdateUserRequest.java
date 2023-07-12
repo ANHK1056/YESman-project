@@ -12,7 +12,4 @@ import lombok.Setter;
 public class UpdateUserRequest {
     private String userPhNm;
 
-
-
-
 }
