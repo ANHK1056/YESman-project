@@ -51,7 +51,7 @@ public class ShowDetailController {
 //
 //        showDetail = detailListist.get(0);
 
-        showDetailRepository.save(showDetail);
+//        showDetailRepository.save(showDetail);
 
         model.addAttribute("showDetail", showDetail);
 

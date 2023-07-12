@@ -42,9 +42,8 @@ public class Book {
     private User user;
 
 
-    @OneToOne(mappedBy = "book")
-    @JoinColumn(name = "bookId", referencedColumnName = "Id")
-    private ShowReview showReview;
+//    @OneToOne(mappedBy = "book")
+//    private ShowReview showReview;
 //    private List<ShowReview> showReviews = new ArrayList<>();
 
     @ManyToOne

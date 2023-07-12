@@ -38,7 +38,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
                         .userEmail(email)
                         .userName(name)
                         .userPhNm("수정 필요")
-                        .userPw("비밀번호 등록")
+                        .userPw("****")
                         .build());
 
         return userRepository.save(user);

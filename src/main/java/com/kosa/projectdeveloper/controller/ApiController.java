@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @RestController
@@ -26,9 +28,11 @@ public class ApiController {
     public ResponseEntity<List<Show>> initShow() {
         List<Show> list = new ArrayList<Show>();
 
-        for (int pageNo = 1; pageNo < 4; pageNo++) {
-            list = api.ShowAPI(list, pageNo);
-        }
+
+        list = api.ShowAPI(list, 1);
+//        for (int pageNo = 1; pageNo < 4; pageNo++) {
+//            list = api.ShowAPI(list, pageNo);
+//        }
 
 
         List<Show> result = showRepository.saveAll(list);
@@ -37,15 +41,30 @@ public class ApiController {
     }
 
     @GetMapping("/test2/{show_id}")
-        public ResponseEntity<List<ShowDetail>> DetailIninShow (@PathVariable String show_id) {
-            List<ShowDetail> detailListist = new ArrayList<ShowDetail>();
+    public ResponseEntity<List<ShowDetail>> DetailIninShow (@PathVariable String show_id) {
+        List<ShowDetail> detailListist = new ArrayList<ShowDetail>();
 
-            detailListist = api.ShowDetailAPI(detailListist, show_id);
+        detailListist = api.ShowDetailAPI(detailListist, show_id);
 
-            List<ShowDetail> detailResult = showDetailRepository.saveAll(detailListist);
+        List<ShowDetail> detailResult = showDetailRepository.saveAll(detailListist);
 
-            return  ResponseEntity.ok()
-                    .body(detailListist);
-        }
+        return  ResponseEntity.ok()
+                .body(detailListist);
+    }
+
+    @GetMapping("/test3")
+    public ResponseEntity<List<Show>> showAndDetail () {
+        List<ShowDetail> detailList = new ArrayList<ShowDetail>();
+        List<Show> list = new ArrayList<Show>();
+
+        int pageNo = 1;
+        api.ShowAndDetailAPI(list, detailList, pageNo);
+
+        List<Show> savedList = showRepository.saveAll(list);
+        List<ShowDetail> savedDetailList = showDetailRepository.saveAll(detailList);
+
+        return ResponseEntity.ok()
+                .body(savedList);
+    }
 
 }
