@@ -1,12 +1,19 @@
 package com.kosa.projectdeveloper.service;
 
+import com.kosa.projectdeveloper.domain.Book;
+import com.kosa.projectdeveloper.domain.Show;
+import com.kosa.projectdeveloper.domain.ShowReview;
+import com.kosa.projectdeveloper.dto.AddShowReviewRequest;
 import com.kosa.projectdeveloper.dto.UpdateShowReviewRequest;
+import com.kosa.projectdeveloper.repository.ShowRepository;
 import com.kosa.projectdeveloper.repository.ShowReviewRepository;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor

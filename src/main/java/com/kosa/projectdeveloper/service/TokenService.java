@@ -1,6 +1,7 @@
 package com.kosa.projectdeveloper.service;
 
 import com.kosa.projectdeveloper.config.jwt.TokenProvider;
+import com.kosa.projectdeveloper.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

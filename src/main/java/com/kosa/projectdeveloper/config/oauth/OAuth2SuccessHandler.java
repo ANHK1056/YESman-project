@@ -2,6 +2,7 @@ package com.kosa.projectdeveloper.config.oauth;
 
 import com.kosa.projectdeveloper.config.jwt.TokenProvider;
 import com.kosa.projectdeveloper.domain.RefreshToken;
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.RefreshTokenRepository;
 import com.kosa.projectdeveloper.service.UserService;
 import com.kosa.projectdeveloper.util.CookieUtil;

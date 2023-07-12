@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.controller;
 
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.AddUserRequest;
 //import com.kosa.projectdeveloper.dto.UpdateUserRequest;
 import com.kosa.projectdeveloper.dto.UpdateUserRequest;

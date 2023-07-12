@@ -1,10 +1,13 @@
 package com.kosa.projectdeveloper.controller;
 
 import com.kosa.projectdeveloper.domain.FriendReview;
+import com.kosa.projectdeveloper.domain.ShowReview;
 import com.kosa.projectdeveloper.dto.*;
+import com.kosa.projectdeveloper.repository.FriendRepository;
 import com.kosa.projectdeveloper.service.FriendService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

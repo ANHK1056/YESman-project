@@ -1,7 +1,12 @@
 package com.kosa.projectdeveloper.dto;
 
+import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.domain.Show;
+import com.kosa.projectdeveloper.domain.User;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 

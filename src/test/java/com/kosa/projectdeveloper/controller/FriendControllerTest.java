@@ -2,6 +2,8 @@ package com.kosa.projectdeveloper.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosa.projectdeveloper.domain.FriendReview;
+import com.kosa.projectdeveloper.domain.User;
+import com.kosa.projectdeveloper.domain.UserTest;
 import com.kosa.projectdeveloper.dto.FriendReviewAddResponse;
 import com.kosa.projectdeveloper.dto.FriendUpdateRequest;
 import com.kosa.projectdeveloper.repository.FriendRepository;
@@ -21,13 +23,14 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest

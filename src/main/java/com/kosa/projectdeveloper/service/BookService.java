@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.service;
 
+import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.dto.AddBookRequest;
 import com.kosa.projectdeveloper.repository.BookRepository;
 import lombok.RequiredArgsConstructor;

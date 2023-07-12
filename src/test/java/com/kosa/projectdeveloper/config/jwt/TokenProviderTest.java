@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.config.jwt;
 
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import io.jsonwebtoken.Jwts;
 import org.junit.jupiter.api.DisplayName;

@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.config.oauth;
 
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

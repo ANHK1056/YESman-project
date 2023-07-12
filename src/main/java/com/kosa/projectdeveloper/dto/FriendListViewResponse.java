@@ -1,6 +1,7 @@
 package com.kosa.projectdeveloper.dto;
 
 import com.kosa.projectdeveloper.domain.FriendReview;
+import com.kosa.projectdeveloper.domain.User;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

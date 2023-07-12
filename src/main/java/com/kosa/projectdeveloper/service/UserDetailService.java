@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.service;
 
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;

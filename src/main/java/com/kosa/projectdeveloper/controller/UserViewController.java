@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.controller;
 
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.UserListViewRespose;
 import com.kosa.projectdeveloper.dto.UserViewResponse;
 import com.kosa.projectdeveloper.service.UserService;

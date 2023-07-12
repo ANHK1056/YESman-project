@@ -1,6 +1,8 @@
 package com.kosa.projectdeveloper.dto;
 
+import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.domain.Show;
+import com.kosa.projectdeveloper.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

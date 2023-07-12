@@ -1,5 +1,7 @@
 package com.kosa.projectdeveloper.controller;
 
+import com.kosa.projectdeveloper.domain.ShowReview;
+import com.kosa.projectdeveloper.dto.AddShowReviewRequest;
 import com.kosa.projectdeveloper.dto.ShowReviewResponse;
 import com.kosa.projectdeveloper.dto.UpdateShowReviewRequest;
 

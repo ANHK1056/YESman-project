@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosa.projectdeveloper.config.jwt.JwtFactory;
 import com.kosa.projectdeveloper.config.jwt.JwtProperties;
 import com.kosa.projectdeveloper.domain.RefreshToken;
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.CreateAccessTokenRequest;
 import com.kosa.projectdeveloper.repository.RefreshTokenRepository;
 import com.kosa.projectdeveloper.repository.UserRepository;
