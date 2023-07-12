@@ -1,6 +1,5 @@
 package com.kosa.projectdeveloper.controller;
 
-import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.AddUserRequest;
 //import com.kosa.projectdeveloper.dto.UpdateUserRequest;
 import com.kosa.projectdeveloper.dto.UpdateUserRequest;
@@ -8,6 +7,7 @@ import com.kosa.projectdeveloper.dto.UserResponse;
 import com.kosa.projectdeveloper.service.UserService;
 //import jakarta.servlet.http.HttpServletRequest;
 //import jakarta.servlet.http.HttpServletResponse;
+
 
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,15 +21,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RequiredArgsConstructor
 @RestController
 public class UserApiController {
+
     // TODO: 2023-07-07 로그인 폼 구성 시 수정
-//    @PostMapping("/api/users")
-//    public String signup(AddUserRequest request){
-//        userService.save(request);
-//        return "redirect:/login";
-//    }
+
+
 
     private final UserService userService;
 
@@ -84,6 +83,21 @@ public class UserApiController {
         return "redirect:/login";
     }
 
+
+    // TODO: 2023-07-09 테스트 후 주석 해제
+//    @GetMapping("/api/logout")
+//    public String logout(HttpServletRequest request, HttpServletResponse response) {
+//        new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+//        return "redirect:/login";
+//    }
+//    @PostMapping("/updateUser")
+//    public ResponseEntity<User> updateUser(@RequestBody AddUserRequest request, Principal principal){
+//        User savedUser = userService.save(request,request.getUserBirth(),request.getUserGender(),request.getUserPhNm(),
+//                request.getUserAddress());
+//        return ResponseEntity.status(HttpStatus.CREATED)
+//                .body(savedUser);
+//
+//    }
 }
 
 

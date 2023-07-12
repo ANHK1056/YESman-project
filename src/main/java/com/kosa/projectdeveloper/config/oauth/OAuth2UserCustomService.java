@@ -1,6 +1,5 @@
 package com.kosa.projectdeveloper.config.oauth;
 
-import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -38,7 +37,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
                         .userEmail(email)
                         .userName(name)
                         .userPhNm("수정 필요")
-                        .userPw("비밀번호 등록")
+                        .userPw("****")
                         .build());
 
         return userRepository.save(user);

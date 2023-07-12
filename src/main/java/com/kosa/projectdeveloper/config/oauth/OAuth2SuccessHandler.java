@@ -2,7 +2,6 @@ package com.kosa.projectdeveloper.config.oauth;
 
 import com.kosa.projectdeveloper.config.jwt.TokenProvider;
 import com.kosa.projectdeveloper.domain.RefreshToken;
-import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.RefreshTokenRepository;
 import com.kosa.projectdeveloper.service.UserService;
 import com.kosa.projectdeveloper.util.CookieUtil;
@@ -25,7 +24,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     public static final String REFRESH_TOKEN_COOKIE_NAME = "refresh_token";
     public static final Duration REFRESH_TOKEN_DURATION = Duration.ofDays(14);
     public static final Duration ACCESS_TOKEN_DURATION = Duration.ofDays(1);
-    // TODO: 2023-07-10 후에 path 수정 필요
+
     public static final String REDIRECT_PATH = "/user";
 
     private final TokenProvider tokenProvider;

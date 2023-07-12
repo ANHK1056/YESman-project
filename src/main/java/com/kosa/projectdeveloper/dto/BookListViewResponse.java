@@ -1,11 +1,6 @@
 package com.kosa.projectdeveloper.dto;
 
-import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.domain.Show;
-import com.kosa.projectdeveloper.domain.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

@@ -1,6 +1,5 @@
 package com.kosa.projectdeveloper.service;
 
-import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.dto.AddBookRequest;
 import com.kosa.projectdeveloper.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +15,6 @@ public class BookService {
 
     // 예매 추가
     public Book save(AddBookRequest request) {
-
         return bookRepository.save(request.toEntity());
     }
 

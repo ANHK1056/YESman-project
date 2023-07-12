@@ -1,6 +1,5 @@
 package com.kosa.projectdeveloper.controller;
 
-import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.dto.BookViewResponse;
 import com.kosa.projectdeveloper.service.BookService;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,5 @@
 package com.kosa.projectdeveloper.config.jwt;
 
-import com.kosa.projectdeveloper.domain.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jwts;

@@ -1,10 +1,7 @@
 package com.kosa.projectdeveloper.testErd;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.domain.Show;
-import com.kosa.projectdeveloper.domain.ShowReview;
-import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.BookRepository;
 import com.kosa.projectdeveloper.repository.ShowRepository;
 import com.kosa.projectdeveloper.repository.ShowReviewRepository;
@@ -15,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -88,9 +84,11 @@ public class testErd {
         //when
 
         Book savedBook = bookRepository.findByBookId(1).get();
+
+        //then
         assertThat(savedBook.getSeat()).isEqualTo(seat);
         assertThat(savedBook.getUser().getUserPw()).isEqualTo(userPw);
-        //then
+
     }
 
 

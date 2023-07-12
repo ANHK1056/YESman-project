@@ -3,7 +3,7 @@ const deleteButton = document.getElementById('delete-btn');
 
 if (deleteButton) {
     deleteButton.addEventListener('click', event => {
-        let id = document.getElementById('userId').value;
+        let id = document.getElementById('user-id').value;
         function success() {
             alert('삭제가 완료되었습니다.');
             location.replace('/user');
@@ -14,19 +14,21 @@ if (deleteButton) {
             location.replace('/user');
         }
 
-        httpRequest('DELETE',`/api/user/`+id, null, success, fail);
+        httpRequest('DELETE',`/api/user/${id}`, null, success, fail);
     });
+}
+
+// 수정 기능
 const modifyButton = document.getElementById('modify-btn');
 
 if (modifyButton) {
     modifyButton.addEventListener('click', event => {
         let params = new URLSearchParams(location.search);
-        let id = params.get('userId');
+        let id = params.get('id');
 
         body = JSON.stringify({
-            userName: document.getElementById('userName').value,
-            userPw: document.getElementById('userPw').value
             userPhNm: document.getElementById('userPhNm').value
+            userPw: document.getElementById('userPw').value
         })
 
         function success() {
@@ -42,30 +44,7 @@ if (modifyButton) {
         httpRequest('PUT',`/api/user/${id}`, body, success, fail);
     });
 }
-// 생성 기능
-const createButton = document.getElementById('create-btn');
-
-if (createButton) {
-    // 등록 버튼을 클릭하면 /api/articles로 요청을 보낸다
-    createButton.addEventListener('click', event => {
-        body = JSON.stringify({
-            userEmail: document.getElementById('userEmail').value,
-            userName: document.getElementById('userName').value,
-            userPw: document.getElementById('userPw').value
-            userPhNm: document.getElementById('userPhNm').value
-        });
-        function success() {
-            alert('등록 완료되었습니다.');
-            location.replace('/user');
-        };
-        function fail() {
-            alert('등록 실패했습니다.');
-            location.replace('/user');
-        };
-
-        httpRequest('POST','/api/user', body, success, fail)
-    });
-}
+// 쿠키를 가져오는 함수
 function getCookie(key) {
     var result = null;
     var cookie = document.cookie.split(';');

@@ -1,6 +1,5 @@
 package com.kosa.projectdeveloper.repository;
 
-import com.kosa.projectdeveloper.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

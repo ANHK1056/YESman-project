@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -216,15 +216,13 @@
   <!-- /Navbar -->
 </header>
 <!-- Hero Section-->
-<section class="pt-7 pb-5 d-flex align-items-end dark-overlay bg-cover" style="background-image: url('img/photo/restaurant-1515164783716-8e6920f3e77c.jpg');">
+<section class="pt-7 pb-7 d-flex align-items-end dark-overlay bg-cover" style="background-image: url('img/mainphoto.jpg');">
   <div class="container overlay-content">
     <div class="d-flex justify-content-between align-items-start flex-column flex-lg-row align-items-lg-end">
       <div class="text-white mb-4 mb-lg-0">
-        <h1 class="text-shadow verified">Fifteen Restaurant & Bar</h1>
-        <p><i class="fa-map-marker-alt fas me-2"></i> 53 Btionroadway, Brooklyn, NY 1129</p>
-        <p class="mb-0 d-flex align-items-center"><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-primary"></i><i class="fa fa-xs fa-star text-gray-200 me-4">                   </i>8 Reviews</p>
+        <p class="subtitle letter-spacing-4 mb-2 text-secondary text-shadow">SHOW DETAIL PAGE</p>
+        <h1 class="display-3 fw-bold text-shadow">OUTERPARK 24</h1>
       </div>
-      <div class="calltoactions"><a class="btn btn-primary" href="#leaveReview" onclick="$('#leaveReview').collapse('show')" data-smooth-scroll>Leave a Review</a></div>
     </div>
   </div>
 </section>
@@ -234,8 +232,8 @@
       <div class="col-lg-8">
         <!-- About Listing-->
         <div class="text-block">
-          <h3 class="mb-3">About</h3>
-          <img class="figure-img img-fluid w-100" src="img/photo/photo-1482463084673-98272196658a.jpg" alt="Example blog post alt.">
+          <h3 class="mb-3" th:text="${showDetail.showName}" ></h3>
+          <img class="figure-img img-fluid w-80" th:src="${showDetail.poster}" alt="Example blog post alt.">
         </div>
         <div class="text-block">
           <!-- Listing Location-->
@@ -243,14 +241,14 @@
         </div>
         <div class="text-block">
           <!-- Gallery-->
-          <h3 class="mb-4">Gallery</h3>
-          <div class="row gallery ms-n1 me-n1">
-            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1515164783716-8e6920f3e77c.jpg"><img class="img-fluid" src="img/photo/restaurant-1515164783716-8e6920f3e77c.jpg" alt="..."></a></div>
-            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1466978913421-dad2ebd01d17.jpg"><img class="img-fluid" src="img/photo/restaurant-1466978913421-dad2ebd01d17.jpg" alt="..."></a></div>
-            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1477763858572-cda7deaa9bc5.jpg"><img class="img-fluid" src="img/photo/restaurant-1477763858572-cda7deaa9bc5.jpg" alt="..."></a></div>
-            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/phEWSoto/restaurant-1505275350441-83dcda8eeef5.jpg"><img class="img-fluid" src="img/photo/restaurant-1505275350441-83dcda8eeef5.jpg" alt="..."></a></div>
-            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1508766917616-d22f3f1eea14.jpg"><img class="img-fluid" src="img/photo/restaurant-1508766917616-d22f3f1eea14.jpg" alt="..."></a></div>
-            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1430931071372-38127bd472b8.jpg"><img class="img-fluid" src="img/photo/restaurant-1430931071372-38127bd472b8.jpg" alt="..."></a></div>
+          <h3 class="mb-4">상세 사진</h3>
+          <div class="row gallery ms-n1 me-n7">
+            <div class="col-lg-12 col-6 px-1 mb-2"><img class="img-fluid" th:src="${showDetail.showImage1}" alt="..."></div>
+<!--            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1466978913421-dad2ebd01d17.jpg"><img class="img-fluid" th:src="${showDetails[0].show_image1}" alt="..."></a></div>-->
+<!--            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1477763858572-cda7deaa9bc5.jpg"><img class="img-fluid" th:src="${showDetails[0].show_image1}" alt="..."></a></div>-->
+<!--            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/phEWSoto/restaurant-1505275350441-83dcda8eeef5.jpg"><img class="img-fluid" th:src="${showDetails[0].show_image1}" alt="..."></a></div>-->
+<!--            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1508766917616-d22f3f1eea14.jpg"><img class="img-fluid" th:src="${showDetails[0].show_image1}" alt="..."></a></div>-->
+<!--            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1430931071372-38127bd472b8.jpg"><img class="img-fluid" th:src="${showDetails[0].show_image1}" alt="..."></a></div>-->
           </div>
         </div>
 
@@ -263,8 +261,7 @@
             <div class="card-header bg-gray-100 py-4 border-0">
               <div class="d-flex align-items-center justify-content-between">
                 <div>
-                  <p class="subtitle text-sm text-primary">Opening in 5 minutes</p>
-                  <h4 class="mb-0">Opening Hours </h4>
+                  <h4 class="subtitle text-sm text-primary">More information</h4>
                 </div>
                 <svg class="svg-icon svg-icon svg-icon-light w-3rem h-3rem ms-3 text-muted flex-shrink-0">
 
@@ -274,32 +271,30 @@
             <div class="card-body">
               <table class="table text-sm mb-0">
                 <tr>
-                  <th class="ps-0 border-0">Sunday</th>
-                  <td class="pe-0 text-end border-0">8:00 am - 6:00 pm</td>
+                  <td class="ps-0"><strong>공연 기간</strong></td>
+                  <td class="pe-0 text-end" ></td>
+                <tr>
+                  <td class="ps-0 border-0"><strong>관람 연령</strong></td>
+                  <td class="pe-0 text-end border-0" th:text="${showDetails[0].facilityName}" ><strong></strong></td>
                 </tr>
                 <tr>
-                  <th class="ps-0">Monday</th>
-                  <td class="pe-0 text-end">8:00 am - 6:00 pm</td>
+                  <td class="ps-0"><strong>공연 기간</strong></td>
+                  <td class="pe-0 text-end" th:text="${showDetails[0].runtime}" ></td>
                 </tr>
                 <tr>
-                  <th class="ps-0">Tuesday</th>
-                  <td class="pe-0 text-end">8:00 am - 6:00 pm</td>
+                  <td class="ps-0"><strong>공연 시간</strong></td>
+                  <td class="pe-0 text-end" th:text="${showDetails[0].showDate}" ></td>
                 </tr>
                 <tr>
-                  <th class="ps-0">Wednesday</th>
-                  <td class="pe-0 text-end">8:00 am - 6:00 pm</td>
+                  <td class="ps-0"><strong>티켓 가격</strong></td>
+                  <td class="pe-0 text-end" th:text="${showDetails[0].showPrice}" ></td>
                 </tr>
                 <tr>
-                  <th class="ps-0">Thursday</th>
-                  <td class="pe-0 text-end">8:00 am - 6:00 pm</td>
+                  <td class="ps-0"><strong>출연진</strong></td>
+                  <td class="pe-0 text-end" th:text="${showDetails[0].showActor}" ></td>
                 </tr>
-                <tr>
-                  <th class="ps-0">Friday</th>
-                  <td class="pe-0 text-end">8:00 am - 6:00 pm</td>
-                </tr>
-                <tr>
-                  <th class="ps-0">Saturday</th>
-                  <td class="pe-0 text-end">Closed</td>
+
+
                 </tr>
               </table>
             </div>
@@ -427,12 +422,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
 <script>var basePath = ''</script>
 <!-- Main Theme JS file    -->
-<script src="/resources/static/bootstrap-5/html/js/theme.js"></script>
+<script src="js/theme.js"></script>
 <!-- Map-->
 <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 <!-- Available tile layers-->
-<script src="/resources/static/bootstrap-5/html/js/map-layers.js"> </script>
-<script src="/resources/static/bootstrap-5/html/js/map-detail.js"></script>
+<script src="js/map-layers.js"> </script>
+<script src="js/map-detail.js"></script>
 <script>
       createDetailMap({
           mapId: 'detailMap',

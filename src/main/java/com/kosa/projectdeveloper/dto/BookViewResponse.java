@@ -1,10 +1,7 @@
 package com.kosa.projectdeveloper.dto;
 
-import com.kosa.projectdeveloper.domain.Book;
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 

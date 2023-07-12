@@ -1,11 +1,7 @@
 package com.kosa.projectdeveloper.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.domain.Show;
-import com.kosa.projectdeveloper.domain.ShowReview;
-import com.kosa.projectdeveloper.domain.User;
-import com.kosa.projectdeveloper.dto.AddShowReviewRequest;
 import com.kosa.projectdeveloper.repository.BookRepository;
 import com.kosa.projectdeveloper.repository.ShowRepository;
 import com.kosa.projectdeveloper.repository.ShowReviewRepository;

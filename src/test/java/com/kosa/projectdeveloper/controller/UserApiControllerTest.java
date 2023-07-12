@@ -1,9 +1,10 @@
 package com.kosa.projectdeveloper.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.AddUserRequest;
 import com.kosa.projectdeveloper.dto.UpdateUserRequest;
+import com.kosa.projectdeveloper.repository.BookRepository;
+import com.kosa.projectdeveloper.repository.ShowRepository;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -39,13 +40,23 @@ class UserApiControllerTest {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    BookRepository bookRepository;
+
+    @Autowired
+    ShowRepository showRepository;
+
+
+
 
     @BeforeEach
     public void mockMvcSetUP() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .build();
-        userRepository.deleteAll();
 
+        bookRepository.deleteAll();
+        showRepository.deleteAll();
+        userRepository.deleteAll();
     }
 
 
@@ -56,13 +67,13 @@ class UserApiControllerTest {
 
 
         //given
+
         final String url = "/api/user";
         final String userName = "testName";
         final String userPw ="test";
         final String userPhNm = "010-111-111";
         final String userEmail = "testName@naver.com";
         final AddUserRequest userRequest = new AddUserRequest(userName,userPw,userPhNm,userEmail);
-
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 
 
@@ -77,7 +88,6 @@ class UserApiControllerTest {
         List<User> users = userRepository.findAll();
 
         assertThat(users.size()).isEqualTo(1);
-
         assertThat(users.get(0).getUserEmail()).isEqualTo(userEmail);
         assertThat(users.get(0).getUserPhNm()).isEqualTo(userPhNm);
 
@@ -174,8 +184,9 @@ class UserApiControllerTest {
                 .build());
 
         final String newPhNm = "010-1111-1111";
+        final String newPw = "1111";
 
-        UpdateUserRequest request = new UpdateUserRequest(newPhNm);
+        UpdateUserRequest request = new UpdateUserRequest(newPhNm,newPw);
 
 
         // when
@@ -191,10 +202,8 @@ class UserApiControllerTest {
 
         assertThat(user.getUserEmail()).isEqualTo(userEmail);
         assertThat(user.getUserPhNm()).isEqualTo(newPhNm);
+        assertThat(user.getUserPw()).isEqualTo(newPw);
     }
-
-
-
 
 
 }
