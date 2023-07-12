@@ -45,6 +45,22 @@ public class User implements UserDetails {
 //    @OneToMany(mappedBy = "review_Id")
 //    private List<ShowReview> showReviews = new ArrayList<>();
 
+//    @Column
+//    private boolean enabled;
+//
+//    @Column
+//    private String password;
+//
+//    @Column
+//    private boolean accountNonLocked;
+//
+//    @Column
+//    private boolean accountNonExpired;
+//
+//    @Column
+//    private boolean credentialsNonExpired;
+//
+////    "authorities":[{"authority":"user"}],
 
     @Builder
     public User(String userName, String userEmail,
