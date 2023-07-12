@@ -41,7 +41,7 @@ public class ShowReviewService {
         ShowReview showReview = showReviewRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
 
-        showReview.update(request.getReview_Title(), request.getReview_Content());
+        showReview.update(request.getReviewTitle(), request.getReviewContent());
 
         return showReview;
     }

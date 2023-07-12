@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 
 public class AddShowReviewRequest {
 
-    private String review_Title;
-    private String review_Content;
+    private String reviewTitle;
+    private String reviewContent;
 
 //    private Show show;
     private Book book;
@@ -26,8 +26,8 @@ public class AddShowReviewRequest {
 
     public ShowReview toEntity() {
         return ShowReview.builder()
-                .review_Title(review_Title)
-                .review_Content(review_Content)
+                .reviewTitle(reviewTitle)
+                .reviewContent(reviewContent)
 
 
 //                .show(show)

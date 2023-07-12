@@ -17,28 +17,28 @@ public class ShowDetail {
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "show_id", updatable = false)
-    private String show_id;
+    private String showId;
 
     @Column(name = "facility_id", updatable = false)
-    private String facility_id;
+    private String facilityId;
 
     @Column(name = "show_name", updatable = false)
-    private String show_name;
+    private String showName;
 
     @Column(name = "show_start_date", updatable = false)
-    private String show_start_date;
+    private String showStartDate;
 
     @Column(name = "show_end_date", updatable = false)
-    private String show_end_date;
+    private String showEndDate;
 
-    @Column(name = "show_hall", updatable = false)
-    private String show_hall;
+    @Column(name = "facility_name", updatable = false)
+    private String facilityName;
 
     @Column(name = "show_actor", updatable = false)
-    private String show_actor;
+    private String showActor;
 
     @Column(name = "show_age", updatable = false)
-    private String show_age;
+    private String showAge;
 
     @Column(name = "runtime", updatable = false)
     private String runtime;
@@ -47,61 +47,62 @@ public class ShowDetail {
     private String company;
 
     @Column(name = "show_price", updatable = false)
-    private String show_price;
+    private String showPrice;
 
-    @Column(name = "location", updatable = false)
-    private String location;
+    @Column(name = "poster", updatable = false)
+    private String poster;
 
     @Column(name = "show_state", updatable = false)
-    private String show_state;
+    private String showState;
 
     @Column(name = "show_genre", updatable = false)
-    private String show_genre;
+    private String showGenre;
 
     @Column(name = "show_image1", updatable = false)
-    private String show_image1;
+    private String showImage1;
 
     @Column(name = "show_image2", updatable = false)
-    private String show_image2;
+    private String showImage2;
 
     @Column(name = "show_image3", updatable = false)
-    private String show_image3;
+    private String showImage3;
 
     @Column(name = "show_image4", updatable = false)
-    private String show_image4;
+    private String showImage4;
 
-    @Column(name = "show_time", updatable = false)
-    private String show_time;
+    @Column(name = "show_date", updatable = false)
+    private String showDate;
 
     @Column(name = "show_content", updatable = false)
-    private String show_content;
+    private String showContent;
 
 
     @Builder
-    public ShowDetail(String show_id, String facility_id, String show_name, String show_start_date, String show_end_date,
-                      String show_hall, String show_actor, String show_age,String runtime ,String company, String show_price, String location,
-                      String show_genre, String show_state, String show_image1, String show_image2, String show_image3,
-                      String show_image4, String show_time, String show_content) {
-        this.show_id = show_id;
-        this.facility_id = facility_id;
-        this.show_name = show_name;
-        this.show_start_date = show_start_date;
-        this.show_end_date = show_end_date;
-        this.show_hall = show_hall;
-        this.show_actor = show_actor;
-        this.show_age = show_age;
+    public ShowDetail(String showId, String facilityId, String showName, String showStartDate, String showEndDate,
+                      String facilityName, String showActor, String showAge,String runtime ,String company,
+                      String showPrice, String poster, String showGenre, String showState,
+                      String showImage1, String showImage2, String showImage3, String showImage4,
+                      String showDate, String showContent) {
+        this.showId = showId;
+        this.facilityId = facilityId;
+        this.showName = showName;
+        this.showStartDate = showStartDate;
+        this.showEndDate = showEndDate;
+        this.facilityName = facilityName;
+        this.showActor = showActor;
+        this.showAge = showAge;
         this.runtime = runtime;
         this.company = company;
-        this.show_price = show_price;
-        this.location = location;
-        this.show_genre = show_genre;
-        this.show_state = show_state;
-        this.show_image1 = show_image1;
-        this.show_image2 = show_image2;
-        this.show_image3 = show_image3;
-        this.show_image4 = show_image4;
-        this.show_time = show_time;
-        this.show_content = show_content;
+        this.showPrice = showPrice;
+        this.poster = poster;
+        this.showGenre = showGenre;
+        this.showState = showState;
+        this.showImage1 = showImage1;
+        this.showImage2 = showImage2;
+        this.showImage3 = showImage3;
+        this.showImage4 = showImage4;
+        this.showDate = showDate;
+        this.showContent = showContent;
 
 
 

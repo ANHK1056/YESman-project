@@ -5,31 +5,31 @@ import lombok.Getter;
 
 @Getter
 public class ShowDetailRequest {
-    private String show_id;
-    private String facility_id;
-    private String show_name;
-    private String show_start_date;
-    private String show_end_date;
-    private String show_hall;
-    private String show_actor;
-    private String show_age;
+    private String showId;
+    private String facilityId;
+    private String showName;
+    private String showStartDate;
+    private String showEndDate;
+    private String facilityName;
+    private String showActor;
+    private String showAge;
     private String runtime;
     private String company;
-    private String show_price;
-    private String location;
-    private String show_genre;
-    private String show_state;
-    private String show_image1;
-    private String show_image2;
-    private String show_image3;
-    private String show_image4;
-    private String show_time;
-    private String show_content;
+    private String showPrice;
+    private String poster;
+    private String showGenre;
+    private String showState;
+    private String showImage1;
+    private String showImage2;
+    private String showImage3;
+    private String showImage4;
+    private String showDate;
+    private String showContent;
 
-    public ShowDetailRequest(String show_id, String facility_id, String show_name, String show_start_date,  String show_end_date,
-                      String show_hall, String show_actor, String show_age,String runtime ,String company, String show_price, String location,
-                      String show_genre, String show_state, String show_image1, String show_image2, String show_image3,
-                      String show_image4, String show_time, String show_content) {
+    public ShowDetailRequest(String showId, String facilityId, String showName, String showStartDate,  String showEndDate,
+                             String facilityName, String showActor, String showAge,String runtime ,String company,
+                             String showPrice, String poster, String showGenre, String showState, String showImage1,
+                             String showImage2, String showImage3, String showImage4, String showDate, String showContent) {
 
     }
 
@@ -37,52 +37,52 @@ public class ShowDetailRequest {
     @Override
     public String toString() {
         return "ShowDto{" +
-                "show_id='" + show_id + '\'' +
-                ", facility_id='" + facility_id + '\'' +
-                ", show_name='" + show_name + '\'' +
-                ", show_start_date='" + show_start_date + '\'' +
-                ", show_end_date='" + show_end_date + '\'' +
-                ", show_hall='" + show_hall + '\'' +
-                ", show_actor='" + show_actor + '\'' +
-                ", show_age='" + show_age + '\'' +
+                "show_id='" + showId + '\'' +
+                ", facility_id='" + facilityId + '\'' +
+                ", show_name='" + showName + '\'' +
+                ", show_start_date='" + showStartDate + '\'' +
+                ", show_end_date='" + showEndDate + '\'' +
+                ", show_hall='" + facilityName + '\'' +
+                ", show_actor='" + showActor + '\'' +
+                ", show_age='" + showAge + '\'' +
                 ", runtime='" + runtime + '\'' +
                 ", company='" + company + '\'' +
-                ", show_price='" + show_price + '\'' +
-                ", location='" + location + '\'' +
-                ", show_genre='" + show_genre + '\'' +
-                ", show_state='" + show_state + '\'' +
-                ", show_image1='" + show_image1 + '\'' +
-                ", show_image2='" + show_image2 + '\'' +
-                ", show_image3='" + show_image3 + '\'' +
-                ", show_image4='" + show_image4 + '\'' +
-                ", show_time='" + show_time + '\'' +
-                ", show_content='" + show_content + '\'' +
+                ", show_price='" + showPrice + '\'' +
+                ", location='" + poster + '\'' +
+                ", show_genre='" + showGenre + '\'' +
+                ", show_state='" + showState + '\'' +
+                ", show_image1='" + showImage1 + '\'' +
+                ", show_image2='" + showImage2 + '\'' +
+                ", show_image3='" + showImage3 + '\'' +
+                ", show_image4='" + showImage4 + '\'' +
+                ", show_time='" + showDate + '\'' +
+                ", show_content='" + showContent + '\'' +
                 '}';
     }
 
 
     public ShowDetail toEntity() {
         return ShowDetail.builder()
-                .show_id(show_id)
-                .facility_id(facility_id)
-                .show_name(show_name)
-                .show_start_date(show_start_date)
-                .show_end_date(show_end_date)
-                .show_hall(show_hall)
-                .show_actor(show_actor)
-                .show_age(show_age)
+                .showId(showId)
+                .facilityId(facilityId)
+                .showName(showName)
+                .showStartDate(showStartDate)
+                .showEndDate(showEndDate)
+                .facilityName(facilityName)
+                .showActor(showActor)
+                .showAge(showAge)
                 .runtime(runtime)
                 .company(company)
-                .show_price(show_price)
-                .location(location)
-                .show_genre(show_genre)
-                .show_state(show_state)
-                .show_image1(show_image1)
-                .show_image2(show_image2)
-                .show_image3(show_image3)
-                .show_image4(show_image4)
-                .show_time(show_time)
-                .show_content(show_content)
+                .showPrice(showPrice)
+                .poster(poster)
+                .showGenre(showGenre)
+                .showState(showState)
+                .showImage1(showImage1)
+                .showImage2(showImage2)
+                .showImage3(showImage3)
+                .showImage4(showImage4)
+                .showDate(showDate)
+                .showContent(showContent)
                 .build();
 
 

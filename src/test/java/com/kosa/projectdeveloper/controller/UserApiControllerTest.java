@@ -41,13 +41,12 @@ class UserApiControllerTest {
     @Autowired
     UserRepository userRepository;
 
-
     @Autowired
     BookRepository bookRepository;
+
     @Autowired
     ShowRepository showRepository;
-//    @Autowired
-//    @Autowired
+
 
 
 
@@ -59,8 +58,6 @@ class UserApiControllerTest {
         bookRepository.deleteAll();
         showRepository.deleteAll();
         userRepository.deleteAll();
-
-
     }
 
 
