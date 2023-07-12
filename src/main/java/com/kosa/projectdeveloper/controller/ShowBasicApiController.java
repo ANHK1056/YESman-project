@@ -1,10 +1,9 @@
 package com.kosa.projectdeveloper.controller;
 
-import com.kosa.projectdeveloper.Api.ShowLocationApi;
+import com.kosa.projectdeveloper.Api.ShowBasicApi;
 import com.kosa.projectdeveloper.domain.Show;
 import com.kosa.projectdeveloper.domain.ShowDetail;
 import com.kosa.projectdeveloper.domain.ShowLocation;
-import com.kosa.projectdeveloper.domain.ShowRank;
 import com.kosa.projectdeveloper.repository.ShowDetailRepository;
 import com.kosa.projectdeveloper.repository.ShowLocationRepository;
 import com.kosa.projectdeveloper.repository.ShowRepository;
@@ -18,22 +17,23 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-public class ShowLocationApiController {
+public class ShowBasicApiController {
     private final ShowRepository showRepository;
     private final ShowDetailRepository showDetailRepository;
     private final ShowLocationRepository showLocationRepository;
 
-    private static ShowLocationApi showLocationApi = new ShowLocationApi();
+    private static ShowBasicApi showBasicApi = new ShowBasicApi();
 
-    @GetMapping("/getLocation")
+    @GetMapping("/getShowBasic")
     public String getLocation(Model model) {
         List<Show> showList = new ArrayList<>();
         List<ShowDetail> detailList = new ArrayList<>();
         List<ShowLocation> locationList = new ArrayList<>();
 
-        showLocationApi.showAndDetailAndLocationApi(showList, detailList, locationList, 1);
+        showBasicApi.showAndDetailAndLocationApi(showList, detailList, locationList, 1);
 
         showRepository.saveAll(showList);
+
         showDetailRepository.saveAll(detailList);
         showLocationRepository.saveAll(locationList);
 
@@ -41,6 +41,6 @@ public class ShowLocationApiController {
         model.addAttribute("showDetails", detailList);
         model.addAttribute("showLocations", locationList);
 
-        return "showLocation";
+        return "showBasic";
     }
 }
