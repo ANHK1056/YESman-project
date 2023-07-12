@@ -11,6 +11,7 @@
 </div>
 
 <div class="container">
+  <p th:text="|${show.show_id} ${show.show_name} ${show.show_genre}|"></p>
   <div class="row-6" th:each="item : ${showLocations}">
     <div class="card">
       <table>

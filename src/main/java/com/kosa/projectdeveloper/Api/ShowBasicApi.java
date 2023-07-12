@@ -3,7 +3,6 @@ package com.kosa.projectdeveloper.Api;
 import com.kosa.projectdeveloper.domain.Show;
 import com.kosa.projectdeveloper.domain.ShowDetail;
 import com.kosa.projectdeveloper.domain.ShowLocation;
-import com.kosa.projectdeveloper.repository.ShowDetailRepository;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -13,10 +12,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ShowLocationApi {
+public class ShowBasicApi {
     public static String key = "2d46a5d3c8ba49ff945546fa7e925398";
     //    http://www.kopis.or.kr/openApi/restful/pblprfr?service={SeriveKey}&stdate=20160601&eddate=20160630&cpage=1&rows=5
     public static String showUrl   = "http://kopis.or.kr/openApi/restful/pblprfr";

@@ -43,7 +43,7 @@ public class Show {
     @Column(name = "show_genre", updatable = false)
     private String show_genre;
 
-    @Column(name = "show_state", nullable = false)
+    @Column(name = "show_state", updatable = false)
     private String show_state;
 
     // ShowReview 랑 Join 위해 넣었어요..!
