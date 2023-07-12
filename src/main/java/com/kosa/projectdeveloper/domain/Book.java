@@ -42,6 +42,7 @@ public class Book {
     private User user;
 
 
+
 //    @OneToOne(mappedBy = "book")
 //    private ShowReview showReview;
 //    private List<ShowReview> showReviews = new ArrayList<>();
@@ -49,7 +50,6 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "SHOW_ID", nullable = false)
     private Show show;
-
 
     @Builder
     public Book(User user, Show show, String seat, String showDate) {
