@@ -1,5 +1,6 @@
 package com.kosa.projectdeveloper.dto;
 
+import com.kosa.projectdeveloper.domain.FriendReview;
 import com.kosa.projectdeveloper.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,10 +12,17 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 public class FriendUpdateRequest {
-    private User userId;
+    private  User user;
     private  String title;
     private  String content;
-    private  LocalDateTime createdAt;
+    private  LocalDateTime createAt;
+
+//    public FriendUpdateRequest(FriendReview friendReview) {
+//        this.userId = friendReview.getUser();
+//        this.title =  friendReview.getTitle();
+//        this.content = friendReview.getContent();
+//        this.createdt = friendReview.getCreatedAt();
+//    }
 
 }
 

@@ -25,6 +25,7 @@ public class FriendReview {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+//    private User user;
     private User user;
 
     @Column(name = "title", nullable = false)

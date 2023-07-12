@@ -38,7 +38,7 @@ public class FriendService {
         FriendReview friendReview = friendRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
 
-        friendReview.update(friendUpdateRequest.getTitle(), friendUpdateRequest.getContent(), friendUpdateRequest.getCreatedAt());
+        friendReview.update(friendUpdateRequest.getTitle(), friendUpdateRequest.getContent(), friendUpdateRequest.getCreateAt());
 
         return friendReview;
 
@@ -46,3 +46,5 @@ public class FriendService {
 
 
 }
+
+

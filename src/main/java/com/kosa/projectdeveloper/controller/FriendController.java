@@ -3,9 +3,11 @@ package com.kosa.projectdeveloper.controller;
 import com.kosa.projectdeveloper.domain.FriendReview;
 import com.kosa.projectdeveloper.domain.ShowReview;
 import com.kosa.projectdeveloper.dto.*;
+import com.kosa.projectdeveloper.repository.FriendRepository;
 import com.kosa.projectdeveloper.service.FriendService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,8 +49,12 @@ public class FriendController {
             @PathVariable Long id, @RequestBody FriendUpdateRequest request) {
         FriendReview updateFriendReview = friendService.updateFriendReview(id, request);
 
-        return ResponseEntity.ok()
+                return ResponseEntity.ok()
                 .body(updateFriendReview);
+
+//        return ResponseEntity.status(HttpStatus.CREATED)
+//                .body(savedfreind);
+
     }
 
     @DeleteMapping("/api/friend/{id}")

@@ -3,10 +3,12 @@ package com.kosa.projectdeveloper.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosa.projectdeveloper.domain.FriendReview;
 import com.kosa.projectdeveloper.domain.User;
+import com.kosa.projectdeveloper.domain.UserTest;
 import com.kosa.projectdeveloper.dto.FriendReviewAddResponse;
 import com.kosa.projectdeveloper.dto.FriendUpdateRequest;
 import com.kosa.projectdeveloper.repository.FriendRepository;
 import com.kosa.projectdeveloper.repository.UserRepository;
+import com.kosa.projectdeveloper.repository.UserTestRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -48,6 +52,9 @@ class FriendControllerTest {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    UserTestRepository userTestRepository;
+
 //    @Autowired
 //    LocalDateTime createdAt;
 
@@ -56,6 +63,7 @@ class FriendControllerTest {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .build();
         friendRepository.deleteAll();
+        userRepository.deleteAll();
     }
 
     @DisplayName("addFriend: 블로그 글 추가에 성공한다.")
@@ -194,7 +202,7 @@ class FriendControllerTest {
                 .userPhNm(userPhNm)
                 .build());
 
-        FriendReview savedfreind = friendRepository.save(FriendReview.builder()
+        FriendReview savedfriend = friendRepository.save(FriendReview.builder()
                 .title(title)
                 .content(content)
                 .createdAt(createdAt)
@@ -207,21 +215,81 @@ class FriendControllerTest {
 
         FriendUpdateRequest request = new FriendUpdateRequest(savedUser,newTitle, newContent, createdAt);
 
+        System.out.println(objectMapper.writeValueAsString(request));
 
         // when
-        ResultActions result = mockMvc.perform(put(url,savedfreind.getId())
+        ResultActions result = mockMvc.perform(put(url,savedfriend.getId())
+                .with(SecurityMockMvcRequestPostProcessors.oauth2Login()
+                        .authorities(List.of(new SimpleGrantedAuthority("user"))))
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(request)));
 
         // then
         result.andExpect(status().isOk());
 
-        User user = userRepository.findByUserId(savedfreind.getId()).get();
+        FriendReview updatedFriend = friendRepository.findById(savedfriend.getId()).get();
 
 
-        assertThat(user.getUserEmail()).isEqualTo(newTitle);
-        assertThat(user.getUserPhNm()).isEqualTo(newContent);
+        assertThat(updatedFriend.getUser().getUserEmail()).isEqualTo(userId);
+        assertThat(updatedFriend.getUser().getUserPhNm()).isEqualTo(userPhNm);
+        assertThat(updatedFriend.getTitle()).isEqualTo(newTitle);
+        assertThat(updatedFriend.getContent()).isEqualTo(newContent);
+
     }
+
+//    @DisplayName("updateFriend: 블로그 글 수정에 성공한다. UserTest")
+//    @Test
+//    public void updateFriendReviewTest() throws  Exception{
+//        final String url = "/api/friend/{id}";
+//        final String title = "title";
+//        final LocalDateTime createdAt = LocalDateTime.now();
+//        final String content ="content";
+//        final String userId = "userId";
+//        final String userName = "userName";
+//        final String userPw = "userPw";
+//        final String userPhNm = "userPhNm";
+//
+//        UserTest savedUser = userTestRepository.save(UserTest.builder()
+//                .userEmail(userId)
+//                .userName(userName)
+//                .userPw(userPw)
+//                .userPhNm(userPhNm)
+//                .build());
+//
+//
+//
+//        FriendReview savedfriend = friendRepository.save(FriendReview.builder()
+//                .title(title)
+//                .content(content)
+//                .createdAt(createdAt)
+//                .user(savedUser)
+//                .build());
+//
+//
+//        final String newTitle = "new title";
+//        final String newContent = "new content";
+//
+//        FriendUpdateRequest request = new FriendUpdateRequest(savedUser,newTitle, newContent, createdAt);
+//
+//        System.out.println(objectMapper.writeValueAsString(request));
+//
+//        // when
+//        ResultActions result = mockMvc.perform(put(url,savedfriend.getId())
+//                .contentType(MediaType.APPLICATION_JSON_VALUE)
+//                .content(objectMapper.writeValueAsString(request)));
+//
+//        // then
+//        result.andExpect(status().isOk());
+//
+//        FriendReview updatedFriend = friendRepository.findById(savedfriend.getId()).get();
+//
+//
+//        assertThat(updatedFriend.getUser().getUserEmail()).isEqualTo(userId);
+//        assertThat(updatedFriend.getUser().getUserPhNm()).isEqualTo(userPhNm);
+//        assertThat(updatedFriend.getTitle()).isEqualTo(newTitle);
+//        assertThat(updatedFriend.getContent()).isEqualTo(newContent);
+//
+//    }
 
 
 
