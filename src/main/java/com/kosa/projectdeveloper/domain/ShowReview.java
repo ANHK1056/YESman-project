@@ -49,7 +49,7 @@ public class ShowReview {
     // Book 엔터티와 1:1(일대일)관계 매핑
     @OneToOne
 //    // ShowReview 테이블의 FK 를 bookId 로 지정해 Book 엔터티와 연결
-//    @JoinColumn(name = "bookId", nullable = false)
+    @JoinColumn(name = "bookId", nullable = false)
     private Book book;
 
     // 뮤지컬 리뷰 제목

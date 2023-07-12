@@ -2,46 +2,39 @@ package com.kosa.projectdeveloper.Api;
 
 import com.kosa.projectdeveloper.domain.Show;
 import com.kosa.projectdeveloper.domain.ShowDetail;
-import com.kosa.projectdeveloper.dto.ShowRequest;
+import com.kosa.projectdeveloper.domain.ShowLocation;
 import com.kosa.projectdeveloper.repository.ShowDetailRepository;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Element;
-
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class Api {
-
+public class ShowLocationApi {
     public static String key = "2d46a5d3c8ba49ff945546fa7e925398";
-//    http://www.kopis.or.kr/openApi/restful/pblprfr?service={SeriveKey}&stdate=20160601&eddate=20160630&cpage=1&rows=5
+    //    http://www.kopis.or.kr/openApi/restful/pblprfr?service={SeriveKey}&stdate=20160601&eddate=20160630&cpage=1&rows=5
     public static String showUrl   = "http://kopis.or.kr/openApi/restful/pblprfr";
 
-    private ShowDetailRepository showDetailRepository ;
+    public static String showLocationUrl = "http://kopis.or.kr/openApi/restful/prfplc";
 
-    public static List<Show> ShowAPI(List<Show> list, int pageNo) {
-//        http://www.kopis.or.kr/openApi/restful/pblprfr?service=
-        // {SeriveKey}&stdate=20160601&eddate=20160630&cpage=1&rows=5
-        // &prfstate=02&signgucode=11&signgucodesub=1111&kidstate=Y
+
+    public static List<ShowLocation> showLocationApi(List<ShowLocation> locationList, ShowDetail showDetail, String flocation_id){
         StringBuffer urlBuffer = new StringBuffer();
-        urlBuffer.append(showUrl);
+
+//        http://kopis.or.kr/openApi/restful/pblprfr/{공연아이디}
+        urlBuffer.append(showLocationUrl);
+        urlBuffer.append("/" + flocation_id);
         urlBuffer.append("?" + "service=" + key);
-        urlBuffer.append("&" + "cpage=" + pageNo);
-        urlBuffer.append("&" + "stdate=" + "20230101");
-        urlBuffer.append("&" + "eddate=" + "20230630");
-        urlBuffer.append("&" + "rows=" + "10");
-        urlBuffer.append("&" + "shcate=" + "AAAA");
+
 
         System.out.println("urlBuffer: " + urlBuffer);
+
         try {
             // parsing할 url 지정(API 키 포함해서)
             URL url = new URL(urlBuffer.toString());
@@ -63,7 +56,6 @@ public class Api {
 
             doc.getDocumentElement().normalize();
 
-            System.out.println("doc: " + doc);
 
             // 파싱할 tag
             NodeList nList = doc.getElementsByTagName("db");
@@ -75,55 +67,26 @@ public class Api {
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) node;
 
-                    System.out.println("mt20id: " + getTagValue("mt20id", eElement));
+                    System.out.println("mt10id: " + getTagValue("mt10id", eElement));
 
-                    String show_id = getTagValue("mt20id", eElement);
-                    String show_name = getTagValue("prfnm", eElement);
-                    String show_start_date = getTagValue("prfpdfrom", eElement);
-                    String show_end_date = getTagValue("prfpdto", eElement);
-                    String facility_id = getTagValue("fcltynm", eElement);
-                    String location = getTagValue("poster", eElement);
-                    String show_genre = getTagValue("genrenm", eElement);
-                    String show_state = getTagValue("prfstate", eElement);
-                    String show_hall = getTagValue("openrun", eElement);
+                    String locationAddress = getTagValue("adres", eElement);
 
-                    List<ShowDetail> detailListist = new ArrayList<ShowDetail>();
-
-                    ShowDetail showDetail;
-
-                    detailListist = ShowDetailAPI(detailListist, show_id);
-                    showDetail = detailListist.get(0);
-
-//                    showDetailRepository.save(showDetail);
-
-                    Show show= new Show(show_id,show_name,show_start_date,show_end_date,
-                          facility_id,location,show_hall,show_genre,show_state);
-                    list.add(show);
+                    ShowLocation showLocation = ShowLocation.builder()
+                            .locationAddress(locationAddress)
+                            .showDetail(showDetail)
+                            .build();
+                    locationList.add(showLocation);
 
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return list;
+
+        return locationList;
     }
 
-    // tag값의 정보를 가져오는 메소드
-//    private static String getTagValue(String tag, Element eElement) {
-//        if (eElement.getElementsByTagName(tag).item(0) != null) {
-//            NodeList nList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
-//            Node nValue = (Node) nList.item(0);
-//            if (nValue == null) {
-//                return null;
-//            }
-//            return nValue.getNodeValue();
-//        } else {
-//            return null;
-//        }
-//    }
-
-
-    public static List<ShowDetail> ShowDetailAPI(List<ShowDetail> detailList, String fshow_id) {
+    public static List<ShowDetail> showDetailAndLocationApi(List<ShowDetail> detailList, List<ShowLocation> locationList, String fshow_id) {
         StringBuffer urlBuffer = new StringBuffer();
 
 //        http://kopis.or.kr/openApi/restful/pblprfr/{공연아이디}
@@ -191,6 +154,7 @@ public class Api {
                             ,show_actor,runtime,show_age,company,show_price,location,show_genre,show_state,show_image[0],show_image[1],
                             show_image[2],show_image[3], show_time,show_content);
                     detailList.add(showDetail);
+                    showLocationApi(locationList, showDetail, facility_id);
 
                 }
             }
@@ -201,7 +165,7 @@ public class Api {
         return detailList;
     }
 
-    public static void ShowAndDetailAPI(List<Show> list, List<ShowDetail> detailList, int pageNo) {
+    public static void showAndDetailAndLocationApi(List<Show> list, List<ShowDetail> detailList, List<ShowLocation> locationList, int pageNo) {
         StringBuffer urlBuffer = new StringBuffer();
         urlBuffer.append(showUrl);
         urlBuffer.append("?" + "service=" + key);
@@ -257,7 +221,7 @@ public class Api {
                     String show_state = getTagValue("prfstate", eElement);
                     String show_hall = getTagValue("openrun", eElement);
 
-                    detailList = ShowDetailAPI(detailList, show_id);
+                    showDetailAndLocationApi(detailList, locationList, show_id);
 
                     Show show= new Show(show_id,show_name,show_start_date,show_end_date,
                             facility_id,location,show_hall,show_genre,show_state);
