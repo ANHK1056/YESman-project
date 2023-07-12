@@ -36,7 +36,8 @@ public class WebOAuthSecurityConfig {
     @Bean
     public WebSecurityCustomizer configure() {
         return (web) -> web.ignoring()
-//                .requestMatchers(toH2Console())
+                // TODO: 2023-07-12 aws 데이터베이스 사용시 주석 해제 
+               .requestMatchers(toH2Console())
                 .requestMatchers("/img/**", "/css/**", "/js/**");
 //                .requestMatchers("/**");
     }
@@ -55,7 +56,7 @@ public class WebOAuthSecurityConfig {
 
         http.authorizeRequests()
                 .requestMatchers("/api/token","/login","/signup","/users", "/**").permitAll()
-//                .requestMatchers("/api/user").authenticated()
+//                .requestMatchers("/api/**").authenticated()
                 .anyRequest().permitAll();
 
         http.formLogin()

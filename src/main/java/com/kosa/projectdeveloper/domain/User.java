@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -98,9 +99,10 @@ public class User implements UserDetails {
 
     }
 
-    public User updatePhNm(String userPhNm,String userPw){
+    public User update(String userPhNm,String userPw){
+        BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
         this.userPhNm =userPhNm;
-        this.userPw=userPw;
+        this.userPw=encoder.encode(userPw);
         return this;
 
     }

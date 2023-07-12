@@ -3,18 +3,18 @@ const deleteButton = document.getElementById('delete-btn');
 
 if (deleteButton) {
     deleteButton.addEventListener('click', event => {
-        let id = document.getElementById('user-id').value;
+        let id = document.getElementById('interest-id').value;
         function success() {
             alert('삭제가 완료되었습니다.');
-            location.replace('/user');
+            location.replace('/');
         }
 
         function fail() {
             alert('삭제 실패했습니다.');
-            location.replace('/user');
+            location.replace('/');
         }
 
-        httpRequest('DELETE',`/api/user/${id}`, null, success, fail);
+        httpRequest('DELETE',`/api/interest/${id}`, null, success, fail);
     });
 }
 
@@ -27,27 +27,46 @@ if (modifyButton) {
         let id = params.get('id');
 
         body = JSON.stringify({
-            userPhNm: document.getElementById('userPhNm').value,
-            userPw: document.getElementById('userPw').value
+            title: document.getElementById('friendReviewTitle').value,
+            content: document.getElementById('friendReviewContent').value
         })
 
         function success() {
             alert('수정 완료되었습니다.');
-            location.replace(`/user/${id}`);
+            location.replace(`/`);
         }
 
         function fail() {
             alert('수정 실패했습니다.');
-            location.replace(`/user/${id}`);
+            location.replace(`/`);
         }
 
-        httpRequest('PUT',`/api/user/${id}`, body, success, fail);
+        httpRequest('PUT',`/api/friend/${id}`, body, success, fail);
     });
 }
 
+// 생성 기능
+const createButton = document.getElementById('create-btn');
 
+if (createButton) {
+    // 등록 버튼을 클릭하면 /api/articles로 요청을 보낸다
+    createButton.addEventListener('click', event => {
+        body = JSON.stringify({
+            title: document.getElementById('friendReviewTitle').value,
+            content: document.getElementById('friendReviewContent').value
+        });
+        function success() {
+            alert('등록 완료되었습니다.');
+            location.replace('/');
+        };
+        function fail() {
+            alert('등록 실패했습니다.');
+            location.replace('/');
+        };
 
-
+        httpRequest('POST','/api/friend-review', body, success, fail)
+    });
+}
 // 쿠키를 가져오는 함수
 function getCookie(key) {
     var result = null;
@@ -106,3 +125,5 @@ function httpRequest(method, url, body, success, fail) {
         }
     });
 }
+
+
