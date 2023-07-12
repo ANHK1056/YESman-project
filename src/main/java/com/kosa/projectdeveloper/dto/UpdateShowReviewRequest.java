@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 
 public class UpdateShowReviewRequest {
 
-    private String review_Title;
-    private String review_Content;
+    private String reviewTitle;
+    private String reviewContent;
 
 }
 

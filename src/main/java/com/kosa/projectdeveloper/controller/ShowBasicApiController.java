@@ -33,7 +33,6 @@ public class ShowBasicApiController {
         showBasicApi.showAndDetailAndLocationApi(showList, detailList, locationList, 1);
 
         showRepository.saveAll(showList);
-
         showDetailRepository.saveAll(detailList);
         showLocationRepository.saveAll(locationList);
 

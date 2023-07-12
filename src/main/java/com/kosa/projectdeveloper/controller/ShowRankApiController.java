@@ -49,8 +49,8 @@ public class ShowRankApiController {
         List<ShowRank> showRankList = new ArrayList<>();
 
         for (int i = 0; i < rankIdList.size(); i++){
-            Show savedShow = showRepository.findById(showList.get(i).getShow_id()).orElse(null);
-            ShowDetail savedShowDetail = showDetailRepository.findById(showList.get(i).getShow_id()).orElse(null);
+            Show savedShow = showRepository.findById(showList.get(i).getShowId()).orElse(null);
+            ShowDetail savedShowDetail = showDetailRepository.findById(showList.get(i).getShowId()).orElse(null);
             if (savedShow == null){
                 savedShow = showRepository.save(showList.get(i));
                 savedShowDetail = showDetailRepository.save(detailList.get(i));

@@ -65,11 +65,11 @@ public class ShowRankApi {
 
 
                     String rankId = getTagValue("rnum", eElement);
-                    String show_id = getTagValue("mt20id", eElement);
+                    String showId = getTagValue("mt20id", eElement);
 
                     rankIdList.add(rankId);
 
-                    showDetailAndShowAndLocationApi(detailList, showList, locationList, show_id);
+                    showDetailAndShowAndLocationApi(detailList, showList, locationList, showId);
 
                 }
             }
@@ -124,37 +124,37 @@ public class ShowRankApi {
 
                     System.out.println("mt20id: " + getTagValue("mt20id", eElement));
 
-                    String show_id = getTagValue("mt20id", eElement);
-                    String show_name = getTagValue("prfnm", eElement);
-                    String show_start_date = getTagValue("prfpdfrom", eElement);
-                    String show_end_date = getTagValue("prfpdto", eElement);
-                    String show_hall = getTagValue("fcltynm", eElement);
-                    String show_actor = getTagValue("prfcast", eElement);
-                    String show_time = getTagValue("dtguidance", eElement);
+                    String showId = getTagValue("mt20id", eElement);
+                    String showName = getTagValue("prfnm", eElement);
+                    String showStartDate = getTagValue("prfpdfrom", eElement);
+                    String showEndDate = getTagValue("prfpdto", eElement);
+                    String facilityName = getTagValue("fcltynm", eElement);
+                    String showActor = getTagValue("prfcast", eElement);
+                    String showDate = getTagValue("dtguidance", eElement);
                     String runtime = getTagValue("prfruntime", eElement);
-                    String show_age = getTagValue("prfage", eElement);
+                    String showAge = getTagValue("prfage", eElement);
                     String company = getTagValue("entrpsnm", eElement);
-                    String show_price = getTagValue("pcseguidance", eElement);
-                    String location = getTagValue("poster", eElement);
-                    String show_content = getTagValue("sty", eElement);
-                    String show_genre = getTagValue("genrenm", eElement);
-                    String show_state= getTagValue("prfstate", eElement);
-                    String facility_id = getTagValue("mt10id", eElement);
-                    String[] show_image = getTagValues("styurl", eElement);
+                    String showPrice = getTagValue("pcseguidance", eElement);
+                    String poster = getTagValue("poster", eElement);
+                    String showContent = getTagValue("sty", eElement);
+                    String showGenre = getTagValue("genrenm", eElement);
+                    String showState= getTagValue("prfstate", eElement);
+                    String facilityId = getTagValue("mt10id", eElement);
+                    String[] showImage = getTagValues("styurl", eElement);
+                    String showOpenRun = getTagValue("openrun", eElement);
 
-                    String show_openrun = getTagValue("openrun", eElement);
+                    ShowDetail showDetail= new ShowDetail(showId,facilityId,showName,showStartDate,showEndDate, facilityName
+                            ,showActor,showAge,runtime,company,showPrice,poster,showGenre,showState,showImage[0],showImage[1],
+                            showImage[2],showImage[3], showDate,showContent);
 
-                    ShowDetail showDetail= new ShowDetail(show_id,facility_id,show_name,show_start_date,show_end_date,show_hall
-                            ,show_actor,runtime,show_age,company,show_price,location,show_genre,show_state,show_image[0],show_image[1],
-                            show_image[2],show_image[3], show_time,show_content);
                     detailList.add(showDetail);
 
-                    Show show= new Show(show_id,show_name,show_start_date,show_end_date,
-                            show_hall,show_openrun,location,show_genre,show_state);
+                    Show show= new Show(showId,showName,showStartDate,showEndDate,
+                            facilityName, showOpenRun, poster,  showGenre, showState);
 
                     showList.add(show);
 
-                    showBasicApi.showLocationApi(locationList, showDetail, facility_id);
+                    showBasicApi.showLocationApi(locationList, showDetail, facilityId);
 
                 }
             }

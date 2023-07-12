@@ -271,30 +271,30 @@
     <div class="row" th:if="${shows.size() > 0}">
       <!-- blog item-->
       <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{show_id}(show_id=${shows[0].show_id})}"><img class="img-fluid card-img-top" th:src="${shows[0].show_hall}" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[0].show_genre} |" ></a>
-            <h5 class="my-2" th:text="|${shows[0].show_name} |"><a class="text-dark" href="post.html"> </a></h5>
-            <p class="text-gray-500 text-sm my-3" th:text="|${shows[0].show_start_date} |" ><i class="far fa-clock me-2"></i></p>
+        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{showId}(showId=${shows[0].showId})}"><img class="img-fluid card-img-top" th:src="${shows[0].poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[0].showGenre} |" ></a>
+            <h5 class="my-2" th:text="|${shows[0].showName} |"><a class="text-dark" href="post.html"> </a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="|${shows[0].showStartDate} |" ><i class="far fa-clock me-2"></i></p>
             <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
           </div>
         </div>
       </div>
       <!-- blog item-->
       <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{show_id}(show_id=${shows[1].show_id})}"><img class="img-fluid card-img-top" th:src="${shows[1].show_hall}" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[1].show_genre} |" ></a>
-            <h5 class="my-2" th:text="|${shows[1].show_name} |" ><a class="text-dark" href="post.html"> </a></h5>
-            <p class="text-gray-500 text-sm my-3" th:text="|${shows[1].show_start_date} |" ><i class="far fa-clock me-2"></i></p>
+        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{showId}(showId=${shows[1].showId})}"><img class="img-fluid card-img-top" th:src="${shows[1].poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[1].showGenre} |" ></a>
+            <h5 class="my-2" th:text="|${shows[1].showName} |" ><a class="text-dark" href="post.html"> </a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="|${shows[1].showStartDate} |" ><i class="far fa-clock me-2"></i></p>
             <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
           </div>
         </div>
       </div>
       <!-- blog item-->
       <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:src="${shows[2].show_hall}" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[2].show_genre} |" ></a>
-            <h5 class="my-2" th:text="|${shows[2].show_name} |"  ><a class="text-dark" href="post.html"> </a></h5>
-            <p class="text-gray-500 text-sm my-3" th:text="|${shows[2].show_start_date} |" ><i class="far fa-clock me-2"></i></p>
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:src="${shows[2].pster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[2].showGenre} |" ></a>
+            <h5 class="my-2" th:text="|${shows[2].showName} |"  ><a class="text-dark" href="post.html"> </a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="|${shows[2].showStartDate} |" ><i class="far fa-clock me-2"></i></p>
             <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
           </div>
         </div>

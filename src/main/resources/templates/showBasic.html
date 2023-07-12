@@ -11,13 +11,13 @@
 </div>
 
 <div class="container">
-  <p th:text="|${show.show_id} ${show.show_name} ${show.show_genre}|"></p>
+  <p th:text="|${shows[0].showId} ${shows[0].showName} ${shows[0].showGenre}|"></p>
   <div class="row-6" th:each="item : ${showLocations}">
     <div class="card">
       <table>
         <tr>
           <td class="card-header" th:text="|주소 : ${item.locationAddress} |"></td>
-          <td class="card-title" th:text="|연극명 : ${item.showDetail.show_name}|"></td>
+          <td class="card-title" th:text="|연극명 : ${item.showDetail.showName}|"></td>
         </tr>
       </table>
     </div>

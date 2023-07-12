@@ -20,48 +20,49 @@ public class Show {
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "show_id", updatable = false)
-    private String show_id;
+    private String showId;
 
     @Column(name = "show_name", updatable = false)
-    private String show_name;
+    private String showName;
 
     @Column(name = "show_start_date", updatable = false)
-    private String show_start_date;
+    private String showStartDate;
 
     @Column(name = "show_end_date", updatable = false)
-    private String show_end_date;
+    private String showEndDate;
 
-    @Column(name = "facility_id", updatable = false)
-    private String facility_id;
+    @Column(name = "facility_name", updatable = false)
+    private String facilityName;
 
-    @Column(name = "show_hall", updatable = false)
-    private String show_hall;
+    @Column(name = "show_open_run", updatable = false)
+    private String showOpenRun;
 
-    @Column(name = "location", updatable = false)
-    private String location;
+    @Column(name = "poster", updatable = false)
+    private String poster;
 
     @Column(name = "show_genre", updatable = false)
-    private String show_genre;
+    private String showGenre;
 
     @Column(name = "show_state", updatable = false)
-    private String show_state;
+    private String showState;
 
-    // ShowReview 랑 Join 위해 넣었어요..!
-    @OneToMany(mappedBy = "review_Id")
-    private List<ShowReview> showReviews = new ArrayList<>();
+//    // ShowReview 랑 Join 위해 넣었어요..!
+//    @OneToMany(mappedBy = "review_Id")
+//    private List<ShowReview> showReviews = new ArrayList<>();
 
 
     @Builder
-    public Show(String show_id, String show_name,String show_start_date, String show_end_date,String facility_id ,String show_hall, String location, String show_genre, String show_state) {
-        this.show_id = show_id;
-        this.show_name = show_name;
-        this.show_start_date = show_start_date;
-        this.show_end_date = show_end_date;
-        this.facility_id = facility_id;
-        this.show_hall = show_hall;
-        this.location = location;
-        this.show_genre = show_genre;
-        this.show_state = show_state;
+    public Show(String showId, String showName,String showStartDate, String showEndDate,
+                String facilityName ,String showOpenRun, String poster, String showGenre, String showState) {
+        this.showId = showId;
+        this.showName = showName;
+        this.showStartDate = showStartDate;
+        this.showEndDate = showEndDate;
+        this.facilityName = facilityName;
+        this.showOpenRun = showOpenRun;
+        this.poster = poster;
+        this.showGenre = showGenre;
+        this.showState = showState;
     }
 
 }
