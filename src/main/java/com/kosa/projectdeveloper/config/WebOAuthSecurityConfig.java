@@ -62,10 +62,10 @@ public class WebOAuthSecurityConfig {
         http.formLogin()
                  .loginPage("/login")
                 // TODO: 2023-07-11  후에 변경
-               .defaultSuccessUrl("/user")
+               .defaultSuccessUrl("/loginHome")
                  .and()
                  .logout()
-                 .logoutSuccessUrl("/login")
+                 .logoutSuccessUrl("/")
                  .invalidateHttpSession(true);
 
         http.oauth2Login()
@@ -78,7 +78,7 @@ public class WebOAuthSecurityConfig {
                 .userService(oAuth2UserCustomService);
 
         http.logout()
-                .logoutSuccessUrl("/login");
+                .logoutSuccessUrl("/");
 
 
         http.exceptionHandling()

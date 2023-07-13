@@ -20,8 +20,8 @@
           <input type="text" class="form-control" placeholder="제목" id="userEmail" th:value="${users.userEmail}">
         </header>
         <section class="mb-5">
-          <textarea class="form-control h-25" rows="10" placeholder="내용" id="userPhNm" th:text="${users.userPhNm}"></textarea>
-          <textarea class="form-control h-25" rows="10" placeholder="내용" id="userPw" th:text="${users.userPw}"></textarea>
+          <input class="form-control" placeholder="내용" id="userPhNm" th:text="${users.userPhNm}"></input>
+          <input class="form-control" placeholder="내용" id="userPw" th:text="${users.userPw}"></input>
         </section>
 
         <button th:if="${users.userId} != null" type="button" id="modify-btn" class="btn btn-primary btn-sm">수정</button>

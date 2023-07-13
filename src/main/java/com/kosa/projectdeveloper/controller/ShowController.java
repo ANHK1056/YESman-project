@@ -17,15 +17,15 @@ public class ShowController {
 
     private final ShowRepository showRepository;
 
-//    @GetMapping("/test12")
-//    public String test12(Model model){
-//
-//        List<Show> shows = showRepository.findAll();
-//
-//        model.addAttribute("shows", shows);
-//
-//        return "Show";
-//    }
+    @GetMapping("/test12")
+    public String test1432432(Model model){
+
+        List<Show> shows = showRepository.findAll();
+
+        model.addAttribute("shows", shows);
+
+        return "Show";
+    }
 
 
 }
