@@ -13,4 +13,6 @@ public interface ShowDetailRepository extends JpaRepository<ShowDetail, String> 
 
     public List<ShowDetail> findByShowActorContaining(String actorName);
     public List<ShowDetail> findByShowNameContaining(String showName);
+
+    public List<ShowDetail> findByFacilityNameContaining(String facilityName);
 }

@@ -3,7 +3,12 @@ package com.kosa.projectdeveloper.controller;
 import com.kosa.projectdeveloper.domain.Book;
 import com.kosa.projectdeveloper.dto.AddBookRequest;
 import com.kosa.projectdeveloper.dto.ReadBookResponse;
+import com.kosa.projectdeveloper.repository.BookRepository;
+import com.kosa.projectdeveloper.repository.ShowRepository;
+import com.kosa.projectdeveloper.repository.UserRepository;
 import com.kosa.projectdeveloper.service.BookService;
+import com.kosa.projectdeveloper.service.ShowService;
+import com.kosa.projectdeveloper.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +21,28 @@ import java.util.List;
 // 예매 기능 관련 컨트롤러
 public class BookApiController {
     private final BookService bookService;
+    private final UserRepository userRepository;
+    private final ShowRepository showRepository;
+    private final BookRepository bookRepository;
 
     // 예매 추가 기능
     @PostMapping("/api/books")
     public ResponseEntity<Book> addBook(@RequestBody AddBookRequest request){
-        Book savedBook = bookService.save(request);
+        System.out.println("checkUser : " + request.getUserEmail());
+
+        System.out.println("checkShow : " + request.getShowId());
+
+        Book savedBook = Book.builder()
+                .showDate(request.getShowDate())
+                .seat(request.getSeat())
+                .user(userRepository.findByUserEmail(request.getUserEmail()).orElseThrow(() -> new IllegalArgumentException("not found user")))
+                .show(showRepository.findById(request.getShowId()).orElseThrow(() -> new IllegalArgumentException("not found show")))
+                .build();
+
+        bookRepository.save(savedBook);
+
+//        Book savedBook = bookService.save(request);
+
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedBook);

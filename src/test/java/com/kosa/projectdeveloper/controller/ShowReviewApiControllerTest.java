@@ -94,7 +94,7 @@ class ShowReviewApiControllerTest {
                 .show(savedShow)
                 .build());
 
-        final AddShowReviewRequest request = new AddShowReviewRequest(review_Title, review_Content,savedShow,savedBook);
+        final AddShowReviewRequest request = new AddShowReviewRequest(review_Title, review_Content,savedBook);
 
         final String requestBody = objectMapper.writeValueAsString(request);
 
@@ -111,8 +111,8 @@ class ShowReviewApiControllerTest {
         List<ShowReview> showReviews = showReviewRepository.findAll();
 
         assertThat(showReviews.size()).isEqualTo(1);
-        assertThat(showReviews.get(0).getReview_Title()).isEqualTo(review_Title);
-        assertThat(showReviews.get(0).getReview_Content()).isEqualTo(review_Content);
+        assertThat(showReviews.get(0).getReviewTitle()).isEqualTo(review_Title);
+        assertThat(showReviews.get(0).getReviewContent()).isEqualTo(review_Content);
 
 
     }

@@ -6,6 +6,9 @@ if (searchButton) {
         let searchWord = document.getElementById('searchWord').value;
         let selectRange = document.getElementById('selectRange').value;
 
-        location.replace(`/showSearch?searchWord=${searchWord}&range=${selectRange}`);
+//        location.replace(`/showSearch?searchWord=${searchWord}&range=${selectRange}`);
+
+        location.href=`/showSearch?searchWord=${searchWord}&range=${selectRange}`;
     });
 }
+
