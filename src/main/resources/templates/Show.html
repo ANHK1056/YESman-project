@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Directory Theme by Bootstrapious</title>
   <meta name="description" content="">
@@ -131,7 +132,7 @@
                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-account.html">Account   </a></li>
                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-personal.html">Personal info - forms   </a></li>
                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-security.html">Password & security - forms   </a></li>
-                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="login.html">Sign in   </a></li>
+                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="/login">Sign in   </a></li>
                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="signup.html">Sign up   </a></li>
                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-booking-1.html">Booking process - 4 pages   </a></li>
                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-grid.html">Bookings &mdash; grid view   </a></li>
@@ -204,7 +205,7 @@
               <h6 class="dropdown-header fw-normal">Components</h6><a class="dropdown-item" href="docs/components-bootstrap.html">Bootstrap </a><a class="dropdown-item" href="docs/components-directory.html">Theme </a>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link" href="login.html">Sign in</a></li>
+          <li class="nav-item"><a class="nav-link" href="/login">Sign in</a></li>
           <li class="nav-item"><a class="nav-link" href="signup.html">Sign up</a></li>
           <li class="nav-item mt-3 mt-lg-0 ms-lg-3 d-lg-none d-xl-inline-block"><a class="btn btn-primary" href="user-add-0.html">Add a listing</a></li>
         </ul>
@@ -291,7 +292,7 @@
       </div>
       <!-- blog item-->
       <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:src="${shows[2].pster}" alt="..."/></a>
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:src="${shows[2].poster}" alt="..."/></a>
           <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[2].showGenre} |" ></a>
             <h5 class="my-2" th:text="|${shows[2].showName} |"  ><a class="text-dark" href="post.html"> </a></h5>
             <p class="text-gray-500 text-sm my-3" th:text="|${shows[2].showStartDate} |" ><i class="far fa-clock me-2"></i></p>
@@ -494,9 +495,9 @@
         <div class="col-md-6">
           <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">
             <li class="list-inline-item"><img class="w-2rem" src="img/visa.svg" alt="..."></li>
-            <li class="list-inline-item"><img class="w-2rem" src="img/mastercard.svg" alt="..."></li>
-            <li class="list-inline-item"><img class="w-2rem" src="img/paypal.svg" alt="..."></li>
-            <li class="list-inline-item"><img class="w-2rem" src="img/western-union.svg" alt="..."></li>
+            <li class="list-inline-item"><img class="w-2rem" src="/img/mastercard.svg" alt="..."></li>
+            <li class="list-inline-item"><img class="w-2rem" src="/img/paypal.svg" alt="..."></li>
+            <li class="list-inline-item"><img class="w-2rem" src="/img/western-union.svg" alt="..."></li>
           </ul>
         </div>
       </div>

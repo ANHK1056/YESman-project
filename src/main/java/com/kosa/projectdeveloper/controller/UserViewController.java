@@ -53,10 +53,29 @@ public class UserViewController {
     public String login() {
         return "login";
     }
+    @GetMapping("/loginHome/{id}")
+    public String loginHome() {
+
+        return "loginHome";
+    }
     // TODO: 2023-07-07 login form 구성 시 주석 해제
     @GetMapping("/signup")
     public String signup(){
         return "signup";
+    }
+    @GetMapping("/user-account/{id}")
+    public String userAccount(){
+        return "user-account";
+    }
+    @GetMapping("/user-personal")
+    public String userPersonal(@RequestParam(required = false)Long id, Model model){
+        if(id == null){
+            model.addAttribute("users", new UserViewResponse());
+        } else {
+            User user =userService.findByUserId(id);
+            model.addAttribute("users", new UserViewResponse(user));
+        }
+        return "user-personal";
     }
 
 
