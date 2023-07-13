@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="bootstrap-5/html/css/style.default.css" id="theme-stylesheet">
+
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="bootstrap-5/html/css/custom.css">
     <!-- Favicon-->
@@ -196,7 +197,7 @@
                 </div>
               </li>
               <!-- /Megamenu end-->
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a>
+              <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a>
               </li>
               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle " id="docsDropdownMenuLink" href="index.html" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    Docs</a>
@@ -215,105 +216,52 @@
       </nav>
       <!-- /Navbar -->
     </header>
-
-    <section class="py-5 bg-gray-400 shadow">
-      <div class="container">
-        <h1>OUTERPARK 24</h1>
-        <p class="lead mb-5"></p>
-        <h5> Category        </h5>
-        <ul class="nav nav-pills-custom">
-          <li class="nav-item"><a class="nav-link active" href="#">중구</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">서구</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">동구</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">혁태</a></li>
-
-        </ul>
+    <!-- Hero Section-->
+    <section class="hero py-6 py-lg-7 text-white dark-overlay"><img class="bg-image" src="img/photo/photo-1522143049013-2519756a52d4.jpg" alt="How can we help you today?">
+      <div class="container overlay-content">
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb text-white justify-content-center no-border mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Contact                         </li>
+        </ol>
+        <h1 class="hero-heading">How can we help you today?</h1>
       </div>
     </section>
-
-    <section class="py-5">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
-          <div class="me-3">
-        
-          </div>
-<!--          <div>-->
-<!--            <label class="form-label me-2" for="form_sort">카테고리</label>-->
-<!--            <select class="selectpicker" name="sort" id="form_sort" data-style="btn-selectpicker" title="">-->
-<!--              <option value="sortBy_0">중구   </option>-->
-<!--              <option value="sortBy_1">Recommended   </option>-->
-<!--              <option value="sortBy_2">Newest   </option>-->
-<!--              <option value="sortBy_3">Oldest   </option>-->
-<!--              <option value="sortBy_4">Closest   </option>-->
-<!--            </select>-->
-<!--          </div>-->
-        </div>
-
-        <div class="row" th:if="${shows.size() > 0}">
-          <div th:each="show:${shows}" class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-            <div class="card h-100 border-0 shadow">
-              <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" th:src="${show.poster}" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="detail-rooms.html"></a>
-                <div class="card-img-overlay-bottom z-index-20">
-                  <div class="d-flex text-white text-sm align-items-center">
-                  </div>
-                </div>
-                <div class="card-img-overlay-top text-end"></div>
-              </div>
-              <div class="card-body d-flex align-items-center">
-                <div class="w-100">
-                  <h6 class="card-title" th:text="|${show.showName} |"><a class="text-decoration-none text-dark" href="detail-rooms.html"></a></h6>
-                  <div class="d-flex card-subtitle mb-3">
-                    <p class="flex-grow-1 mb-0 text-muted text-sm" th:text="|${show.showStartDate} ~ ${show.showEndDate} |"></p>
-                  </div>
-                  <p class="card-text text-muted" th:text="|${show.facilityName} |"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-<!--        <div class="row" th:if="${shows.size() > 0}" th:each="show:${shows}" >-->
-<!--          &lt;!&ndash; place item&ndash;&gt;-->
-<!--          <div class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">-->
-<!--            <div class="card h-100 border-0 shadow">-->
-<!--              <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" th:src="${show.poster}" alt="Modern, Well-Appointed Room"/><a class="tile-link" href="detail-rooms.html"></a>-->
-<!--                <div class="card-img-overlay-bottom z-index-20">-->
-<!--                  <div class="d-flex text-white text-sm align-items-center">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="card-img-overlay-top text-end"></div>-->
-<!--              </div>-->
-<!--              <div class="card-body d-flex align-items-center">-->
-<!--                <div class="w-100">-->
-<!--                  <h6 class="card-title" th:text="|${show.showName} |"><a class="text-decoration-none text-dark" href="detail-rooms.html"></a></h6>-->
-<!--                  <div class="d-flex card-subtitle mb-3">-->
-<!--                    <p class="flex-grow-1 mb-0 text-muted text-sm" th:text="|${show.showStartDate} ~ ${show.showEndDate} |"></p>-->
-<!--                  </div>-->
-<!--                  <p class="card-text text-muted" th:text="|${show.facilityName} |"></p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-
-        <!-- place item-->
-
-              <!-- place item-->
-
-              <!-- place item-->
-
-
-            </div>
-
-
-          </div>
-        </section>
-  
-      </div>
-    </section>
-  
     
+    <section class="py-6 bg-gray-100">
+      <div class="container">
+        <h2 class="h4 mb-5">Contact form</h2>
+        <div class="row">
+          <div class="col-md-7 mb-5 mb-md-0">
+            <form class="form" id="contact-form" method="post" action="friends">
+              <div class="controls">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="mb-4">
+                      <label class="form-label" for="title">제목을 입력하세요.</label>
+                      <input class="form-control" type="text" name="title" id="title" placeholder="제목" th:value="${friendReview.title}">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="mb-4">
+                  <label class="form-label" for="content">내용을 입력하세요.</label>
+                  <textarea class="form-control" rows="9" name="name" id="content" placeholder="내용" th:value="${friendReview.content}"></textarea>
+                  <input type="hidden" id="user" th:value="${userEmail}">
+                  <p type="text" th:text="${userEmail}"></p>
+                </div>
+              <button th:if="${friendReview.id} != null" type="submit" id="modify-btn" class="btn btn-primary btn-sm">수정</button>
+              <button th:if="${friendReview.id} == null" type="submit" id="create-btn" class="btn btn-primary btn-sm">등록</button>
+
+            </form>
+          </div>
+        </div>  
+      </div>
+    </section>
+  
     <!-- Footer-->
     <footer class="position-relative z-index-10 d-print-none">
       <!-- Main block - menus, subscribe form-->
@@ -335,7 +283,7 @@
               <h6 class="text-uppercase text-dark mb-3">Rentals</h6>
               <ul class="list-unstyled">
                 <li><a class="text-muted" href="index.html">Rooms</a></li>
-                <li><a class="text-muted" href="category-rooms.html">Map on top</a></li>
+                <li><a class="text-muted" href="category-rooms.htmddressl">Map on top</a></li>
                 <li><a class="text-muted" href="category-2-rooms.html">Side map</a></li>
                 <li><a class="text-muted" href="category-3-rooms.html">No map</a></li>
                 <li><a class="text-muted" href="detail-rooms.html">Room detail</a></li>
@@ -370,11 +318,11 @@
               <p class="text-sm mb-md-0">&copy; 2021, Your company.  All rights reserved.</p>
             </div>
             <div class="col-md-6">
-<!--              <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">-->
-<!--                <li class="list-inline-item"><img class="w-2rem" src="img/visa.svg" alt="..."></li>-->
-<!--                <li class="list-inline-item"><img class="w-2rem" src="img/mastercard.svg" alt="..."></li>-->
-<!--                <li class="list-inline-item"><img class="w-2rem" src="img/paypal.svg" alt="..."></li>-->
-<!--                <li class="list-inline-item"><img class="w-2rem" src="img/western-union.svg" alt="..."></li>-->
+              <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">
+                <li class="list-inline-item"><img class="w-2rem" src="img/visa.svg" alt="..."></li>
+                <li class="list-inline-item"><img class="w-2rem" src="img/mastercard.svg" alt="..."></li>
+                <li class="list-inline-item"><img class="w-2rem" src="img/paypal.svg" alt="..."></li>
+                <li class="list-inline-item"><img class="w-2rem" src="img/western-union.svg" alt="..."></li>
               </ul>
             </div>
           </div>
@@ -423,19 +371,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
     <script>var basePath = ''</script>
     <!-- Main Theme JS file    -->
-    <script src="/resources/static/js/theme.js"></script>
+    <script src="js/theme.js"></script>
     <!-- Map-->
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     <!-- Available tile layers-->
-    <script src="/resources/static/js/map-layers.js"> </script>
-    <script src="/resources/static/js/map-category.js">                               </script>
+    <script src="js/map-layers.js"> </script>
+    <script src="js/map-detail.js"></script>
+    <script src="/js/friend.js"></script>
     <script>
-      createListingsMap({
-          mapId: 'categoryMap',
-          jsonFile: 'js/rooms-geojson.json',
-          mapPopupType: 'rental',
-          useTextIcon: true
-      });        
+      createDetailMap({
+          mapId: 'detailMap',
+          mapCenter: [40.732346, -74.0014247],
+          markerShow: true,
+          markerPosition: [40.732346, -74.0014247],
+          markerPath: 'img/marker.svg',
+      })
     </script>
   </body>
 </html>
