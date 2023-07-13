@@ -1,5 +1,7 @@
+
+<!--                     모든 페이지에 복사  시작                             -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <style>
 <!--nav {-->
 <!--  background-image: url('/img/mainphoto.jpg');-->
@@ -88,140 +90,84 @@
                 <div class="dropdown-menu" aria-labelledby="homeDropdownMenuLink"><a class="dropdown-item" href="index.html">Rooms</a><a class="dropdown-item" href="index-2.html">Restaurants</a><a class="dropdown-item" href="index-3.html">Travel</a><a class="dropdown-item" href="index-4.html">Real Estate <span class="badge badge-info-light ms-1 mt-n1">New</span></a></div>
               </li>
               <!-- Megamenu-->
-              <li class="nav-item dropdown position-static"><a class="nav-link" href="#"> 연극 </a>
+              <li class="nav-item dropdown position-static"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> 연극 </a>
                 <div class="dropdown-menu megamenu py-lg-0">
                   <div class="row">
                     <div class="col-lg-9">
                       <div class="row p-3 pe-lg-0 ps-lg-5 pt-lg-5">
                         <div class="col-lg-3">
 
-                          <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Homepage</h6>
-                          <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="index.html">Rooms   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-2.html">Restaurants   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-3.html">Travel   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-4.html">Real estate <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                          </ul>
-                          <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Restaurants</h6>
-                          <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category.html">Category - Map on the top   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-2.html">Category - Map on the right   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-3.html">Category - no map   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="detail.html">Restaurant detail   </a></li>
-                          </ul>
+                          <h5 class="text-uppercase"><a class="megamenu-list-link" href="/showList">연극 전체 목록</a></h5>
+
                         </div>
                         <div class="col-lg-3">
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Rooms</h6>
+                          <h5 class="text-uppercase">서울 지역별</h5>
+                          <!-- Megamenu list-->
+                          <h6 class="text-uppercase">서울 1</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-rooms.html">Category - Map on the top   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-2-rooms.html">Category - Map on the right   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-3-rooms.html">Category - no map   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="detail-rooms.html">Room detail   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강남구">강남구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강동구">강동구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강북구">강북구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강서구">강서구   </a></li>
                           </ul>
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Blog</h6>
+                          <h6 class="text-uppercase">서울 2</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="blog.html">Blog   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="post.html">Post   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/관악구">관악구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/광진구">광진구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/구로구">구로구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/금천구">금천구   </a></li>
                           </ul>
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Pages</h6>
-                          <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="compare.html">Comparison   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="team.html">Team   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="contact.html">Contact   </a></li>
-                          </ul>
+
+                          <!-- Megamenu list-->
                         </div>
                         <div class="col-lg-3">
-                          <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Pages</h6>
+                          <h5 class="text-uppercase">&nbsp; </h5>
+
+                          <h6 class="text-uppercase">서울 3</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="pricing.html">Pricing   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="text.html">Text page   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="faq.html">F.A.Q.s   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="coming-soon.html">Coming soon   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="404.html">404 page   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="knowledge-base.html">Knowledge Base  <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="knowledge-base-topic.html">Knowledge Base  &mdash; Topic<span class="badge badge-info-light ms-1">New</span>   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="terms.html">Terms & Conditions  <span class="badge badge-info-light ms-1">New</span>   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/노원구">노원구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/도봉구">도봉구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/동대문구">동대문구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/동작구">동작구   </a></li>
                           </ul>
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Host</h6>
+                          <h6 class="text-uppercase">서울 4</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-add-0.html">Add new listing - 6 pages   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-list.html">Bookings &mdash; list view   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/마포구">마포구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/서대문구">서대문구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/서초구">서초구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/성동구">성동구   </a></li>
                           </ul>
+                          <!-- Megamenu list-->
+
                         </div>
                         <div class="col-lg-3">
+
+                          <h5 class="text-uppercase">&nbsp; </h5>
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">User</h6>
+                          <h6 class="text-uppercase">서울 5</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-profile.html">Profile   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-account.html">Account   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-personal.html">Personal info - forms   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-security.html">Password & security - forms   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="login.html">Sign in   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="signup.html">Sign up   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-booking-1.html">Booking process - 4 pages   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-grid.html">Bookings &mdash; grid view   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-booking-detail.html">Booking detail   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="../../../../../../../Users/KOSA/Documents/카카오톡%20받은%20파일/user-invoice.html">Invoice  <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-messages.html">Messages <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-messages-detail.html">Message Detail  <span class="badge badge-info-light ms-1">New</span>   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/성북구">성북구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/송파구">송파구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/양천구">양천구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/영등포구">영등포구   </a></li>
                           </ul>
-                        </div>
-                      </div>
-                      <div class="row megamenu-services d-none d-lg-flex ps-lg-5">
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="megamenu-services-item">
-                            <svg class="svg-icon megamenu-services-icon">
-                              <use xlink:href="#destination-map-1"> </use>
-                            </svg>
-                            <div>
-                              <h6 class="text-uppercase">Best rentals</h6>
-                              <p class="mb-0 text-muted text-sm">Find the perfect place</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="megamenu-services-item">
-                            <svg class="svg-icon megamenu-services-icon">
-                              <use xlink:href="#money-box-1"> </use>
-                            </svg>
-                            <div>
-                              <h6 class="text-uppercase">Earn points</h6>
-                              <p class="mb-0 text-muted text-sm">And get great rewards</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="megamenu-services-item">
-                            <svg class="svg-icon megamenu-services-icon">
-                              <use xlink:href="#customer-support-1"> </use>
-                            </svg>
-                            <div>
-                              <h6 class="text-uppercase">020-800-456-747</h6>
-                              <p class="mb-0 text-muted text-sm">24/7 Available Support</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="megamenu-services-item">
-                            <svg class="svg-icon megamenu-services-icon">
-                              <use xlink:href="#secure-payment-1"> </use>
-                            </svg>
-                            <div>
-                              <h6 class="text-uppercase">Secure Payment</h6>
-                              <p class="mb-0 text-muted text-sm">Secure Payment</p>
-                            </div>
-                          </div>
+
+                          <h6 class="text-uppercase">서울 6</h6>
+                          <ul class="megamenu-list list-unstyled">
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/용산구">용산구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/은평구">은평구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/종로구">종로구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/중구">중구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/중랑구">중랑구   </a></li>
+                          </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-3 d-none d-lg-block position-relative"><img class="bg-image" src="img/photo/photo-1521170665346-3f21e2291d8b.jpg" alt=""></div>
+                    <div class="col-lg-3 d-none d-lg-block position-relative"><img class="bg-image" src="/bootstrap-5/html/img/mainphoto.jpg" alt=""></div>
                   </div>
                 </div>
               </li>
@@ -237,13 +183,13 @@
                 </div>
               </li>
               <li class="nav-item dropdown ms-lg-3"><a id="userDropdownMenuLink" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                <img class="avatar avatar-sm avatar-border-white me-2" src="/img/user.png" alt="User"></a>
+                <img class="avatar avatar-sm avatar-border-white me-2" src="/bootstrap-5/html/img/user.png" alt="User"></a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMenuLink">
                   <!-- <a class="dropdown-item" href="user-booking-1.html">Booking process - 4 pages </a>
                   <a class="dropdown-item" href="user-grid.html">Bookings &mdash; grid view </a>
                   <a class="dropdown-item" href="user-booking-detail.html">Booking detail </a> -->
                   <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html">
-                    <i class="fas fa-sign-out-alt me-2 text-muted"></i> Sign out</a>
+                    <i class="fas fa-sign-out-alt me-2 text-muted"></i> logout </a>
                 </div>
               </li>
             </ul>
@@ -252,8 +198,8 @@
       </nav>
       <!-- /Navbar -->
     </header>
-<!--                    //////////////////////                   헤더 끝                        //////////////////////////////            -->    <header class="header">
-
+<!--                    //////////////////////                   헤더 끝                        //////////////////////////////            -->
+  <!--                                                           모든 페이지에 복사  끝, 밑에 footer도 복사해야 함                             -->
 
 
 
@@ -280,7 +226,7 @@
         <div class="card border-0 shadow shadow-print-0">
           <div class="card-header bg-gray-100 p-5 border-0 px-print-0">
             <div class="row">
-              <div class="col-6 d-flex align-items-center"><img src="/bootstrap-5/html/img/logo_O.png" width="250" alt="Directory"></div>
+              <div class="col-6 d-flex align-items-center"><img src="/bootstrap-5/html/img/logo_O.png" width="100" alt="Directory"></div>
               <div class="col-6 text-end">
                 <h3 class="mb-0">
         <!-- 오늘 날짜 -->
@@ -291,7 +237,8 @@
                     </script>
                     </div>
                 </h3>
-                <p class="mb-0"> Book List </p>
+                <h6> &nbsp; </h6>
+                <h2 class="mb-0"> Book List </h2>
               </div>
             </div>
           </div>
@@ -319,17 +266,17 @@
                     /// 유저 이메일
                   </div> -->
                 </div>
-                <div class="row">
-                  <div class="col-6 text-uppercase text-muted"> ToDay </div>
-                  <div class="col-6 text-end">
-                    <div>
-                      <script>
-                      date = new Date().toLocaleDateString();
-                      document.write(date);
-                      </script>
-                      </div>
-                  </div>
-                </div>
+<!--                <div class="row">-->
+<!--                  <div class="col-6 text-uppercase text-muted"> ToDay </div>-->
+<!--                  <div class="col-6 text-end">-->
+<!--                    <div>-->
+<!--                      <script>-->
+<!--                      date = new Date().toLocaleDateString();-->
+<!--                      document.write(date);-->
+<!--                      </script>-->
+<!--                      </div>-->
+<!--                  </div>-->
+<!--                </div>-->
                 <!-- <div class="row">
                   <div class="col-6 text-uppercase text-muted">Payment method</div>
                   <div class="col-6 text-end">Bank transfer</div>
@@ -353,8 +300,8 @@
                     <th class="center">#</th>
                     <th> 공연명 </th>
                     <th> 공연 장소 </th>
-                    <th class="text-end"> 예매자 성명 </th>
-                    <th class="center"> 티켓 </th>
+                    <th class="text-end"> 예매자</th>
+                    <th class="text-end"> 티켓 </th>
                     <th class="text-end"> 티켓 가격 </th>
                   </tr>
                 </thead>
@@ -364,7 +311,7 @@
                     <td class="fw-bold">Room Rental Services</td>
                     <td>August</td>
                     <td class="text-end">$958.00</td>
-                    <td class="text-center">1</td>
+                    <td class="text-end">1</td>
                     <td class="text-end">$958.00</td>
                   </tr>
                   <tr>
@@ -372,7 +319,7 @@
                     <td class="fw-bold">Premium Listing</td>
                     <td>London</td>
                     <td class="text-end">$100.00</td>
-                    <td class="text-center">1</td>
+                    <td class="text-end">1</td>
                     <td class="text-end">$100.00</td>
                   </tr>
                 </tbody>
@@ -411,7 +358,7 @@
 
 
 
-
+<!--                                                           모든 페이지에 복사  시작 2                             -->
 <!--                           ////////////////////////                           Footer   시잣                      ////////////////////////////////           -->
     <footer class="position-relative z-index-10 d-print-none">
       <!-- Main block - menus, subscribe form-->
@@ -537,3 +484,5 @@
     <script src="/bootstrap-5/html/js/theme.js"></script>
   </body>
 </html>
+
+<!--                                                           모든 페이지에 복사  끝 2                            -->
