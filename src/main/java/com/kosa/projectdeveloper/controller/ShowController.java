@@ -1,8 +1,11 @@
 package com.kosa.projectdeveloper.controller;
 
 
+import com.kosa.projectdeveloper.Api.Api;
 import com.kosa.projectdeveloper.domain.Show;
+import com.kosa.projectdeveloper.domain.ShowRank;
 import com.kosa.projectdeveloper.dto.BookListViewResponse;
+import com.kosa.projectdeveloper.repository.ShowRankRepository;
 import com.kosa.projectdeveloper.repository.ShowRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,16 +19,22 @@ import java.util.List;
 public class ShowController {
 
     private final ShowRepository showRepository;
+    private final ShowRankRepository showRankRepository;
 
     @GetMapping("/test12")
     public String test12(Model model){
 
         List<Show> shows = showRepository.findAll();
 
+        List<ShowRank> showRanks = showRankRepository.findAll();
+
         model.addAttribute("shows", shows);
+        model.addAttribute("showRanks", showRanks);
+
 
         return "Show";
     }
+
 
 
 }

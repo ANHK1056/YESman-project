@@ -232,8 +232,8 @@
       <div class="col-lg-8">
         <!-- About Listing-->
         <div class="text-block">
-          <h3 class="mb-3" th:text="${showDetail.showName}" ></h3>
-          <img class="figure-img img-fluid w-80" th:src="${showDetail.poster}" alt="Example blog post alt.">
+          <h3 class="mb-3" th:text="${showDetails[0].showName}" ></h3>
+          <img class="figure-img img-fluid w-80 h-180" th:src="${showDetails[0].poster}"  alt="Example blog post alt.">
         </div>
         <div class="text-block">
           <!-- Listing Location-->
@@ -243,7 +243,7 @@
           <!-- Gallery-->
           <h3 class="mb-4">상세 사진</h3>
           <div class="row gallery ms-n1 me-n7">
-            <div class="col-lg-12 col-6 px-1 mb-2"><img class="img-fluid" th:src="${showDetail.showImage1}" alt="..."></div>
+            <div class="col-lg-12 col-6 px-1 mb-2"><img class="img-fluid" th:src="${showDetails[0].showImage1}" alt="..."></div>
 <!--            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1466978913421-dad2ebd01d17.jpg"><img class="img-fluid" th:src="${showDetails[0].show_image1}" alt="..."></a></div>-->
 <!--            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/photo/restaurant-1477763858572-cda7deaa9bc5.jpg"><img class="img-fluid" th:src="${showDetails[0].show_image1}" alt="..."></a></div>-->
 <!--            <div class="col-lg-4 col-6 px-1 mb-2"><a href="img/phEWSoto/restaurant-1505275350441-83dcda8eeef5.jpg"><img class="img-fluid" th:src="${showDetails[0].show_image1}" alt="..."></a></div>-->
@@ -272,7 +272,7 @@
               <table class="table text-sm mb-0">
                 <tr>
                   <td class="ps-0"><strong>공연 기간</strong></td>
-                  <td class="pe-0 text-end" ></td>
+                  <td class="pe-0 text-end" th:text="|${showDetails[0].showStartDate} ~ ${showDetails[0].showEndDate} |" ></td>
                 <tr>
                   <td class="ps-0 border-0"><strong>관람 연령</strong></td>
                   <td class="pe-0 text-end border-0" th:text="${showDetails[0].facilityName}" ><strong></strong></td>
