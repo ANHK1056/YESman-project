@@ -36,7 +36,7 @@ public class ShowRankApiController {
     private static Api api = new Api();
 
 
-    @GetMapping("/getShowRank")
+    @GetMapping("/api/getShowRank")
     public String getRank(Model model) {
         // TODO: 2023-07-12 showRank에서 show 테이블, showLocation 테이블에 추가 코드 작성 필요 
         List<String> rankIdList = new ArrayList<>();

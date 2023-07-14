@@ -3,15 +3,16 @@ const deleteButton = document.getElementById('delete-btn');
 
 if (deleteButton) {
     deleteButton.addEventListener('click', event => {
-        let id = document.getElementById('user-id').value;
+        let params = new URLSearchParams(location.search);
+        let id = params.get('id');
         function success() {
             alert('삭제가 완료되었습니다.');
-            location.replace('/user');
+            location.replace('/');
         }
 
         function fail() {
             alert('삭제 실패했습니다.');
-            location.replace('/user');
+            location.replace('/user-personal?id={id}{id=${users.userId}');
         }
 
         httpRequest('DELETE',`/api/user/${id}`, null, success, fail);
@@ -27,23 +28,27 @@ if (modifyButton) {
         let id = params.get('id');
 
         body = JSON.stringify({
-            userPhNm: document.getElementById('userPhNm').value
+            userPhNm: document.getElementById('userPhNm').value,
             userPw: document.getElementById('userPw').value
         })
 
         function success() {
             alert('수정 완료되었습니다.');
-            location.replace(`/user/${id}`);
+            location.replace(`/user-personal?id={id}{id=${users.userId}`);
         }
 
         function fail() {
             alert('수정 실패했습니다.');
-            location.replace(`/user/${id}`);
+            location.replace(`/user-personal?id={id}{id=${users.userId}`);
         }
 
         httpRequest('PUT',`/api/user/${id}`, body, success, fail);
     });
 }
+
+
+
+
 // 쿠키를 가져오는 함수
 function getCookie(key) {
     var result = null;

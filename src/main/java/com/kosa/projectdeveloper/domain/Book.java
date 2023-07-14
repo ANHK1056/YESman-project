@@ -29,6 +29,7 @@ public class Book {
     @Column(nullable = false)
     private LocalDateTime bookDate;
 
+
     // TODO: 2023-07-05 타입 확인 필요
     @Column(nullable = false)
     private String showDate;
@@ -37,19 +38,15 @@ public class Book {
     @Column(nullable = false)
     private String seat;
 
+//    @ManyToOne(cascade = CascadeType.ALL)
     @ManyToOne
-    @JoinColumn(name = "USER_ID", nullable = false)
+    @JoinColumn(name = "USER_ID")
     private User user;
 
-
-//    @OneToOne(mappedBy = "book")
-//    private ShowReview showReview;
-//    private List<ShowReview> showReviews = new ArrayList<>();
-
+//    @ManyToOne(cascade = CascadeType.ALL)
     @ManyToOne
-    @JoinColumn(name = "SHOW_ID", nullable = false)
+    @JoinColumn(name = "SHOW_ID")
     private Show show;
-
 
     @Builder
     public Book(User user, Show show, String seat, String showDate) {

@@ -27,10 +27,6 @@ import java.util.List;
 @RestController
 public class UserApiController {
 
-    // TODO: 2023-07-07 로그인 폼 구성 시 수정
-
-
-
     private final UserService userService;
 
     @PostMapping("/api/user")
@@ -41,17 +37,17 @@ public class UserApiController {
                 .body(savedUser);
     }
 
-    @GetMapping("/api/user")
-    public ResponseEntity<List<UserResponse>> findAllUsers() {
-        List<UserResponse> users = userService.findAll()
-                .stream()
-                .map(UserResponse::new)
-                .toList();
-
-        return ResponseEntity.ok()
-                .body(users);
-
-    }
+//    @GetMapping("/api/user")
+//    public ResponseEntity<List<UserResponse>> findAllUsers() {
+//        List<UserResponse> users = userService.findAll()
+//                .stream()
+//                .map(UserResponse::new)
+//                .toList();
+//
+//        return ResponseEntity.ok()
+//                .body(users);
+//
+//    }
     @GetMapping("/api/user/{id}")
     public ResponseEntity<UserResponse> findUser(@PathVariable Long id){
         User user = userService.findByUserId(id);
@@ -77,28 +73,10 @@ public class UserApiController {
     }
 
 
-    // TODO: 2023-07-09 테스트 후 주석 해제
-    @GetMapping("/api/logout")
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
-        new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-        return "redirect:/login";
-    }
 
 
-    // TODO: 2023-07-09 테스트 후 주석 해제
-//    @GetMapping("/api/logout")
-//    public String logout(HttpServletRequest request, HttpServletResponse response) {
-//        new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-//        return "redirect:/login";
-//    }
-//    @PostMapping("/updateUser")
-//    public ResponseEntity<User> updateUser(@RequestBody AddUserRequest request, Principal principal){
-//        User savedUser = userService.save(request,request.getUserBirth(),request.getUserGender(),request.getUserPhNm(),
-//                request.getUserAddress());
-//        return ResponseEntity.status(HttpStatus.CREATED)
-//                .body(savedUser);
-//
-//    }
+
+
 }
 
 

@@ -3,6 +3,7 @@ package com.kosa.projectdeveloper.config.oauth;
 import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
@@ -27,6 +28,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
 
     // ❷ 유저가 있으면 업데이트, 없으면 유저 생성
     private User saveOrUpdate(OAuth2User oAuth2User) {
+        BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
         Map<String, Object> attributes = oAuth2User.getAttributes();
 
         String email = (String) attributes.get("email");
@@ -38,7 +40,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
                         .userEmail(email)
                         .userName(name)
                         .userPhNm("수정 필요")
-                        .userPw("****")
+                        .userPw(encoder.encode("0000"))
                         .build());
 
         return userRepository.save(user);

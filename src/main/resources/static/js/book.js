@@ -25,18 +25,20 @@ if (createButton) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                userId: document.getElementById("userId").value,
-                showId: document.getElementById("showId").value,
-                bookMail : document.getElementById("bookMail").value,
-                bookDay : document.getElementById("bookDay").value,
-                bookTime : document.getElementById("bookTime").value,
-                bookPay : document.getElementById("bookPay").value,
-                seatPosition : document.getElementById("seatPosition").value,
-                showLocation : document.getElementById("showLocation").value
+                userEmail: document.getElementById("user").value,
+                showId: document.getElementById("show").value,
+//                user.userId : document.getElementById("userId").value,
+//                show.showId : document.getElementById("showId").value,
+                showDate : document.getElementById("showDate").value,
+                seat : document.getElementById("seat").value
             })
         })
             .then(() => {
-                alert('등록 완료되었습니다.');
+                alert('등록 완료되었습니다.' + document.getElementById("user").value + ", " + document.getElementById("show").value);
+                location.replace('/books');
+            })
+            .catch(() => {
+                alert('등록 실패');
                 location.replace('/books');
             });
     });

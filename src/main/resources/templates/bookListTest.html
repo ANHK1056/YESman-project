@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>예매 목록 페이지</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+    <h1 class="mb-3">예매 목록</h1>
+</div>
+
+<button type="button" class="btn btn-secondary" onclick="location.href='/logout'">로그아웃</button>
+
+<button type="button" class="btn btn-primary" id="create-btn" onclick="location.href='/new-book'">예매</button>
+
+<div class="container">
+    <div class="row-6" th:each="item : ${books}">
+        <div class="card">
+            <table>
+                <tr>
+                    <td class="card-header" th:text="|예매 번호: ${item.bookId} |"></td>
+                    <td class="card-title" th:text="|연극명 : ${item.show.showId}|"></td>
+                    <td class="card-text" th:text="|공연일 : ${item.showDate}|"></td>
+                    <td class="card-text" th:text="|좌석 : ${item.seat}|"></td>
+                    <td><a th:href="@{/books/{bookId}(bookId=${item.bookId})}" class="btn btn-primary">보러가기</a></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+    </div>
+</div>
+
+<!--<script src="/js/token.js"></script>-->
+<script src="/js/book.js"></script>
+</body>
