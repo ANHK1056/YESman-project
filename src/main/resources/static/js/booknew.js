@@ -9,7 +9,8 @@ if (deleteButton) {
         })
             .then(() => {
                 alert('삭제가 완료되었습니다.');
-                location.replace('/books');
+                location.replace('/users/userBookList');
+
             });
     });
 }
@@ -19,7 +20,7 @@ const createButton = document.getElementById('create-btn');
 
 if (createButton) {
     createButton.addEventListener('click', event => {
-        fetch('/api/books', {
+        fetch('/api/users/userBookList', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -34,12 +35,14 @@ if (createButton) {
             })
         })
             .then(() => {
-                alert('등록 완료되었습니다.' + document.getElementById("user").value + ", " + document.getElementById("show").value);
-                location.replace('/books');
+                alert('등록 완료되었습니다.');
+                location.replace('/users/userBookList');
+
             })
             .catch(() => {
                 alert('등록 실패');
-                location.replace('/books');
+                location.replace('/users/userBookList');
+
             });
     });
 }

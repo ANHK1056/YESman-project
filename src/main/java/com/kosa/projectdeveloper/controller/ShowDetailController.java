@@ -58,4 +58,30 @@ public class ShowDetailController {
         return "ShowDetail";
     }
 
+    @GetMapping("/showList/show/{show_id}")
+    public String getShowDetail(Model model, @PathVariable String show_id){
+
+        List<ShowDetail> detailListist = new ArrayList<ShowDetail>();
+
+        ShowDetail showDetail;
+
+        try {
+            showDetail = showDetailRepository.findById(show_id).get();
+        }
+        catch (Exception e) {
+            detailListist = api.ShowDetailAPI(detailListist, show_id);
+            showDetail = detailListist.get(0);
+        }
+
+//        detailListist = api.ShowDetailAPI(detailListist, show_id);
+//
+//        showDetail = detailListist.get(0);
+
+//        showDetailRepository.save(showDetail);
+
+        model.addAttribute("showDetail", showDetail);
+
+        return "ShowDetail";
+    }
+
 }
