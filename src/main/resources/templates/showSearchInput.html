@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>검색 진행 페이지</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+  <h1 class="mb-3">검색 진행</h1>
+</div>
+
+<div class="container">
+  <div class="row-6" >
+    <div class="card">
+      <table>
+        <tr>
+          <td class="card-header">
+            <select id="selectRange">
+              <option id="showName" value="showName">showName</option>
+              <option id="actorName" value="actorName">actorName</option>
+              <option id="locationAddress" value="locationAddress">locationAddress</option>
+            </select>
+          </td>
+          <td class="card-header"><input class="keyword" type="text" id="searchWord"></td>
+          <td class="card-title"><button class="btn btn-primary" type="button" id="search-btn"></button></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+  </div>
+</div>
+
+<script src="/js/search.js"></script>
+</body>

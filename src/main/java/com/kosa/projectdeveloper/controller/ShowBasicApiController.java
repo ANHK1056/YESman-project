@@ -24,7 +24,7 @@ public class ShowBasicApiController {
 
     private static ShowBasicApi showBasicApi = new ShowBasicApi();
 
-    @GetMapping("/getShowBasic")
+    @GetMapping("/api/getShowBasic")
     public String getLocation(Model model) {
         List<Show> showList = new ArrayList<>();
         List<ShowDetail> detailList = new ArrayList<>();

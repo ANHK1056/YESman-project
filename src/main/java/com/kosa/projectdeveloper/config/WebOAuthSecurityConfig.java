@@ -38,8 +38,8 @@ public class WebOAuthSecurityConfig {
         return (web) -> web.ignoring()
                 // TODO: 2023-07-12 aws 데이터베이스 사용시 주석 해제 
                .requestMatchers(toH2Console())
-                .requestMatchers("/img/**", "/css/**", "/js/**");
-//                .requestMatchers("/**");
+               .requestMatchers("/img/**", "/css/**", "/js/**");
+//             .requestMatchers("/**");
     }
 
     @Bean
