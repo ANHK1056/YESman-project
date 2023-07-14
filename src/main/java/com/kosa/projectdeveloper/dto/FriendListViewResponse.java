@@ -15,6 +15,8 @@ public class FriendListViewResponse {
     private final String content;
     private final LocalDateTime createdAt;
 
+    private String userEmail;
+
     public FriendListViewResponse(FriendReview friendReview) {
         this.id = friendReview.getId();
         this.user = friendReview.getUser();

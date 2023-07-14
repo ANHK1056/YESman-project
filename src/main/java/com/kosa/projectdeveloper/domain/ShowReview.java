@@ -70,7 +70,7 @@ public class ShowReview {
 
     // 기본 생성자
     @Builder
-    public ShowReview(Long reviewId, String reviewTitle, String reviewContent, Book book) {
+    public ShowReview(String reviewTitle, String reviewContent, Book book) {
         this.reviewTitle = reviewTitle;
         this.reviewContent = reviewContent;
         this.book = book;

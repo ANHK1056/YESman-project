@@ -26,7 +26,7 @@ public class BookApiController {
     private final BookRepository bookRepository;
 
     // 예매 추가 기능
-    @PostMapping("/api/books")
+    @PostMapping("/api/users/userBookList")
     public ResponseEntity<Book> addBook(@RequestBody AddBookRequest request){
         System.out.println("checkUser : " + request.getUserEmail());
 
@@ -41,16 +41,13 @@ public class BookApiController {
 
         bookRepository.save(savedBook);
 
-//        Book savedBook = bookService.save(request);
-
-
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedBook);
 
     }
 
     // 모든 예매 조회 기능
-    @GetMapping("/api/books")
+    @GetMapping("/api/users/userBookList")
     public ResponseEntity<List<ReadBookResponse>> findAllbooks() {
         List<ReadBookResponse> books = bookService.findAllBooks()
                 .stream()
@@ -62,7 +59,7 @@ public class BookApiController {
     }
 
     // 한 개의 예매 조회 기능
-    @GetMapping("/api/books/{bookId}")
+    @GetMapping("/api/users/userBookList/{bookId}")
     public ResponseEntity<ReadBookResponse> findBook(@PathVariable long bookId){
         Book book = bookService.findByBookId(bookId);
 
@@ -71,7 +68,7 @@ public class BookApiController {
     }
 
     // 예매 취소 기능
-    @DeleteMapping("/api/books/{bookId}")
+    @DeleteMapping("/api/users/userBookList/{bookId}")
     public ResponseEntity<ReadBookResponse> deleteBook(@PathVariable long bookId){
         bookService.deleteByBookId(bookId);
 

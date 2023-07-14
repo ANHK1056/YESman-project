@@ -20,6 +20,9 @@ public class BookListViewResponse {
     private User user;
     private Show show;
 
+    private String userEmail;
+    private String showId;
+
     public BookListViewResponse(Book book) {
         this.bookId = book.getBookId();
         this.show = book.getShow();

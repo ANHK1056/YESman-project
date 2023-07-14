@@ -13,10 +13,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 public class FriendReviewAddResponse {
+
+    private User user;
     private String title;
     private String content;
-    private LocalDateTime createdAt;
-    private User user;
+//    private LocalDateTime createdAt;
 
     private String userEmail;
 
@@ -24,8 +25,8 @@ public class FriendReviewAddResponse {
         return FriendReview.builder()
                 .title(title)
                 .content(content)
-//                .createdAt(createdAt)
                 .user(user)
+//                .createdAt(createdAt)
                 .build();
 
     }

@@ -19,6 +19,9 @@ public class ReadBookResponse {
     private User user;
     private Show show;
 
+    private String userEmail;
+    private String showId;
+
     public ReadBookResponse(Book book){
         this.bookId = book.getBookId();
         this.show = book.getShow();

@@ -46,11 +46,15 @@ public class ShowSearchController {
         if (range.equals("actorName")){
             showDetailList = showDetailRepository.findByShowActorContaining(searchWord);
 
+            range = "배우명";
+
             for (int i = 0 ; i < showDetailList.size(); i++){
                 showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
             }
         } else if (range.equals("showName")) {
             showDetailList = showDetailRepository.findByShowNameContaining(searchWord);
+
+            range = "연극명";
 
             for (int i = 0 ; i < showDetailList.size(); i++){
                 showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
@@ -67,6 +71,8 @@ public class ShowSearchController {
             showDetailList.addAll(showDetailRepository.findByShowNameContaining(searchWord));
 
             showDetailList.addAll(showDetailRepository.findByFacilityNameContaining(searchWord));
+
+            range = "통합 검색";
 
             for (int i = 0 ; i < showDetailList.size(); i++){
                 showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));

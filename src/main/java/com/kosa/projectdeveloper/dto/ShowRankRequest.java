@@ -14,6 +14,9 @@ public class ShowRankRequest {
     private String rankId;
     private ShowDetail showDetail;
 
+    private String userEmail;
+    private String showId;
+
     public ShowRank toEntity(){
         return ShowRank.builder()
                 .rankId(rankId)

@@ -14,7 +14,7 @@ import java.util.List;
 public class BookListViewController {
     private final BookService bookService;
 
-    @GetMapping("/books")
+    @GetMapping("/users/userBookList")
     public String getBooks(Model model){
         List<BookListViewResponse> books = bookService.findAllBooks()
                 .stream()
@@ -24,5 +24,17 @@ public class BookListViewController {
         model.addAttribute("books", books);
 
         return "BookList";
+    }
+
+    @GetMapping("/books")
+    public String getBooksTest(Model model){
+        List<BookListViewResponse> books = bookService.findAllBooks()
+                .stream()
+                .map(BookListViewResponse::new)
+                .toList();
+
+        model.addAttribute("books", books);
+
+        return "BookListTest";
     }
 }

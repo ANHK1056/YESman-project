@@ -2,15 +2,6 @@
 <!--                     모든 페이지에 복사  시작                             -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
-<style>
-<!--nav {-->
-<!--  background-image: url('/img/mainphoto.jpg');-->
-<!--  background-repeat: no-repeat;-->
-<!--  background-attachment: fixed;-->
-<!--  background-size: 100% 100%;-->
-<!--}-->
-</style>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -174,10 +165,6 @@
               </li>
 
               <!-- /Megamenu end-->
-
-
-              <li class="nav-item"><a class="nav-link" href="contact.html"> 관람후기 </a>
-              </li>
               <li class="nav-item dropdown"><a class="nav-link" id="docsDropdownMenuLink" href="index.html" aria-haspopup="true" aria-expanded="false"> 수박 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
                   <h6 class="dropdown-header fw-normal">Documentation</h6><a class="dropdown-item" href="docs/docs-introduction.html">Introduction </a><a class="dropdown-item" href="docs/docs-directory-structure.html">Directory structure </a><a class="dropdown-item" href="docs/docs-gulp.html">Gulp </a><a class="dropdown-item" href="docs/docs-customizing-css.html">Customizing CSS </a><a class="dropdown-item" href="docs/docs-credits.html">Credits </a><a class="dropdown-item" href="docs/docs-changelog.html">Changelog </a>
@@ -191,16 +178,12 @@
                   <!-- <a class="dropdown-item" href="user-booking-1.html">Booking process - 4 pages </a>
                   <a class="dropdown-item" href="user-grid.html">Bookings &mdash; grid view </a>
                   <a class="dropdown-item" href="user-booking-detail.html">Booking detail </a> -->
-
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt me-2 text-muted"></i> 로그아웃 </a>
                   <a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt me-2 text-muted"></i> 예매목록 </a>
                   <a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt me-2 text-muted"></i> 후기목록 </a>
                   <a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt me-2 text-muted"></i> 친목목록 </a>
                   <a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt me-2 text-muted"></i> 관심목록 </a>
-
-                  <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html">
-                    <i class="fas fa-sign-out-alt me-2 text-muted"></i> logout </a>
                 </div>
               </li>
             </ul>
@@ -213,16 +196,13 @@
   <!--                                                           모든 페이지에 복사  끝, 밑에 footer도 복사해야 함                             -->
 
 
-
-
-
     <section class="py-5 p-print-0">
       <div class="container">
         <div class="row mb-4 d-print-none">
           <div class="col-lg-6">
             <!-- Breadcrumbs -->
             <ol class="breadcrumb ps-0  justify-content-start">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item"><a href="user-account.html">Account</a></li>
               <li class="breadcrumb-item active"> Book List   </li>
             </ol>
@@ -250,10 +230,10 @@
                 </h3>
                 <h6> &nbsp; </h6>
                 <h2 class="mb-0"> Book List </h2>
+<!--                <button type="button" class="btn btn-primary" id="create-btn" onclick="location.href='/new-book'">예매</button>-->
               </div>
             </div>
           </div>
-
 
 <!-- 예매 목록 이 들어간다면 여기요..! -->
           <div class="card-body p-5 p-print-0">
@@ -311,28 +291,35 @@
                     <th class="center">#</th>
                     <th> 공연명 </th>
                     <th> 공연 장소 </th>
-                    <th class="text-end"> 예매자</th>
-                    <th class="text-end"> 티켓 </th>
-                    <th class="text-end"> 티켓 가격 </th>
+                    <th> 링크 </th>
+<!--                    <th class="text-end"> 예매자</th>-->
+<!--                    <th class="text-end"> 좌석 </th>-->
+<!--                    <th class="text-end"> 티켓 가격 </th>-->
                   </tr>
                 </thead>
-                <tbody>
+                <tbody th:each="item : ${books}">
                   <tr>
-                    <td class="text-center">1</td>
-                    <td class="fw-bold">Room Rental Services</td>
-                    <td>August</td>
-                    <td class="text-end">$958.00</td>
-                    <td class="text-end">1</td>
-                    <td class="text-end">$958.00</td>
+                    <td class="card-header" th:text="|예매 번호: ${item.bookId} |"></td>
+                    <td class="card-title" th:text="|연극명 : ${item.show.showId}|"></td>
+                    <td class="card-title" th:text="|연극명 : ${item.show.facilityName}|"></td>
+<!--                    <td class="card-text" th:text="|공연일 : ${item.showDate}|"></td>-->
+<!--                    <td class="card-text" th:text="|좌석 : ${item.seat}|"></td>-->
+                    <td><a th:href="@{/users/userBookList/{bookId}(bookId=${item.bookId})}" class="btn btn-primary">보러가기</a></td>
+<!--                    <td class="text-center">1</td>-->
+<!--                    <td class="fw-bold">Room Rental Services</td>-->
+<!--                    <td>August</td>-->
+<!--                    <td class="text-end">$958.00</td>-->
+<!--                    <td class="text-end">1</td>-->
+<!--                    <td class="text-end">$958.00</td>-->
                   </tr>
-                  <tr>
-                    <td class="text-center">2</td>
-                    <td class="fw-bold">Premium Listing</td>
-                    <td>London</td>
-                    <td class="text-end">$100.00</td>
-                    <td class="text-end">1</td>
-                    <td class="text-end">$100.00</td>
-                  </tr>
+<!--                  <tr>-->
+<!--                    <td class="text-center">2</td>-->
+<!--                    <td class="fw-bold">Premium Listing</td>-->
+<!--                    <td>London</td>-->
+<!--                    <td class="text-end">$100.00</td>-->
+<!--                    <td class="text-end">1</td>-->
+<!--                    <td class="text-end">$100.00</td>-->
+<!--                  </tr>-->
                 </tbody>
               </table>
             </div>

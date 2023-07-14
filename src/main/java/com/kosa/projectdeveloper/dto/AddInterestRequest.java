@@ -13,6 +13,8 @@ public class AddInterestRequest {
     private String actorName;
     private User user;
 
+    private String userEmail;
+
     public Interest toEntity() {
         return Interest.builder()
                 .actorName(actorName)

@@ -15,4 +15,6 @@ public class UpdateUserReuest {
     private String userPhNm;
     private String userAddress;
 
+    private String userEmail;
+
 }

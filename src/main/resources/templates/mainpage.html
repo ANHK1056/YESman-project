@@ -52,20 +52,20 @@
   <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white" >
     <div class="container-fluid">
       <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="index.html"><img src="/bootstrap-5/html/img/logo_OUTERPARK24.png" alt="Directory logo" width="200"></a>
-<!--        <div>-->
-<!--          <select id="selectRange">-->
-<!--            <option id="searchAll" value="searchAll">통합검색</option>-->
-<!--            <option id="showName" value="showName">연극명</option>-->
-<!--            <option id="actorName" value="actorName">배우명</option>-->
-<!--            <option id="locationAddress" value="locationAddress">장소</option>-->
-<!--          </select>-->
-<!--        </div>-->
-<!--        <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3">-->
-<!--          <label class="label-absolute" for="searchWord"><i class="fa fa-search"></i>-->
-<!--            <span class="sr-only">What are you looking for?</span>-->
-<!--          </label>-->
-<!--          <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchWord" onkeyup="enterkey();" placeholder="Search" aria-label="Search" type="search">-->
-<!--        </div>-->
+        <div>
+          <select id="selectRange">
+            <option id="searchAll" value="searchAll">통합검색</option>
+            <option id="showName" value="showName">연극명</option>
+            <option id="actorName" value="actorName">배우명</option>
+            <option id="locationAddress" value="locationAddress">장소</option>
+          </select>
+        </div>
+        <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3">
+          <label class="label-absolute" for="searchWord"><i class="fa fa-search"></i>
+            <span class="sr-only">What are you looking for?</span>
+          </label>
+          <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchWord" onkeyup="enterkey();" placeholder="Search" aria-label="Search" type="search">
+        </div>
       </div>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
       <!-- Navbar Collapse -->
@@ -210,62 +210,243 @@
           <h1 class="display-3 fw-bold text-shadow">OUTERPARK 24</h1>
         </div>
         <div class="search-bar mt-5 p-3 p-lg-1 ps-lg-4">
-<!--          <form action="#">-->
-<!--            <div class="row">-->
-<!--              <div class="col-lg-4 d-flex align-items-center form-group">-->
-<!--                <input class="form-control border-0 shadow-0" type="text"  placeholder="What are you searching for?">-->
-<!--              </div>-->
-<!--              <div class="col-lg-3 d-flex align-items-center form-group">-->
-<!--                <div class="input-label-absolute input-label-absolute-right w-100">-->
-<!--                  <label class="label-absolute" for="searchWord"><i class="fa fa-crosshairs"></i><span class="sr-only">City</span></label>-->
-<!--                  <input class="form-control border-0 shadow-0" type="text"  placeholder="" id="searchWord" onkeyup="enterkey();">-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-lg-3 d-flex align-items-center form-group no-divider">-->
-<!--                <select class="selectRange" title="Categories" data-style="btn-form-control">-->
-<!--                  <option id="searchAll" value="searchAll">통합검색</option>-->
-<!--                  <option id="showName" value="showName">연극명</option>-->
-<!--                  <option id="actorName" value="actorName">배우명</option>-->
-<!--                  <option id="locationAddress" value="locationAddress">장소</option>-->
-<!--                </select>-->
-<!--&lt;!&ndash;                <select id="selectRange">&ndash;&gt;&ndash;&gt;-->
-<!--                  &lt;!&ndash;            <option id="searchAll" value="searchAll">통합검색</option>&ndash;&gt;-->
-<!--                  &lt;!&ndash;            <option id="showName" value="showName">연극명</option>&ndash;&gt;-->
-<!--                  &lt;!&ndash;            <option id="actorName" value="actorName">배우명</option>&ndash;&gt;-->
-<!--                  &lt;!&ndash;            <option id="locationAddress" value="locationAddress">장소</option>&ndash;&gt;-->
-<!--                  &lt;!&ndash;          </select>&ndash;&gt;-->
-<!--              </div>-->
-<!--              <div class="col-lg-2 d-grid">-->
-<!--                <button class="btn btn-primary rounded-pill h-100" type="submit">Search </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </form>-->
-          <table>
-            <td>
-              <div>
-              <select id="selectRange">
-                <option id="searchAll" value="searchAll">통합검색</option>
-                <option id="showName" value="showName">연극명</option>
-                <option id="actorName" value="actorName">배우명</option>
-                <option id="locationAddress" value="locationAddress">장소</option>
-              </select>
+          <form action="#">
+            <div class="row">
+              <div class="col-lg-4 d-flex align-items-center form-group">
+                <input class="form-control border-0 shadow-0" type="text" name="search" placeholder="What are you searching for?">
+              </div>
+              <div class="col-lg-3 d-flex align-items-center form-group">
+                <div class="input-label-absolute input-label-absolute-right w-100">
+                  <label class="label-absolute" for="location"><i class="fa fa-crosshairs"></i><span class="sr-only">City</span></label>
+                  <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="" id="location">
+                </div>
+              </div>
+              <div class="col-lg-3 d-flex align-items-center form-group no-divider">
+                <select class="selectpicker" title="Categories" data-style="btn-form-control">
+                  <option value="small">Restaurants</option>
+                  <option value="medium">Hotels</option>
+                  <option value="large">Cafes</option>
+                  <option value="x-large">Garages</option>
+                </select>
+              </div>
+              <div class="col-lg-2 d-grid">
+                <button class="btn btn-primary rounded-pill h-100" type="submit">Search </button>
+              </div>
             </div>
-            </td>
-                  <td>
-                    <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3">
-                      <label class="label-absolute" for="searchWord"><i class="fa fa-search"></i>
-                        <span class="sr-only">What are you looking for?</span>
-                      </label>
-                      <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchWord" onkeyup="enterkey();" placeholder="Search" aria-label="Search" type="search">
-                    </div>
-                  </td>
-
-            </table>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<section class="py-6 bg-gray-100">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <p class="subtitle text-secondary">Let's Go SHOW</p>
+        <h2>Show THEATER</h2>
+      </div>
+      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" th:href="@{/showList}">
+        더보기<i class="fas fa-angle-double-right ms-2"></i></a></div>
+    </div>
+    <div class="row" th:if="${shows.size() > 0}">
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{showId}(showId=${shows[0].showId})}"><img class="img-fluid card-img-top" th:src="${shows[0].poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[0].showGenre} |" ></a>
+            <h5 class="my-2" th:text="|${shows[0].showName} |"><a class="text-dark" href="post.html"> </a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="|${shows[0].showStartDate} ~ ${shows[0].showEndDate} |" ><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{showId}(showId=${shows[1].showId})}"><img class="img-fluid card-img-top" th:src="${shows[1].poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[1].showGenre} |" ></a>
+            <h5 class="my-2" th:text="|${shows[1].showName} |" ><a class="text-dark" href="post.html"> </a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="|${shows[1].showStartDate} ~ ${shows[1].showEndDate} |" ><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+
+        <div class="card shadow border-0 h-100"><a th:href="@{/shows/{showId}(showId=${shows[2].showId})}"><img class="img-fluid card-img-top" th:src="${shows[2].poster}" alt="..."/></a>
+          <!--<div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:src="${shows[2].poster}" alt="..."/></a>-->
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${shows[2].showGenre} |" ></a>
+            <h5 class="my-2" th:text="|${shows[2].showName} |"  ><a class="text-dark" href="post.html"> </a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="|${shows[2].showStartDate} ~ ${shows[2].showEndDate} |" ><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-6 bg-gray-100">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <p class="subtitle text-secondary">LET'S GO BLOG</p>
+        <h2>Show Blog</h2>
+      </div>
+      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="blog.html">
+        더보기<i class="fas fa-angle-double-right ms-2"></i></a></div>
+    </div>
+    <div class="row">
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Travel </a>
+            <h5 class="my-2"><a class="text-dark" href="post.html">Autumn fashion tips and tricks          </a></h5>
+            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
+            <p class="my-2 text-muted text-sm">Pellentesque habitant morbi tristique senectus. Vestibulum tortor quam, feugiat vitae, ultricies ege...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Living </a>
+            <h5 class="my-2"><a class="text-dark" href="post.html">Newest photo apps          </a></h5>
+            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
+            <p class="my-2 text-muted text-sm">ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibu...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="img/photo/photo-1482463084673-98272196658a.jpg" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Travel </a>
+            <h5 class="my-2"><a class="text-dark" href="post.html">Best books about Photography          </a></h5>
+            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
+            <p class="my-2 text-muted text-sm">Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.  Mauris placerat eleif...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-6 bg-gray-100">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <p class="subtitle text-secondary">LET'S GO Comunication</p>
+        <h2>Show Comunication</h2>
+      </div>
+      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="blog.html">
+        더보기<i class="fas fa-angle-double-right ms-2"></i></a></div>
+    </div>
+    <div class="row">
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Travel </a>
+            <h5 class="my-2"><a class="text-dark" href="post.html">Autumn fashion tips and tricks          </a></h5>
+            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
+            <p class="my-2 text-muted text-sm">Pellentesque habitant morbi tristique senectus. Vestibulum tortor quam, feugiat vitae, ultricies ege...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Living </a>
+            <h5 class="my-2"><a class="text-dark" href="post.html">Newest photo apps          </a></h5>
+            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
+            <p class="my-2 text-muted text-sm">ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibu...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="/img/photo/photo-1482463084673-98272196658a.jpg" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Travel </a>
+            <h5 class="my-2"><a class="text-dark" href="post.html">Best books about Photography          </a></h5>
+            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
+            <p class="my-2 text-muted text-sm">Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.  Mauris placerat eleif...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-6 bg-gray-100">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <p class="subtitle text-secondary">LES'S GO RANK</p>
+        <h2>Show Rank</h2>
+      </div>
+      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="blog.html">
+        더보기<i class="fas fa-angle-double-right ms-2"></i></a></div>
+    </div>
+    <div class="row" >
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[0].showDetail.poster}" alt="..."/></a>
+
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${showRanks[0].showDetail.showGenre} |"></a>
+            <h5 class="my-2 " th:text="|${showRanks[0].showDetail.showName} |"><a class="text-dark" href="post.html"> </a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[1].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[1].showDetail.showGenre} |"> </a>
+            <h5 class="my-2" th:text="|${showRanks[1].showDetail.showName} |"><a class="text-dark" href="post.html">       </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[2].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[2].showDetail.showGenre} |"> </a>
+            <h5 class="my-2" th:text="|${showRanks[2].showDetail.showName} |"><a class="text-dark" href="post.html">          </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[3].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[3].showDetail.showGenre} |"></a>
+            <h5 class="my-2" th:text="|${showRanks[3].showDetail.showName} |"><a class="text-dark" href="post.html">     </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[4].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[4].showDetail.showGenre} |"> </a>
+            <h5 class="my-2" th:text="|${showRanks[4].showDetail.showName} |"><a class="text-dark" href="post.html">         </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[5].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[5].showDetail.showGenre} |"></a>
+            <h5 class="my-2" th:text="|${showRanks[5].showDetail.showName} |"><a class="text-dark" href="post.html">        </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <!--                                                           모든 페이지에 복사  시작 2                             -->

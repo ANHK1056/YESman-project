@@ -15,6 +15,8 @@ public class ShowRequest {
     private String showGenre;
     private String showState;
 
+    private String userEmail;
+
 
     public ShowRequest(String showId, String showName, String showStartDate, String showEndDate,
                 String facilityId, String showHall, String showGenre, String showState) {

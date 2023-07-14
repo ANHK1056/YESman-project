@@ -13,4 +13,6 @@ public class UpdateUserRequest {
     private String userPhNm;
     private String userPw;
 
+    private String userEmail;
+
 }
