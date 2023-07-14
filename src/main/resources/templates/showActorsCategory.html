@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>연극 배우 카테고리 분류 페이지</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+  <h1 class="mb-3">연극 배우 카테고리 분류</h1>
+</div>
+
+<div class="container">
+  <p th:if="${shows.size() > 0}" th:text="|${shows[0].showId} ${shows[0].showName} ${shows[0].showGenre}|"></p>
+  <div class="row-6" th:each="item : ${shows}" th:if="${shows.size() > 0}">
+    <div class="card">
+      <table>
+        <tr>
+          <td class="card-header" th:text="|연극명 : ${item.showName} |"></td>
+          <td class="card-title" th:text="|시작일 : ${item.showStartDate}|"></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+  </div>
+</div>
+</body>

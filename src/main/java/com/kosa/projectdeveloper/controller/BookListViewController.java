@@ -23,6 +23,6 @@ public class BookListViewController {
 
         model.addAttribute("books", books);
 
-        return "bookList";
+        return "BookList";
     }
 }

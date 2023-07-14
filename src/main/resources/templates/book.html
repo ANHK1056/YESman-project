@@ -17,17 +17,13 @@
                 <input type="hidden" id="book-id" th:value="${book.bookId}">
                 <header class="mb-4">
                     <h1 class="fw-bolder mb-1" th:text="${book.bookId}"></h1>
-                    <div class="text-muted fst-italic mb-2" th:text="|예매 시간 : ${#temporals.format(book.createdAt, 'yyyy-MM-dd HH:mm')}|"></div>
+                    <div class="text-muted fst-italic mb-2" th:text="|예매 시간 : ${#temporals.format(book.bookDate, 'yyyy-MM-dd HH:mm')}|"></div>
                 </header>
                 <section class="mb-5">
-                    <p class="card-text" th:text="|예매자 : ${book.userId}|"></p>
-                    <p class="card-title" th:text="|연극명 : ${book.showId}|"></p>
-                    <p class="card-text" th:text="|공연일 : ${book.bookDay}|"></p>
-                    <p class="card-text" th:text="|공연시간 : ${book.bookTime}|"></p>
-                    <p class="card-text" th:text="|좌석 : ${book.seatPosition}|"></p>
-                    <p class="card-text" th:text="|공연장소 : ${book.showLocation}|"></p>
-                    <p class="card-text" th:text="|표가격 : ${book.bookPay}|"></p>
-                    <p class="card-text" th:text="|예매메일 : ${book.bookMail}|"></p>
+                    <p class="card-text" th:text="|예매자 : ${book.user.userId}|"></p>
+                    <p class="card-title" th:text="|연극명 : ${book.show.showId}|"></p>
+                    <p class="card-text" th:text="|공연일 : ${book.bookDate}|"></p>
+                    <p class="card-text" th:text="|좌석 : ${book.seat}|"></p>
                 </section>
 
                 <a th:href="@{/books}" class="btn btn-primary">목록으로</a>
