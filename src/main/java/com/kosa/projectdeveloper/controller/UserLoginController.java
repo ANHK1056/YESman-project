@@ -6,13 +6,14 @@ import com.kosa.projectdeveloper.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.security.Principal;
+
 
 @RequiredArgsConstructor
 @Controller
@@ -41,10 +42,5 @@ public class UserLoginController {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
         return "/";
     }
-    @GetMapping("/loginUrl")
-    public String getUserId(Principal principal){
-        String email = principal.getName();
-        Long userId =userService.findByUserEmail(email).getUserId();
-        return "loginHome"+"/"+userId;
-    }
+
 }

@@ -215,7 +215,7 @@
               </div>
               <div class="col-9 col-lg-4 align-self-center mb-3 mb-lg-0">
                 <div class="d-flex align-items-center mb-1 mb-lg-3">
-<!--                  <h2 class="h5 mb-0" </h2th:text="${friendsList[0].title}" th:if="${friendsList.size() > 0}">>-->
+<!--                  <h2 class="h5 mb-0" th:text="${friendsList[0].title}" th:if="${friendsList.size() > 0}"></h2>-->
                   <h2 class="h5 mb-0" th:text="${friends.title}" ></h2>
                 </div>
                 <p class="text-sm text-muted"></p><span class="badge badge-pill p-2 badge-secondary-light" th:text="${friends.createdAt}"></span><a class="stretched-link" th:href="@{/friends/{id}(id=${friends.id})}"></a>

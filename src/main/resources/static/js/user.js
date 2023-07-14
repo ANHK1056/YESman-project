@@ -34,12 +34,12 @@ if (modifyButton) {
 
         function success() {
             alert('수정 완료되었습니다.');
-            location.replace(`/user-personal?id={id}{id=${users.userId}`);
+            location.replace(`/user-account/id={id}{id=${users.userId}`);
         }
 
         function fail() {
             alert('수정 실패했습니다.');
-            location.replace(`/user-personal?id={id}{id=${users.userId}`);
+            location.replace(`/user-account/{id}{id=${users.userId}`);
         }
 
         httpRequest('PUT',`/api/user/${id}`, body, success, fail);

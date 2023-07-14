@@ -38,7 +38,7 @@ public class Api {
         urlBuffer.append("&" + "cpage=" + pageNo);
         urlBuffer.append("&" + "stdate=" + "20230101");
         urlBuffer.append("&" + "eddate=" + "20230630");
-        urlBuffer.append("&" + "rows=" + "14");
+        urlBuffer.append("&" + "rows=" + "20");
         urlBuffer.append("&" + "shcate=" + "AAAA");
 
         System.out.println("urlBuffer: " + urlBuffer);
