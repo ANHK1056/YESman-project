@@ -51,6 +51,20 @@ public class ShowController {
         model.addAttribute("showRanks", showRanks);
 
 
+        return "ShowList";
+    }
+
+    @GetMapping("/main")
+    public String goToHome(Model model){
+
+        List<Show> shows = showRepository.findAll();
+
+        List<ShowRank> showRanks = showRankRepository.findAll();
+
+        model.addAttribute("shows", shows);
+        model.addAttribute("showRanks", showRanks);
+
+
         return "index";
     }
 
