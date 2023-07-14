@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
+//@Repository
 public interface FriendRepository extends JpaRepository<FriendReview, Long> {
 
    Optional<FriendReview> findById(long id);

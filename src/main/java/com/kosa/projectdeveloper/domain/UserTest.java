@@ -34,7 +34,8 @@ public class UserTest {
     private String userPhNm;
 
 
-//    // ShowReview 랑 Join 위해 넣었어요..!
+
+    // ShowReview 랑 Join 위해 넣었어요..!
 //    @OneToMany(mappedBy = "review_Id")
 //    private List<ShowReview> showReviews = new ArrayList<>();
 
