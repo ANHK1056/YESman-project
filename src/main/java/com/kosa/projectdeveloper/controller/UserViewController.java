@@ -64,7 +64,13 @@ public class UserViewController {
         return "signup";
     }
     @GetMapping("/user-account/{id}")
-    public String userAccount(){
+    public String userAccount(@PathVariable Long id, Model model){
+        if(id == null){
+            model.addAttribute("users", new UserViewResponse());
+        } else {
+            User user =userService.findByUserId(id);
+            model.addAttribute("users", new UserViewResponse(user));
+        }
         return "user-account";
     }
     @GetMapping("/user-personal")

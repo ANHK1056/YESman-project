@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +29,15 @@
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
+  <script>
+  function enterkey() {
+    if (window.event.keyCode == 13) {
+        let searchWord = document.getElementById('searchWord').value;
+        let selectRange = document.getElementById('selectRange').value;
+        location.href=`/showSearch?searchWord=${searchWord}&range=${selectRange}`;
+    }
+  }
+</script>
   <body style="padding-top: 72px;">
 
 
@@ -36,15 +45,23 @@
     <!--                           /////////////////                          헤더                          ///////////////////                                  -->
     <header class="header">
       <!-- Navbar-->
-      <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
+      <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white" >
         <div class="container-fluid">
           <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="index.html"><img src="/bootstrap-5/html/img/logo_OUTERPARK24.png" alt="Directory logo" width="200"></a>
-            <form class="form-inline d-none d-sm-flex" action="#" id="search">
-              <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3"> 
-                <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span class="sr-only">What are you looking for?</span></label>
-                <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search" placeholder="Search" aria-label="Search" type="search">
-              </div>
-            </form>
+            <div>
+              <select id="selectRange">
+                <option id="searchAll" value="searchAll">통합검색</option>
+                <option id="showName" value="showName">연극명</option>
+                <option id="actorName" value="actorName">배우명</option>
+                <option id="locationAddress" value="locationAddress">장소</option>
+              </select>
+            </div>
+            <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3">
+              <label class="label-absolute" for="searchWord"><i class="fa fa-search"></i>
+                <span class="sr-only">What are you looking for?</span>
+              </label>
+              <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchWord" onkeyup="enterkey();" placeholder="Search" aria-label="Search" type="search">
+            </div>
           </div>
           <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
           <!-- Navbar Collapse -->
@@ -56,145 +73,89 @@
               </div>
             </form>
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item dropdown"><a class="nav-link" href="index.html" aria-haspopup="true" aria-expanded="false">
-                   Home</a>
+              <li class="nav-item dropdown"><a class="nav-link" href="/loginHome/{id}(id=${users.userId})" aria-haspopup="true" aria-expanded="false">
+                Home</a>
                 <div class="dropdown-menu" aria-labelledby="homeDropdownMenuLink"><a class="dropdown-item" href="index.html">Rooms</a><a class="dropdown-item" href="index-2.html">Restaurants</a><a class="dropdown-item" href="index-3.html">Travel</a><a class="dropdown-item" href="index-4.html">Real Estate <span class="badge badge-info-light ms-1 mt-n1">New</span></a></div>
               </li>
               <!-- Megamenu-->
-              <li class="nav-item dropdown position-static"><a class="nav-link" href="#"> 연극 </a>
+              <li class="nav-item dropdown position-static"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> 연극 </a>
                 <div class="dropdown-menu megamenu py-lg-0">
                   <div class="row">
                     <div class="col-lg-9">
                       <div class="row p-3 pe-lg-0 ps-lg-5 pt-lg-5">
                         <div class="col-lg-3">
 
-                          <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Homepage</h6>
-                          <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="index.html">Rooms   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-2.html">Restaurants   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-3.html">Travel   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="index-4.html">Real estate <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                          </ul>
-                          <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Restaurants</h6>
-                          <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category.html">Category - Map on the top   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-2.html">Category - Map on the right   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-3.html">Category - no map   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="detail.html">Restaurant detail   </a></li>
-                          </ul>
+                          <h5 class="text-uppercase"><a class="megamenu-list-link" href="/showList">연극 전체 목록</a></h5>
+
                         </div>
                         <div class="col-lg-3">
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Rooms</h6>
+                          <h5 class="text-uppercase">서울 지역별</h5>
+                          <!-- Megamenu list-->
+                          <h6 class="text-uppercase">서울 1</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-rooms.html">Category - Map on the top   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-2-rooms.html">Category - Map on the right   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-3-rooms.html">Category - no map   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="detail-rooms.html">Room detail   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강남구">강남구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강동구">강동구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강북구">강북구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강서구">강서구   </a></li>
                           </ul>
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Blog</h6>
+                          <h6 class="text-uppercase">서울 2</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="blog.html">Blog   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="post.html">Post   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/관악구">관악구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/광진구">광진구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/구로구">구로구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/금천구">금천구   </a></li>
                           </ul>
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Pages</h6>
-                          <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="compare.html">Comparison   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="team.html">Team   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="contact.html">Contact   </a></li>
-                          </ul>
+
+                          <!-- Megamenu list-->
                         </div>
                         <div class="col-lg-3">
-                          <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Pages</h6>
+                          <h5 class="text-uppercase">&nbsp; </h5>
+
+                          <h6 class="text-uppercase">서울 3</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="pricing.html">Pricing   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="text.html">Text page   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="faq.html">F.A.Q.s   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="coming-soon.html">Coming soon   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="404.html">404 page   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="knowledge-base.html">Knowledge Base  <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="knowledge-base-topic.html">Knowledge Base  &mdash; Topic<span class="badge badge-info-light ms-1">New</span>   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="terms.html">Terms & Conditions  <span class="badge badge-info-light ms-1">New</span>   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/노원구">노원구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/도봉구">도봉구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/동대문구">동대문구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/동작구">동작구   </a></li>
                           </ul>
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">Host</h6>
+                          <h6 class="text-uppercase">서울 4</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-add-0.html">Add new listing - 6 pages   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-list.html">Bookings &mdash; list view   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/마포구">마포구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/서대문구">서대문구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/서초구">서초구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/성동구">성동구   </a></li>
                           </ul>
+                          <!-- Megamenu list-->
+
                         </div>
                         <div class="col-lg-3">
+
+                          <h5 class="text-uppercase">&nbsp; </h5>
                           <!-- Megamenu list-->
-                          <h6 class="text-uppercase">User</h6>
+                          <h6 class="text-uppercase">서울 5</h6>
                           <ul class="megamenu-list list-unstyled">
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-profile.html">Profile   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-account.html">Account   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-personal.html">Personal info - forms   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-security.html">Password & security - forms   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="login.html">Sign in   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="signup.html">Sign up   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-booking-1.html">Booking process - 4 pages   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-grid.html">Bookings &mdash; grid view   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-booking-detail.html">Booking detail   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-invoice.html">Invoice  <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-messages.html">Messages <span class="badge badge-info-light ms-1">New</span>   </a></li>
-                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-messages-detail.html">Message Detail  <span class="badge badge-info-light ms-1">New</span>   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/성북구">성북구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/송파구">송파구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/양천구">양천구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/영등포구">영등포구   </a></li>
                           </ul>
-                        </div>
-                      </div>
-                      <div class="row megamenu-services d-none d-lg-flex ps-lg-5">
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="megamenu-services-item">
-                            <svg class="svg-icon megamenu-services-icon">
-                              <use xlink:href="#destination-map-1"> </use>
-                            </svg>
-                            <div>
-                              <h6 class="text-uppercase">Best rentals</h6>
-                              <p class="mb-0 text-muted text-sm">Find the perfect place</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="megamenu-services-item">
-                            <svg class="svg-icon megamenu-services-icon">
-                              <use xlink:href="#money-box-1"> </use>
-                            </svg>
-                            <div>
-                              <h6 class="text-uppercase">Earn points</h6>
-                              <p class="mb-0 text-muted text-sm">And get great rewards</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="megamenu-services-item">
-                            <svg class="svg-icon megamenu-services-icon">
-                              <use xlink:href="#customer-support-1"> </use>
-                            </svg>
-                            <div>
-                              <h6 class="text-uppercase">020-800-456-747</h6>
-                              <p class="mb-0 text-muted text-sm">24/7 Available Support</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="megamenu-services-item">
-                            <svg class="svg-icon megamenu-services-icon">
-                              <use xlink:href="#secure-payment-1"> </use>
-                            </svg>
-                            <div>
-                              <h6 class="text-uppercase">Secure Payment</h6>
-                              <p class="mb-0 text-muted text-sm">Secure Payment</p>
-                            </div>
-                          </div>
+
+                          <h6 class="text-uppercase">서울 6</h6>
+                          <ul class="megamenu-list list-unstyled">
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/용산구">용산구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/은평구">은평구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/종로구">종로구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/중구">중구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/중랑구">중랑구   </a></li>
+                          </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-3 d-none d-lg-block position-relative"><img class="bg-image" src="./img/photo/photo-1521170665346-3f21e2291d8b.jpg" alt=""></div>
+                    <div class="col-lg-3 d-none d-lg-block position-relative"><img class="bg-image" src="/bootstrap-5/html/img/mainphoto.jpg" alt=""></div>
                   </div>
                 </div>
               </li>
@@ -204,19 +165,19 @@
               </li>
               <li class="nav-item dropdown"><a class="nav-link" id="docsDropdownMenuLink" href="index.html" aria-haspopup="true" aria-expanded="false"> 수박 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-                  <h6 class="dropdown-header fw-normal">Documentation</h6><a class="dropdown-item" href="/bootstrap-5/html/docs/docs-introduction.html">Introduction </a><a class="dropdown-item" href="./docs/docs-directory-structure.html">Directory structure </a><a class="dropdown-item" href="docs/docs-gulp.html">Gulp </a><a class="dropdown-item" href="docs/docs-customizing-css.html">Customizing CSS </a><a class="dropdown-item" href="docs/docs-credits.html">Credits </a><a class="dropdown-item" href="docs/docs-changelog.html">Changelog </a>
+                  <h6 class="dropdown-header fw-normal">Documentation</h6><a class="dropdown-item" href="/bootstrap-5/html/docs/docs-introduction.html">Introduction </a><a class="dropdown-item" href="docs/docs-directory-structure.html">Directory structure </a><a class="dropdown-item" href="docs/docs-gulp.html">Gulp </a><a class="dropdown-item" href="docs/docs-customizing-css.html">Customizing CSS </a><a class="dropdown-item" href="docs/docs-credits.html">Credits </a><a class="dropdown-item" href="docs/docs-changelog.html">Changelog </a>
                   <div class="dropdown-divider"></div>
-                  <h6 class="dropdown-header fw-normal">Components</h6><a class="dropdown-item" href="/bootstrap-5/html/docs/components-bootstrap.html">Bootstrap </a><a class="dropdown-item" href="./docs/components-directory.html">Theme </a>
+                  <h6 class="dropdown-header fw-normal">Components</h6><a class="dropdown-item" href="/bootstrap-5/html/docs/components-bootstrap.html">Bootstrap </a><a class="dropdown-item" href="docs/components-directory.html">Theme </a>
                 </div>
               </li>
-              <li class="nav-item dropdown ms-lg-3"><a id="userDropdownMenuLink" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+              <li class="nav-item dropdown ms-lg-3"><a id="userDropdownMenuLink" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="avatar avatar-sm avatar-border-white me-2" src="/bootstrap-5/html/img/user.png" alt="User"></a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMenuLink">
                   <!-- <a class="dropdown-item" href="user-booking-1.html">Booking process - 4 pages </a>
                   <a class="dropdown-item" href="user-grid.html">Bookings &mdash; grid view </a>
                   <a class="dropdown-item" href="user-booking-detail.html">Booking detail </a> -->
                   <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html">
-                    <i class="fas fa-sign-out-alt me-2 text-muted"></i> Sign out</a>
+                  <i class="fas fa-sign-out-alt me-2 text-muted"></i> logout </a>
                 </div>
               </li>
             </ul>
@@ -240,8 +201,8 @@
 
         <!-- Breadcrumbs  //////////////////////////////////   개인정보 부분 !!!!!!!!!!!   -->
         <ol class="breadcrumb ps-0  justify-content-start">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="user-account.html">Account</a></li>
+          <li class="breadcrumb-item"><a href="/loginHome/{id}(id=${users.userId})">Home</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/user-account/{id}(id=${users.userId})}">Account</a></li>
           <li class="breadcrumb-item active"> Personal info   </li>
         </ol>
         <h1 class="hero-heading mb-0"> 개인정보</h1>
@@ -267,7 +228,9 @@
                   <i class="fa fa-phone fa-fw me-2"></i><p class="text-sm text-muted"th:text="${users.userPhNm  }"></p></p>
               <div class="collapse" id="personalDetails">
                 <user>
+
                   <div class="row pt-4">
+                    <input type="hidden" id="user-id" th:value="${users.userId}">
                     <div class="mb-4 col-md-6">
                       <label class="form-label" for="userPw">Password</label>
                       <input class="form-control" type="password" name="email" id="userPw" >
@@ -279,7 +242,7 @@
 
                   </div>
                   <button th:if="${users.userId} != null" type="button" id="modify-btn" class="btn btn-primary btn-sm">수정</button>
-                  <button type="button" id="delete-btn" class="btn btn-primary btn-sm">삭제</button>
+                  <button type="button" id="delete-btn" class="btn btn-primary btn-sm">탈퇴</button>
                 </user>
               </div>
             </user>
@@ -295,7 +258,7 @@
     <!--                           ////////////////////////                           Footer   시잣                      ////////////////////////////////           -->
     <footer class="position-relative z-index-10 d-print-none">
       <!-- Main block - menus, subscribe form-->
-      <div class="py-6 bg-gray-200 text-muted"> 
+      <div class="py-6 bg-gray-200 text-muted">
         <div class="container">
           <div class="row">
             <div class="col-lg-4 mb-5 mb-lg-0">
