@@ -40,6 +40,7 @@ public class WebOAuthSecurityConfig {
                .requestMatchers(toH2Console())
                .requestMatchers("/img/**", "/css/**", "/js/**");
 //             .requestMatchers("/**");
+
     }
 
     @Bean

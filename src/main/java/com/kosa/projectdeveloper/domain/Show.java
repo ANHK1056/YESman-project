@@ -52,6 +52,8 @@ public class Show {
 //    private List<ShowReview> showReviews = new ArrayList<>();
 
 
+
+
     @Builder
     public Show(String showId, String showName,String showStartDate, String showEndDate,
                 String facilityName ,String showOpenRun, String poster, String showGenre, String showState) {

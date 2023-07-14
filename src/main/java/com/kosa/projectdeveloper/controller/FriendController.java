@@ -2,8 +2,10 @@ package com.kosa.projectdeveloper.controller;
 
 import com.kosa.projectdeveloper.domain.FriendReview;
 import com.kosa.projectdeveloper.domain.ShowReview;
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.dto.*;
 import com.kosa.projectdeveloper.repository.FriendRepository;
+import com.kosa.projectdeveloper.repository.UserRepository;
 import com.kosa.projectdeveloper.service.FriendService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,19 +13,39 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
 public class FriendController {
     private final FriendService friendService;
+    private final UserRepository userRepository;
+    private final FriendRepository friendRepository;
 
     @PostMapping("/api/friend")
     public ResponseEntity<FriendReview> addFriend(@RequestBody FriendReviewAddResponse friendReviewAddResponse) {
-        FriendReview saveFriendReview = friendService.save(friendReviewAddResponse);
+
+        System.out.println("UserEmail api : " + friendReviewAddResponse.getUserEmail());
+
+        User user = userRepository.findByUserEmail(friendReviewAddResponse.getUserEmail()).orElse(null);
+
+        System.out.println("UserEmail user : " + user.getUserEmail());
+
+        FriendReview friendReview = FriendReview.builder()
+                .user(user)
+                .title(friendReviewAddResponse.getTitle())
+                .content(friendReviewAddResponse.getContent())
+                .build();
+        FriendReview saveFriendReview = friendRepository.save(friendReview);
+
+        System.out.println("UserEmail friend : " + saveFriendReview.getUser().getUserEmail());
+//        FriendReview saveFriendReview = friendService.save(friendReviewAddResponse);
+
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(saveFriendReview);
     }
+
 
     @GetMapping("/api/friend")
     public ResponseEntity<List<FriendResponse>> friedResponse() {
@@ -65,6 +87,17 @@ public class FriendController {
                 .build();
     }
 
-}
+
+
+//    @PutMapping("/api/friend/{id}")
+//    public ResponseEntity<FriendReview> updateArticle(@PathVariable long id,
+//                                                 @RequestBody FriendUpdateRequest request) {
+//        FriendReview updatedFriend = .update(id, request);
+//
+//        return ResponseEntity.ok()
+//                .body(updatedFriend);
+    }
+
+
 
 

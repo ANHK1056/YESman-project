@@ -3,13 +3,14 @@ package com.kosa.projectdeveloper.controller;
 import com.kosa.projectdeveloper.domain.FriendReview;
 import com.kosa.projectdeveloper.dto.FriendListViewResponse;
 import com.kosa.projectdeveloper.dto.FriendViewResponse;
+import com.kosa.projectdeveloper.repository.FriendRepository;
 import com.kosa.projectdeveloper.service.FriendService;
+import com.kosa.projectdeveloper.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ import java.util.List;
 @Controller
 public class FriendViewController {
     private final FriendService friendService;
+    private final UserService userService;
+    private final FriendRepository friendRepository;
 
     @GetMapping("/friends")
     public String getFriends(Model model) {
@@ -24,9 +27,16 @@ public class FriendViewController {
                 .stream()
                 .map(FriendListViewResponse::new)
                 .toList();
-        model.addAttribute("friends", friends);
 
-        return "/friendsList";
+
+        List<FriendReview> friendReviewList = friendRepository.findAll();
+
+        System.out.println();
+
+        model.addAttribute("friends", friends);
+        model.addAttribute("friendsList", friendReviewList);
+
+        return "FriendView";
     }
 
     @GetMapping("/friends/{id}")
@@ -34,11 +44,16 @@ public class FriendViewController {
         FriendReview friendReview = friendService.findById(id);
         model.addAttribute("friendReview", new FriendViewResponse(friendReview));
 
-        return "friendReview";
+        return "text_userFriendList";
     }
 
     @GetMapping("/new-friend")
     public String newFriend(@RequestParam(required = false) Long id, Model model) {
+
+        String userEmail = userService.findAll().get(0).getUserEmail();
+
+        System.out.println("UserCheck new : " + userEmail);
+        System.out.println("id new : " + id);
         if (id == null) {
             model.addAttribute("friendReview", new FriendViewResponse());
         } else {
@@ -46,9 +61,12 @@ public class FriendViewController {
             model.addAttribute("friendReview", new FriendViewResponse(friendReview));
         }
 
-        return "newFriend";
+        model.addAttribute("userEmail", userEmail);
+
+        return "FriendViewList";
     }
 }
+
 
 
 

@@ -30,9 +30,9 @@ public class ApiController {
 
 
         list = api.ShowAPI(list, 1);
-//        for (int pageNo = 1; pageNo < 4; pageNo++) {
-//            list = api.ShowAPI(list, pageNo);
-//        }
+        for (int pageNo = 1; pageNo < 4; pageNo++) {
+            list = api.ShowAPI(list, pageNo);
+        }
 
 
         List<Show> result = showRepository.saveAll(list);
