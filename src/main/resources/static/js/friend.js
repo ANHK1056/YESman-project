@@ -3,8 +3,8 @@ const deleteButton = document.getElementById('delete-btn');
 
 if (deleteButton) {
     deleteButton.addEventListener('click', event => {
-        let id = document.getElementById('friend-id').value;
-        fetch(`/api/articles/${id}`, {
+        let id = document.getElementById("friend-id").value;
+        fetch(`/api/friend/{id}`, {
             method: 'DELETE'
         })
             .then(() => {

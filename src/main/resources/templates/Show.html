@@ -288,6 +288,80 @@
     </div>
   </div>
 </section>
+
+<section class="py-6 bg-gray-100">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-8">
+        <p class="subtitle text-secondary">LES'S GO RANK</p>
+        <h2>Show Rank</h2>
+      </div>
+      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" th:href="@{/showList}">
+        더보기<i class="fas fa-angle-double-right ms-2"></i></a></div>
+    </div>
+    <div class="row" >
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[0].showDetail.poster}" alt="..."/></a>
+
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${showRanks[0].showDetail.showGenre} |"></a>
+            <h5 class="my-2 " th:text="|${showRanks[0].showDetail.showName} |"><a class="text-dark" href="post.html"> </a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[1].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[1].showDetail.showGenre} |"> </a>
+            <h5 class="my-2" th:text="|${showRanks[1].showDetail.showName} |"><a class="text-dark" href="post.html">       </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- blog item-->
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[2].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[2].showDetail.showGenre} |"> </a>
+            <h5 class="my-2" th:text="|${showRanks[2].showDetail.showName} |"><a class="text-dark" href="post.html">          </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[3].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[3].showDetail.showGenre} |"></a>
+            <h5 class="my-2" th:text="|${showRanks[3].showDetail.showName} |"><a class="text-dark" href="post.html">     </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[4].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[4].showDetail.showGenre} |"> </a>
+            <h5 class="my-2" th:text="|${showRanks[4].showDetail.showName} |"><a class="text-dark" href="post.html">         </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[5].showDetail.poster}" alt="..."/></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[5].showDetail.showGenre} |"></a>
+            <h5 class="my-2" th:text="|${showRanks[5].showDetail.showName} |"><a class="text-dark" href="post.html">        </a></h5>
+            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
+            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="py-6 bg-gray-100">
   <div class="container">
     <div class="row mb-5">
@@ -295,7 +369,7 @@
         <p class="subtitle text-secondary">LET'S GO BLOG</p>
         <h2>Show Blog</h2>
       </div>
-      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="blog.html">
+      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" th:href="@{/}">
         더보기<i class="fas fa-angle-double-right ms-2"></i></a></div>
     </div>
     <div class="row">
@@ -339,123 +413,31 @@
         <p class="subtitle text-secondary">LET'S GO Comunication</p>
         <h2>Show Comunication</h2>
       </div>
-      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="blog.html">
+      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" th:href="@{/FriendView}">
         더보기<i class="fas fa-angle-double-right ms-2"></i></a></div>
     </div>
-    <div class="row">
+    <div class="row"   th:each="friends: ${friends}">
       <!-- blog item-->
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Travel </a>
-            <h5 class="my-2"><a class="text-dark" href="post.html">Autumn fashion tips and tricks          </a></h5>
-            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
-            <p class="my-2 text-muted text-sm">Pellentesque habitant morbi tristique senectus. Vestibulum tortor quam, feugiat vitae, ultricies ege...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- blog item-->
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Living </a>
-            <h5 class="my-2"><a class="text-dark" href="post.html">Newest photo apps          </a></h5>
-            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
-            <p class="my-2 text-muted text-sm">ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibu...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- blog item-->
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="/img/photo/photo-1482463084673-98272196658a.jpg" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">Travel </a>
-            <h5 class="my-2"><a class="text-dark" href="post.html">Best books about Photography          </a></h5>
-            <p class="text-gray-500 text-sm my-3"><i class="far fa-clock me-2"></i>January 16, 2016</p>
-            <p class="my-2 text-muted text-sm">Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.  Mauris placerat eleif...</p><a class="btn btn-link ps-0" href="post.html">Read more<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+      <div class="col-lg-4 col-sm-6 mb-4 hover-animate" >
+        <div class="card shadow border-0 h-100"><a th:href="@{/friends/{id}(id=${friendsList[0].id})}"></a>
+          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" th:href="@{/friends/{id}(id=${friendsList[0].id})}"> </a>
+            <h5 class="my-2"><a class="text-dark" href="post.html"  th:text="${friends.title}"  th:if="${friendsList.size() > 0}"></a></h5>
+            <p class="text-gray-500 text-sm my-3" th:text="${friends.createdAt}"><i class="far fa-clock me-2"></i></p>
+            <p class="my-2 text-muted text-sm" th:text="${friendsList[0].content}"  th:if="${friendsList.size() > 0}"></p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="py-6 bg-gray-100">
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col-md-8">
-        <p class="subtitle text-secondary">LES'S GO RANK</p>
-        <h2>Show Rank</h2>
-      </div>
-      <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="blog.html">
-        더보기<i class="fas fa-angle-double-right ms-2"></i></a></div>
-    </div>
-    <div class="row" >
-      <!-- blog item-->
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[0].showDetail.poster}" alt="..."/></a>
 
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#" th:text="|${showRanks[0].showDetail.showGenre} |"></a>
-            <h5 class="my-2 " th:text="|${showRanks[0].showDetail.showName} |"><a class="text-dark" href="post.html"> </a></h5>
-            <p class="text-gray-500 text-sm my-3" th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
-           <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- blog item-->
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[1].showDetail.poster}" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[1].showDetail.showGenre} |"> </a>
-            <h5 class="my-2" th:text="|${showRanks[1].showDetail.showName} |"><a class="text-dark" href="post.html">       </a></h5>
-            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
-           <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- blog item-->
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[2].showDetail.poster}" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[2].showDetail.showGenre} |"> </a>
-            <h5 class="my-2" th:text="|${showRanks[2].showDetail.showName} |"><a class="text-dark" href="post.html">          </a></h5>
-            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
-           <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[3].showDetail.poster}" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[3].showDetail.showGenre} |"></a>
-            <h5 class="my-2" th:text="|${showRanks[3].showDetail.showName} |"><a class="text-dark" href="post.html">     </a></h5>
-            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
-           <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[4].showDetail.poster}" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[4].showDetail.showGenre} |"> </a>
-            <h5 class="my-2" th:text="|${showRanks[4].showDetail.showName} |"><a class="text-dark" href="post.html">         </a></h5>
-            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
-         <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-        <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" th:if="${showRanks.size() > 0 }" th:src="${showRanks[5].showDetail.poster}" alt="..."/></a>
-          <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2" href="#"  th:text="|${showRanks[5].showDetail.showGenre} |"></a>
-            <h5 class="my-2" th:text="|${showRanks[5].showDetail.showName} |"><a class="text-dark" href="post.html">        </a></h5>
-            <p class="text-gray-500 text-sm my-3"  th:text="|${showRanks[0].showDetail.showStartDate} ~ ${showRanks[0].showDetail.showEndDate} |"><i class="far fa-clock me-2"></i></p>
-            <a class="btn btn-link ps-0" href="post.html">상세 정보<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="container">
-  <div class="row">
+
 <!-- Instagram-->
 
 
     <!--                                                           모든 페이지에 복사  시작 2                             -->
     <!--                           ////////////////////////                           Footer   시잣                      ////////////////////////////////           -->
-    <footer class="position-relative z-index-10 d-print-none">
+    <footer class="position-relative z-index-40 d-print-none">
       <!-- Main block - menus, subscribe form-->
       <div class="py-6 bg-gray-200 text-muted">
         <div class="container">
