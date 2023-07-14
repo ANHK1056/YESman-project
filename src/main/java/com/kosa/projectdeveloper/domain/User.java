@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,7 +32,8 @@ public class User implements UserDetails {
     @Column
     private String userName;
     //email 형식
-    @Column(nullable = false, unique = true)
+//    @Column(nullable = false, unique = true)
+    @Column
     private String userEmail;
     // only english
     @Column
@@ -44,23 +46,6 @@ public class User implements UserDetails {
 //    // ShowReview 랑 Join 위해 넣었어요..!
 //    @OneToMany(mappedBy = "review_Id")
 //    private List<ShowReview> showReviews = new ArrayList<>();
-
-//    @Column
-//    private boolean enabled;
-//
-//    @Column
-//    private String password;
-//
-//    @Column
-//    private boolean accountNonLocked;
-//
-//    @Column
-//    private boolean accountNonExpired;
-//
-//    @Column
-//    private boolean credentialsNonExpired;
-//
-////    "authorities":[{"authority":"user"}],
 
     @Builder
     public User(String userName, String userEmail,
@@ -115,9 +100,10 @@ public class User implements UserDetails {
 
     }
 
-    public User updatePhNm(String userPhNm,String userPw){
+    public User update(String userPhNm,String userPw){
+        BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
         this.userPhNm =userPhNm;
-        this.userPw=userPw;
+        this.userPw=encoder.encode(userPw);
         return this;
 
     }

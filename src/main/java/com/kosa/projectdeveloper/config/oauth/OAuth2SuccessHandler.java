@@ -26,7 +26,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     public static final Duration REFRESH_TOKEN_DURATION = Duration.ofDays(14);
     public static final Duration ACCESS_TOKEN_DURATION = Duration.ofDays(1);
 
-    public static final String REDIRECT_PATH = "/user";
+    public static final String REDIRECT_PATH = "/loginHome";
 
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
@@ -35,8 +35,12 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
-        OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
-        User user = userService.findByUserEmail((String) oAuth2User.getAttributes().get("email"));
+//        OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
+//        User user = userService.findByUserEmail((String) oAuth2User.getAttributes().get("email"));
+
+        String string =(String) authentication.getPrincipal().toString();
+        System.out.println(string.substring(string.indexOf("email=") + 6, string.indexOf(".com,") + 4));
+        User user = userService.findByUserEmail(string.substring(string.indexOf("email=") + 6, string.indexOf(".com,") + 4));
 
         String refreshToken = tokenProvider.generateToken(user, REFRESH_TOKEN_DURATION);
         saveRefreshToken(user.getUserId(), refreshToken);

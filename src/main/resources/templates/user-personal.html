@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> OUTERPARK 24 - 개인정보 수정 </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Price Slider Stylesheets -->
+    <link rel="stylesheet" href="/bootstrap-5/html/vendor/nouislider/nouislider.css">
+    <!-- Google fonts - Playfair Display-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
+    <!-- swiper-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+    <!-- Magnigic Popup-->
+    <link rel="stylesheet" href="/bootstrap-5/html/vendor/magnific-popup/magnific-popup.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/bootstrap-5/html/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/bootstrap-5/html/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/bootstrap-5/html/img/logo_O.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  </head>
+  <script>
+  function enterkey() {
+    if (window.event.keyCode == 13) {
+        let searchWord = document.getElementById('searchWord').value;
+        let selectRange = document.getElementById('selectRange').value;
+        location.href=`/showSearch?searchWord=${searchWord}&range=${selectRange}`;
+    }
+  }
+</script>
+  <body style="padding-top: 72px;">
+
+
+
+    <!--                           /////////////////                          헤더                          ///////////////////                                  -->
+    <header class="header">
+      <!-- Navbar-->
+      <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white" >
+        <div class="container-fluid">
+          <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="index.html"><img src="/bootstrap-5/html/img/logo_OUTERPARK24.png" alt="Directory logo" width="200"></a>
+            <div>
+              <select id="selectRange">
+                <option id="searchAll" value="searchAll">통합검색</option>
+                <option id="showName" value="showName">연극명</option>
+                <option id="actorName" value="actorName">배우명</option>
+                <option id="locationAddress" value="locationAddress">장소</option>
+              </select>
+            </div>
+            <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3">
+              <label class="label-absolute" for="searchWord"><i class="fa fa-search"></i>
+                <span class="sr-only">What are you looking for?</span>
+              </label>
+              <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchWord" onkeyup="enterkey();" placeholder="Search" aria-label="Search" type="search">
+            </div>
+          </div>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+          <!-- Navbar Collapse -->
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <form class="form-inline mt-4 mb-2 d-sm-none" action="#" id="searchcollapsed">
+              <div class="input-label-absolute input-label-absolute-left w-100">
+                <label class="label-absolute" for="searchcollapsed_search"><i class="fa fa-search"></i><span class="sr-only">What are you looking for?</span></label>
+                <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="searchcollapsed_search" placeholder="Search" aria-label="Search" type="search">
+              </div>
+            </form>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown"><a class="nav-link" href="/loginHome/{id}(id=${users.userId})" aria-haspopup="true" aria-expanded="false">
+                Home</a>
+                <div class="dropdown-menu" aria-labelledby="homeDropdownMenuLink"><a class="dropdown-item" href="index.html">Rooms</a><a class="dropdown-item" href="index-2.html">Restaurants</a><a class="dropdown-item" href="index-3.html">Travel</a><a class="dropdown-item" href="index-4.html">Real Estate <span class="badge badge-info-light ms-1 mt-n1">New</span></a></div>
+              </li>
+              <!-- Megamenu-->
+              <li class="nav-item dropdown position-static"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> 연극 </a>
+                <div class="dropdown-menu megamenu py-lg-0">
+                  <div class="row">
+                    <div class="col-lg-9">
+                      <div class="row p-3 pe-lg-0 ps-lg-5 pt-lg-5">
+                        <div class="col-lg-3">
+
+                          <h5 class="text-uppercase"><a class="megamenu-list-link" href="/showList">연극 전체 목록</a></h5>
+
+                        </div>
+                        <div class="col-lg-3">
+                          <!-- Megamenu list-->
+                          <h5 class="text-uppercase">서울 지역별</h5>
+                          <!-- Megamenu list-->
+                          <h6 class="text-uppercase">서울 1</h6>
+                          <ul class="megamenu-list list-unstyled">
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강남구">강남구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강동구">강동구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강북구">강북구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/강서구">강서구   </a></li>
+                          </ul>
+                          <!-- Megamenu list-->
+                          <h6 class="text-uppercase">서울 2</h6>
+                          <ul class="megamenu-list list-unstyled">
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/관악구">관악구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/광진구">광진구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/구로구">구로구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/금천구">금천구   </a></li>
+                          </ul>
+                          <!-- Megamenu list-->
+
+                          <!-- Megamenu list-->
+                        </div>
+                        <div class="col-lg-3">
+                          <h5 class="text-uppercase">&nbsp; </h5>
+
+                          <h6 class="text-uppercase">서울 3</h6>
+                          <ul class="megamenu-list list-unstyled">
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/노원구">노원구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/도봉구">도봉구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/동대문구">동대문구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/동작구">동작구   </a></li>
+                          </ul>
+                          <!-- Megamenu list-->
+                          <h6 class="text-uppercase">서울 4</h6>
+                          <ul class="megamenu-list list-unstyled">
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/마포구">마포구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/서대문구">서대문구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/서초구">서초구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/성동구">성동구   </a></li>
+                          </ul>
+                          <!-- Megamenu list-->
+
+                        </div>
+                        <div class="col-lg-3">
+
+                          <h5 class="text-uppercase">&nbsp; </h5>
+                          <!-- Megamenu list-->
+                          <h6 class="text-uppercase">서울 5</h6>
+                          <ul class="megamenu-list list-unstyled">
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/성북구">성북구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/송파구">송파구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/양천구">양천구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/영등포구">영등포구   </a></li>
+                          </ul>
+
+                          <h6 class="text-uppercase">서울 6</h6>
+                          <ul class="megamenu-list list-unstyled">
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/용산구">용산구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/은평구">은평구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/종로구">종로구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/중구">중구   </a></li>
+                            <li class="megamenu-list-item"><a class="megamenu-list-link" href="/showList/seoulLocations/중랑구">중랑구   </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 d-none d-lg-block position-relative"><img class="bg-image" src="/bootstrap-5/html/img/mainphoto.jpg" alt=""></div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- /Megamenu end-->
+              <li class="nav-item"><a class="nav-link" href="contact.html"> 관람후기 </a>
+              </li>
+              <li class="nav-item dropdown"><a class="nav-link" id="docsDropdownMenuLink" href="index.html" aria-haspopup="true" aria-expanded="false"> 수박 </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
+                  <h6 class="dropdown-header fw-normal">Documentation</h6><a class="dropdown-item" href="/bootstrap-5/html/docs/docs-introduction.html">Introduction </a><a class="dropdown-item" href="docs/docs-directory-structure.html">Directory structure </a><a class="dropdown-item" href="docs/docs-gulp.html">Gulp </a><a class="dropdown-item" href="docs/docs-customizing-css.html">Customizing CSS </a><a class="dropdown-item" href="docs/docs-credits.html">Credits </a><a class="dropdown-item" href="docs/docs-changelog.html">Changelog </a>
+                  <div class="dropdown-divider"></div>
+                  <h6 class="dropdown-header fw-normal">Components</h6><a class="dropdown-item" href="/bootstrap-5/html/docs/components-bootstrap.html">Bootstrap </a><a class="dropdown-item" href="docs/components-directory.html">Theme </a>
+                </div>
+              </li>
+              <li class="nav-item dropdown ms-lg-3"><a id="userDropdownMenuLink" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="avatar avatar-sm avatar-border-white me-2" src="/bootstrap-5/html/img/user.png" alt="User"></a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdownMenuLink">
+                  <!-- <a class="dropdown-item" href="user-booking-1.html">Booking process - 4 pages </a>
+                  <a class="dropdown-item" href="user-grid.html">Bookings &mdash; grid view </a>
+                  <a class="dropdown-item" href="user-booking-detail.html">Booking detail </a> -->
+                  <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html">
+                  <i class="fas fa-sign-out-alt me-2 text-muted"></i> logout </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- /Navbar -->
+    </header>
+<!--                    //////////////////////                   헤더 끝                        //////////////////////////////            -->
+
+
+
+
+
+
+
+
+    <section class="py-5">
+      <div class="container">
+
+
+        <!-- Breadcrumbs  //////////////////////////////////   개인정보 부분 !!!!!!!!!!!   -->
+        <ol class="breadcrumb ps-0  justify-content-start">
+          <li class="breadcrumb-item"><a href="/loginHome/{id}(id=${users.userId})">Home</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/user-account/{id}(id=${users.userId})}">Account</a></li>
+          <li class="breadcrumb-item active"> Personal info   </li>
+        </ol>
+        <h1 class="hero-heading mb-0"> 개인정보</h1>
+        <p class="text-muted mb-5"> 개인정보 수정이 가능한 페이지 입니다 </p>
+        <div class="row">
+          <div class="col-lg-7 mb-5 mb-lg-0">
+            <div class="text-block"> 
+              <div class="row mb-3">
+                <div class="col-sm-9">
+                  <h5> Details </h5>
+                </div>
+                <div class="col-sm-3 text-end">
+                  <button class="btn btn-link ps-0 text-primary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="false" aria-controls="personalDetails"> 개인정보 수정 </button>
+                </div>
+              </div>
+
+
+              <!-- 입력된 개인정보 -->
+            <user>
+              <p class="text-sm text-muted">
+                <i class="fa fa-id-card fa-fw me-2"></i><p class="text-sm text-muted"th:text="${users.userName}"></p><br>
+              <i class="fa fa-envelope-open fa-fw me-2"></i><p class="text-sm text-muted"th:text="${users.userEmail}"></p><br>
+                  <i class="fa fa-phone fa-fw me-2"></i><p class="text-sm text-muted"th:text="${users.userPhNm  }"></p></p>
+              <div class="collapse" id="personalDetails">
+                <user>
+
+                  <div class="row pt-4">
+                    <input type="hidden" id="user-id" th:value="${users.userId}">
+                    <div class="mb-4 col-md-6">
+                      <label class="form-label" for="userPw">Password</label>
+                      <input class="form-control" type="password" name="email" id="userPw" >
+                    </div>
+                    <div class="mb-4 col-md-6">
+                      <label class="form-label" for="userPhNM">Phone number</label>
+                      <input class="form-control" type="text" name="phone" id="userPhNm" >
+                    </div>
+
+                  </div>
+                  <button th:if="${users.userId} != null" type="button" id="modify-btn" class="btn btn-primary btn-sm">수정</button>
+                  <button type="button" id="delete-btn" class="btn btn-primary btn-sm">탈퇴</button>
+                </user>
+              </div>
+            </user>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!--                           ////////////////////////                           Footer   시잣                      ////////////////////////////////           -->
+    <footer class="position-relative z-index-10 d-print-none">
+      <!-- Main block - menus, subscribe form-->
+      <div class="py-6 bg-gray-200 text-muted">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+              <div class="fw-bold text-uppercase text-dark mb-3">YESman</div>
+              <p> 이선재 김혁태 정과철 이하연 </p>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="pinterest"><i class="fab fa-pinterest"></i></a></li>
+                <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="vimeo"><i class="fab fa-vimeo"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+              <h6 class="text-uppercase text-dark mb-3"> Coming soon </h6>
+              <ul class="list-unstyled">
+                <li><a > 연극 </a></li>
+                <li><a > 뮤지컬 </a></li>
+                <li><a > 교향음악 </a></li>
+                <li><a > 콘서트</a></li>
+                <!-- <li><a class="text-muted" href="detail-rooms.html">Room detail</a></li> -->
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+              <h6 class="text-uppercase text-dark mb-3">Pages</h6>
+              <ul class="list-unstyled">
+                <li><a class="text-muted" href="compare.html"> 연극 </a></li>
+                <li><a class="text-muted" href="team.html"> 관람후기 </a></li>
+                <li><a class="text-muted" href="contact.html"> 호박 </a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4">
+              <h6 class="text-uppercase text-dark mb-3"> Services in outerpark24 </h6>
+              <p class="mb-3"> Performance information and reservation </p>
+              <form action="#" id="newsletter-form">
+                <!-- <div class="input-group mb-3">
+                  <input class="form-control bg-transparent border-dark border-end-0" type="email" placeholder="Your Email Address" aria-label="Your Email Address">
+                  <button class="btn btn-outline-dark border-start-0" type="submit"> <i class="fa fa-paper-plane text-lg"></i></button>
+                </div> -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright section of the footer-->
+      <div class="py-4 fw-light bg-gray-800 text-gray-300">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="text-sm mb-md-0">&copy; 2023, Your company.  All rights reserved.</p>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">
+                <li class="list-inline-item"><img class="w-2rem" src="/bootstrap-5/html/img/visa.svg" alt="..."></li>
+                <li class="list-inline-item"><img class="w-2rem" src="/bootstrap-5/html/img/mastercard.svg" alt="..."></li>
+                <li class="list-inline-item"><img class="w-2rem" src="/bootstrap-5/html/img/paypal.svg" alt="..."></li>
+                <li class="list-inline-item"><img class="w-2rem" src="/bootstrap-5/html/img/western-union.svg" alt="..."></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<!--      //////////////////                         footer 끝                    ////////////////////                -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript files-->
+    <script>
+      // ------------------------------------------------------- //
+      //   Inject SVG Sprite - 
+      //   see more here 
+      //   https://css-tricks.com/ajaxing-svg-sprite/
+      // ------------------------------------------------------ //
+      function injectSvgSprite(path) {
+      
+          var ajax = new XMLHttpRequest();
+          ajax.open("GET", path, true);
+          ajax.send();
+          ajax.onload = function(e) {
+          var div = document.createElement("div");
+          div.className = 'd-none';
+          div.innerHTML = ajax.responseText;
+          document.body.insertBefore(div, document.body.childNodes[0]);
+          }
+      }    
+      // to avoid CORS issues when viewing using file:// protocol, using the demo URL for the SVG sprite
+      // use your own URL in production, please :)
+      // https://demo.bootstrapious.com/directory/1-0/icons/orion-svg-sprite.svg
+      //- injectSvgSprite('${path}icons/orion-svg-sprite.svg'); 
+      injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg'); 
+      
+    </script>
+    <!-- jQuery-->
+    <script src="/bootstrap-5/html/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
+    <script src="/bootstrap-5/html/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Magnific Popup - Lightbox for the gallery-->
+    <script src="/bootstrap-5/html/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Smooth scroll-->
+    <script src="/bootstrap-5/html/vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+    <!-- Bootstrap Select-->
+    <script src="/bootstrap-5/html/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
+    <script src="/bootstrap-5/html/vendor/object-fit-images/ofi.min.js"></script>
+    <!-- Swiper Carousel                       -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+    <script>var basePath = ''</script>
+    <!-- Main Theme JS file    -->
+    <script src="js/theme.js"></script>
+    <script src="/js/user.js"></script>
+
+  </body>
+</html>

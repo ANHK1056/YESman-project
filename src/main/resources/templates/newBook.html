@@ -19,42 +19,24 @@
                 <table>
                     <tr>
                         <td>예매자명</td>
-                        <td><input type="text" class="card-title" id="userId"></td>
+                        <td><input type="hidden" class="card-title" id="user" th:value="${user.userEmail}"></td>
+                        <td><p class="card-title" th:text="|${user.userId}|"></p></td>
                     </tr>
 
                     <tr>
-                        <td>연극명</td>
-                        <td><input type="text" class="card-title" id="showId"></td>
-                    </tr>
-
-                    <tr>
-                        <td>예약 메일</td>
-                        <td><input type="text" class="card-title" id="bookMail"></td>
+                        <td>공연</td>
+                        <td><input type="hidden" class="card-title" id="show" th:value="${show.showId}"></td>
+                        <td><p class="card-title" th:text="|${show.showId} ${show}|"></p></td>
                     </tr>
 
                     <tr>
                         <td>공연 일자</td>
-                        <td><input type="text" class="card-title" id="bookDay"></td>
-                    </tr>
-
-                    <tr>
-                        <td>공연 시간</td>
-                        <td><input type="text" class="card-title" id="bookTime"></td>
+                        <td><input type="text" class="card-title" id="showDate"></td>
                     </tr>
 
                     <tr>
                         <td>좌석</td>
-                        <td><input type="text" class="card-title" id="seatPosition"></td>
-                    </tr>
-
-                    <tr>
-                        <td>연극 장소</td>
-                        <td><input type="text" class="card-title" id="showLocation"></td>
-                    </tr>
-
-                    <tr>
-                        <td>티켓 가격</td>
-                        <td><input type="text" class="card-title" id="bookPay"></td>
+                        <td><input type="text" class="card-title" id="seat"></td>
                     </tr>
 
                     <tr>

@@ -4,6 +4,7 @@ import com.kosa.projectdeveloper.config.jwt.TokenProvider;
 import com.kosa.projectdeveloper.config.oauth.OAuth2AuthorizationRequestBasedOnCookieRepository;
 import com.kosa.projectdeveloper.config.oauth.OAuth2SuccessHandler;
 import com.kosa.projectdeveloper.config.oauth.OAuth2UserCustomService;
+import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.RefreshTokenRepository;
 import com.kosa.projectdeveloper.service.UserDetailService;
 import com.kosa.projectdeveloper.service.UserService;
@@ -11,11 +12,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
@@ -36,9 +39,11 @@ public class WebOAuthSecurityConfig {
     @Bean
     public WebSecurityCustomizer configure() {
         return (web) -> web.ignoring()
-                .requestMatchers(toH2Console())
-                .requestMatchers("/img/**", "/css/**", "/js/**");
-//                .requestMatchers("/**");
+                // TODO: 2023-07-12 aws 데이터베이스 사용시 주석 해제 
+               .requestMatchers(toH2Console())
+               .requestMatchers("/img/**", "/css/**", "/js/**");
+//             .requestMatchers("/**");
+
     }
 
     @Bean
@@ -55,17 +60,10 @@ public class WebOAuthSecurityConfig {
 
         http.authorizeRequests()
                 .requestMatchers("/api/token","/login","/signup","/users", "/**").permitAll()
-//                .requestMatchers("/api/user").authenticated()
+//                .requestMatchers("/api/**").authenticated()
                 .anyRequest().permitAll();
 
-        http.formLogin()
-                 .loginPage("/login")
-                // TODO: 2023-07-11  후에 변경
-               .defaultSuccessUrl("/user")
-                 .and()
-                 .logout()
-                 .logoutSuccessUrl("/login")
-                 .invalidateHttpSession(true);
+
 
         http.oauth2Login()
                 .loginPage("/login")
@@ -75,9 +73,17 @@ public class WebOAuthSecurityConfig {
                 .successHandler(oAuth2SuccessHandler())
                 .userInfoEndpoint()
                 .userService(oAuth2UserCustomService);
+        http.formLogin()
+                .loginPage("/login")
+               .defaultSuccessUrl("/loginHome/10")
+//                .successHandler(oAuth2SuccessHandler())
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true);
 
         http.logout()
-                .logoutSuccessUrl("/login");
+                .logoutSuccessUrl("/");
 
 
         http.exceptionHandling()

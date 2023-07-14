@@ -19,6 +19,9 @@ public class AddBookRequest {
     private User user;
     private Show show;
 
+    private String userEmail;
+    private String showId;
+
     public Book toEntity() {
         return Book.builder()
                 .user(user)
