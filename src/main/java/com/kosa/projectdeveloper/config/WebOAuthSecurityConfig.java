@@ -75,7 +75,7 @@ public class WebOAuthSecurityConfig {
                 .userService(oAuth2UserCustomService);
         http.formLogin()
                 .loginPage("/login")
-               .defaultSuccessUrl("/loginHome/1")
+               .defaultSuccessUrl("/loginHome/10")
 //                .successHandler(oAuth2SuccessHandler())
                 .and()
                 .logout()
