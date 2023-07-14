@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Controller
@@ -53,13 +55,35 @@ public class ShowSearchController {
             for (int i = 0 ; i < showDetailList.size(); i++){
                 showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
             }
-        } else if (range.equals("locationAddress")) {
-            showLocationList = showLocationRepository.findByLocationAddressContaining(searchWord);
+        } else if (range.equals("locationName")) {
+            showDetailList = showDetailRepository.findByFacilityNameContaining(searchWord);
 
             for (int i = 0 ; i < showLocationList.size(); i++){
-                showList.add(showRepository.findById(showLocationList.get(i).getShowDetail().getShowId()).orElse(null));
-                showDetailList.add(showLocationList.get(i).getShowDetail());
+                showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
             }
+        } else {
+            showDetailList = showDetailRepository.findByShowActorContaining(searchWord);
+
+            showDetailList.addAll(showDetailRepository.findByShowNameContaining(searchWord));
+
+            showDetailList.addAll(showDetailRepository.findByFacilityNameContaining(searchWord));
+
+            for (int i = 0 ; i < showDetailList.size(); i++){
+                showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
+            }
+
+            // List를 Set으로 변경
+            Set<Show> showSet = new HashSet<Show>(showList);
+
+            // Set을 List로 변경
+            showList =new ArrayList<Show>(showSet);
+
+            // List를 Set으로 변경
+            Set<ShowDetail> showDetailSet = new HashSet<ShowDetail>(showDetailList);
+
+            // Set을 List로 변경
+            showDetailList =new ArrayList<ShowDetail>(showDetailSet);
+
         }
 
         model.addAttribute("searchWord", searchWord);

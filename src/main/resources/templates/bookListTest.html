@@ -20,11 +20,9 @@
             <table>
                 <tr>
                     <td class="card-header" th:text="|예매 번호: ${item.bookId} |"></td>
-                    <td class="card-title" th:text="|연극명 : ${item.showId}|"></td>
-                    <td class="card-text" th:text="|공연일 : ${item.bookDay}|"></td>
-                    <td class="card-text" th:text="|공연시간 : ${item.bookTime}|"></td>
-                    <td class="card-text" th:text="|좌석 : ${item.seatPosition}|"></td>
-                    <td class="card-text" th:text="|공연장소 : ${item.showLocation}|"></td>
+                    <td class="card-title" th:text="|연극명 : ${item.show.showId}|"></td>
+                    <td class="card-text" th:text="|공연일 : ${item.showDate}|"></td>
+                    <td class="card-text" th:text="|좌석 : ${item.seat}|"></td>
                     <td><a th:href="@{/books/{bookId}(bookId=${item.bookId})}" class="btn btn-primary">보러가기</a></td>
                 </tr>
             </table>

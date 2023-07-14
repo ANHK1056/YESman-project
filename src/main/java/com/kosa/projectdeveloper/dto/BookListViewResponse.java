@@ -26,6 +26,7 @@ public class BookListViewResponse {
         this.user = book.getUser();
         this.seat = book.getSeat();
         this.showDate = book.getShowDate();
+        this.bookDate = book.getBookDate();
     }
 
 }

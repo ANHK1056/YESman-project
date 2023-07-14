@@ -134,15 +134,15 @@ public class testErd {
                 .build());
 
         showReviewRepository.save(ShowReview.builder()
-                .review_Content(content)
-                .review_Title(title)
+                .reviewContent(content)
+                .reviewTitle(title)
                 .book(savedBook)
                 .build());
 
         //when
 
         ShowReview savedShowReview = showReviewRepository.findById(1).get();
-        assertThat(savedShowReview.getReview_Content()).isEqualTo(content);
+        assertThat(savedShowReview.getReviewContent()).isEqualTo(content);
         assertThat(savedShowReview.getBook().getSeat()).isEqualTo(seat);
         assertThat(savedShowReview.getBook().getUser().getUserPw()).isEqualTo(userPw);
         //then

@@ -14,16 +14,43 @@
 <div class="container">
   <p th:if="${shows.size() > 0}" th:text="|${shows[0].showId} ${shows[0].showName} ${shows[0].showGenre}|"></p>
   <a th:href="@{/searchInput}">검색으로 이동</a>
-  <div class="row-6" th:each="item : ${shows}" th:if="${shows.size() > 0}">
+<!--  <div class="row-6" th:each="item : ${shows}" th:if="${shows.size() > 0}">-->
+<!--    <div class="card">-->
+<!--      <table>-->
+<!--        <tr>-->
+<!--          <td class="card-header" th:text="|연극명 : ${item.showName} |"></td>-->
+<!--        </tr>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--  </div>-->
+
+  <div class="row-6" th:each="item : ${showDetails}" th:if="${showDetails.size() > 0}">
     <div class="card">
       <table>
         <tr>
           <td class="card-header" th:text="|연극명 : ${item.showName} |"></td>
-          <td class="card-title" th:text="|시작일 : ${item.showStartDate}|"></td>
+          <td class="card-title" th:text="|배우명 : ${item.showActor}|"></td>
+          <td class="card-title" th:text="|장소명 : ${item.facilityName}|"></td>
         </tr>
       </table>
     </div>
     <br>
   </div>
+
+<!--  <div class="row-6" th:each="item : ${showLocations}" th:if="${showLocations.size() > 0}">-->
+<!--    <div class="card">-->
+<!--      <table>-->
+<!--        <tr>-->
+<!--          <td class="card-header" th:text="|연극명 : ${item.showDetail.showName} |"></td>-->
+<!--          <td class="card-title" th:text="|배우명 : ${item.showDetail.showActor}|"></td>-->
+<!--          <td class="card-title" th:text="|장소명 : ${item.showDetail.facilityName}|"></td>-->
+<!--          <td class="card-title" th:text="|장소주소 : ${item.locationAddress}|"></td>-->
+<!--        </tr>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--  </div>-->
+
 </div>
 </body>

@@ -23,10 +23,10 @@ public class ShowCategoryController {
     private final ShowRepository showRepository;
     private final ShowDetailRepository showDetailRepository;
 
-    @GetMapping("/showLocations/{locationAddress}")
+    @GetMapping("/showList/seoulLocations/{locationAddress}")
     public String categorizeShowLocations(@PathVariable String locationAddress, Model model) {
 
-        List<ShowLocation> showLocationList = showLocationRepository.findByLocationAddressContaining(locationAddress);
+        List<ShowLocation> showLocationList = showLocationRepository.findByLocationAddressContaining("서울특별시 " + locationAddress);
 
         List<Show> showList = new ArrayList<>();
 
@@ -36,6 +36,7 @@ public class ShowCategoryController {
 
         model.addAttribute("shows", showList);
 
+        // TODO: 2023-07-14 html 파일명 수정
         return "showLocationsCategory";
     }
 

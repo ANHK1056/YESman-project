@@ -29,16 +29,17 @@ public class User implements UserDetails {
     @Column(name = "USER_ID", updatable = false)
     private Long userId;
     //setting name
-    @Column()
+    @Column
     private String userName;
     //email 형식
-    @Column(nullable = false, unique = true)
+//    @Column(nullable = false, unique = true)
+    @Column
     private String userEmail;
     // only english
-    @Column()
+    @Column
     private String userPw;
     //user_phoneNumber
-    @Column()
+    @Column
     private String userPhNm;
 
 
