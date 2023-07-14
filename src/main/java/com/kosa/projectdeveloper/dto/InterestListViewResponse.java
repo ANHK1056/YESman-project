@@ -9,6 +9,8 @@ public class InterestListViewResponse {
     private String actorName;
     private User user;
 
+    private String userEmail;
+
     public InterestListViewResponse(Interest interest){
         this.actorName = interest.getActorName();
         this.user = interest.getUser();

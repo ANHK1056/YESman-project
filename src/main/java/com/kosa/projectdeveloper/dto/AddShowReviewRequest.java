@@ -23,6 +23,9 @@ public class AddShowReviewRequest {
 //    private Show show;
     private Book book;
 
+    private Long bookId;
+
+    private String userEmail;
 
 
     public ShowReview toEntity() {
@@ -33,7 +36,7 @@ public class AddShowReviewRequest {
 
 
 //                .show(show)
-//                .book(book)
+                .book(book)
                 .build();
     }
 

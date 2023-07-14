@@ -30,6 +30,12 @@ public class BookViewController {
         return "book";
     }
 
+
+    @GetMapping("/testBookingPick")
+    public String testBookingPick() {
+        return "BookingPick";
+    }
+
     @GetMapping("/new-book")
     public String newBook(Model model){
         User user = userService.findAll().get(0);

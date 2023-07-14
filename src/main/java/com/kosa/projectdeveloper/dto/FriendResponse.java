@@ -9,13 +9,16 @@ import java.time.LocalDateTime;
 @Getter
 public class FriendResponse {
 
+    private final Long id;
     private final User user;
     private final String title;
     private final String content;
     private final LocalDateTime createdAt;
 
-    public FriendResponse(FriendReview friendReview) {
+    private String userEmail;
 
+    public FriendResponse(FriendReview friendReview) {
+        this.id = friendReview.getId();
         this.user = friendReview.getUser();
         this.title = friendReview.getTitle();
         this.content = friendReview.getContent();

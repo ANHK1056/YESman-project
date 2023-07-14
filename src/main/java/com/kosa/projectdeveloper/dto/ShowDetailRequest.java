@@ -26,6 +26,8 @@ public class ShowDetailRequest {
     private String showDate;
     private String showContent;
 
+    private String userEmail;
+
     public ShowDetailRequest(String showId, String facilityId, String showName, String showStartDate,  String showEndDate,
                              String facilityName, String showActor, String showAge,String runtime ,String company,
                              String showPrice, String poster, String showGenre, String showState, String showImage1,

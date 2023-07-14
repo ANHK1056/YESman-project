@@ -13,6 +13,9 @@ public class ShowLocationRequest {
     private String locationAddress;
     private ShowDetail showDetail;
 
+    private String userEmail;
+    private String showId;
+
     public ShowLocation toEntity() {
         return ShowLocation.builder()
                 .locationAddress(locationAddress)

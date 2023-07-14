@@ -15,14 +15,16 @@ public class FriendUpdateRequest {
     private  User user;
     private  String title;
     private  String content;
-    private  LocalDateTime createAt;
+//    private  LocalDateTime createAt;
 
-//    public FriendUpdateRequest(FriendReview friendReview) {
-//        this.userId = friendReview.getUser();
-//        this.title =  friendReview.getTitle();
-//        this.content = friendReview.getContent();
+    private String userEmail;
+
+    public FriendUpdateRequest(FriendReview friendReview) {
+//        this.user = friendReview.getUser();
+        this.title =  friendReview.getTitle();
+        this.content = friendReview.getContent();
 //        this.createdt = friendReview.getCreatedAt();
-//    }
+    }
 
 }
 

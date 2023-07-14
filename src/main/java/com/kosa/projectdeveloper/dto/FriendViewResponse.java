@@ -17,7 +17,10 @@ public class FriendViewResponse {
     private String content;
     private LocalDateTime createdAt;
 
+    private String userEmail;
+
     public FriendViewResponse(FriendReview friendReview) {
+        this.id = friendReview.getId();
         this.user = friendReview.getUser();
         this.title = friendReview.getTitle();
         this.content = friendReview.getContent();

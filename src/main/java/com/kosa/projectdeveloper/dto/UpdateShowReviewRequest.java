@@ -13,5 +13,7 @@ public class UpdateShowReviewRequest {
     private String reviewTitle;
     private String reviewContent;
 
+    private String userEmail;
+
 }
 

@@ -39,20 +39,20 @@ public class FriendReview {
     private LocalDateTime createdAt;
 
     @Builder // 프론트에서 폼으로 받을 애들
-    public FriendReview(User user,String title,String content ,LocalDateTime createdAt) {
+    public FriendReview(User user,String title,String content) {
         this.title = title;
         this.content = content;
-        this.createdAt = createdAt;
+//        this.createdAt = createdAt;
         this.user = user;
     }
 
 
 
-    public void update(String title, String content, LocalDateTime createdAt) {
+    public void update(String title, String content) {
 
         this.title = title;
         this.content = content;
-        this.createdAt = createdAt;
+//        this.createdAt = createdAt;
     }
 
 

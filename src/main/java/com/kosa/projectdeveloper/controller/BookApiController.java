@@ -41,9 +41,6 @@ public class BookApiController {
 
         bookRepository.save(savedBook);
 
-//        Book savedBook = bookService.save(request);
-
-
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedBook);
 
