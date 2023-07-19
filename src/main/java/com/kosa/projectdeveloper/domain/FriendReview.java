@@ -18,22 +18,26 @@ import java.time.LocalDateTime;
 @Entity
 public class FriendReview {
 
-    @Id // id 필드를 기본키로 지정
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // 기본키 자동으로 1씩 증가
+    // 커뮤니티 게시판 글 id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     private Long id;
 
+    // 작성자
     @ManyToOne
     @JoinColumn(name = "user_id")
-//    private User user;
     private User user;
 
+    // 제목
     @Column(name = "title", nullable = false)
     private String title;
 
+    // 내용
     @Column(name = "content", nullable = false)
     private String content;
 
+    // 작성일
     @CreatedDate
     @Column(name = "created_at")
     private LocalDateTime createdAt;

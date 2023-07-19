@@ -17,6 +17,7 @@ public class FriendViewResponse {
     private String content;
     private LocalDateTime createdAt;
 
+    // 유저 정보 위한 필드
     private String userEmail;
 
     public FriendViewResponse(FriendReview friendReview) {

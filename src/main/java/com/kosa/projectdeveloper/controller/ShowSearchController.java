@@ -27,12 +27,6 @@ public class ShowSearchController {
     private final ShowRepository showRepository;
     private final ShowDetailRepository showDetailRepository;
 
-
-    @GetMapping("/searchInput")
-    public String intoSearch() {
-        return "showSearchInput";
-    }
-
     @RequestMapping("/showSearch")
     public String showSearch(@RequestParam(name = "searchWord", required = false) String searchWord,
                              @RequestParam(name = "range", required = false) String range, Model model) {

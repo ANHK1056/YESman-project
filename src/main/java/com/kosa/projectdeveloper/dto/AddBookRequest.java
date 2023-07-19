@@ -19,6 +19,7 @@ public class AddBookRequest {
     private User user;
     private Show show;
 
+    // 유저 정보, 연극 정보 위한 필드
     private String userEmail;
     private String showId;
 

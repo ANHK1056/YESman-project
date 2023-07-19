@@ -9,10 +9,13 @@ import java.util.Optional;
 
 public interface ShowDetailRepository extends JpaRepository<ShowDetail, String> {
 
-//    Optional<ShowDetail> findByShowId(String show_id);
-
+    // 출연진에 대한 검색어를 통한 검색
     public List<ShowDetail> findByShowActorContaining(String actorName);
+
+    // 연극명에 대한 검색어를 이용한 검색
     public List<ShowDetail> findByShowNameContaining(String showName);
 
+    // 시설명에 대한 검색어를 이용한 검색
     public List<ShowDetail> findByFacilityNameContaining(String facilityName);
+
 }

@@ -26,6 +26,7 @@ public class ShowDetailRequest {
     private String showDate;
     private String showContent;
 
+    // 유저 정보 위한 필드
     private String userEmail;
 
     public ShowDetailRequest(String showId, String facilityId, String showName, String showStartDate,  String showEndDate,

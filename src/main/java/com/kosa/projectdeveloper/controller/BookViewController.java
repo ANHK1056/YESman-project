@@ -35,26 +35,6 @@ public class BookViewController {
         return "BookingPick";
     }
 
-//    @GetMapping("/books/{bookId}")
-//    public String getBookTest(@PathVariable Long bookId, Model model){
-//        Book book = bookService.findByBookId(bookId);
-//
-//        ShowDetail showDetail = showDetailRepository.findById(book.getShow().getShowId()).orElse(null);
-//
-//        model.addAttribute("book", new BookViewResponse(book));
-//        model.addAttribute("showDetail", showDetail);
-//
-////        return "book";
-//        return "BookingPick";
-//    }
-
-
-
-    @GetMapping("/testBookingPick")
-    public String testBookingPick() {
-        return "BookingPick";
-    }
-
     @GetMapping("/new-book")
     public String newBook(Model model){
         User user = userService.findAll().get(0);

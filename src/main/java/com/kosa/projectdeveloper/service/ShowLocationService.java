@@ -14,10 +14,12 @@ public class ShowLocationService {
 
     private ShowLocationRepository showLocationRepository;
 
+    // 연극 주소 엔티티 저장
     public ShowLocation save(ShowLocationRequest request) {
         return showLocationRepository.save(request.toEntity());
     }
 
+    // 연극 주소 목록 조회
     public List<ShowLocation> findAll() {
         return showLocationRepository.findAll();
     }

@@ -15,25 +15,12 @@ public class ShowRequest {
     private String showGenre;
     private String showState;
 
+    // 유저 정보 위한 필드
     private String userEmail;
 
 
     public ShowRequest(String showId, String showName, String showStartDate, String showEndDate,
                 String facilityId, String showHall, String showGenre, String showState) {
-    }
-
-    @Override
-    public String toString() {
-        return "Show{" +
-                "show_id='" + showId + '\'' +
-                ", show_name='" + showName + '\'' +
-                ", show_start_date='" + showStartDate + '\'' +
-                ", show_end_date='" + showEndDate + '\'' +
-                ", show_hall='" + showOpenRun + '\'' +
-                ", location='" + poster + '\'' +
-                ", show_genre='" + showGenre + '\'' +
-                ", show_state='" + showState + '\'' +
-                '}';
     }
 
     public Show toEntity() {

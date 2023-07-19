@@ -71,11 +71,8 @@ public class FriendController {
             @PathVariable Long id, @RequestBody FriendUpdateRequest request) {
         FriendReview updateFriendReview = friendService.updateFriendReview(id, request);
 
-                return ResponseEntity.ok()
+        return ResponseEntity.ok()
                 .body(updateFriendReview);
-
-//        return ResponseEntity.status(HttpStatus.CREATED)
-//                .body(savedfreind);
 
     }
 
@@ -87,16 +84,7 @@ public class FriendController {
                 .build();
     }
 
-
-
-//    @PutMapping("/api/friend/{id}")
-//    public ResponseEntity<FriendReview> updateArticle(@PathVariable long id,
-//                                                 @RequestBody FriendUpdateRequest request) {
-//        FriendReview updatedFriend = .update(id, request);
-//
-//        return ResponseEntity.ok()
-//                .body(updatedFriend);
-    }
+}
 
 
 

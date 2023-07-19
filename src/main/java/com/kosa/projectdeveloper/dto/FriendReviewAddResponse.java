@@ -17,8 +17,8 @@ public class FriendReviewAddResponse {
     private User user;
     private String title;
     private String content;
-//    private LocalDateTime createdAt;
 
+    // 유저 정보 위한 필드
     private String userEmail;
 
     public FriendReview toEntity() {
@@ -26,7 +26,6 @@ public class FriendReviewAddResponse {
                 .title(title)
                 .content(content)
                 .user(user)
-//                .createdAt(createdAt)
                 .build();
 
     }

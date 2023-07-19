@@ -9,5 +9,6 @@ import java.util.Optional;
 //@Repository
 public interface FriendRepository extends JpaRepository<FriendReview, Long> {
 
+   // ID를 통한 검색
    Optional<FriendReview> findById(long id);
 }

@@ -26,15 +26,4 @@ public class BookListViewController {
         return "BookList";
     }
 
-    @GetMapping("/books")
-    public String getBooksTest(Model model){
-        List<BookListViewResponse> books = bookService.findAllBooks()
-                .stream()
-                .map(BookListViewResponse::new)
-                .toList();
-
-        model.addAttribute("books", books);
-
-        return "BookListTest";
-    }
 }

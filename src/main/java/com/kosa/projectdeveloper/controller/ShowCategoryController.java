@@ -21,7 +21,6 @@ public class ShowCategoryController {
 
     private final ShowLocationRepository showLocationRepository;
     private final ShowRepository showRepository;
-    private final ShowDetailRepository showDetailRepository;
 
     @GetMapping("/showList/seoulLocations/{locationAddress}")
     public String categorizeShowLocations(@PathVariable String locationAddress, Model model) {
@@ -36,26 +35,12 @@ public class ShowCategoryController {
 
         model.addAttribute("shows", showList);
 
-        // TODO: 2023-07-14 html 파일명 수정
         return "showLocationsCategory";
     }
 
-    @GetMapping("/showActors/{actorName}")
-    public String categorizeShowActor(@PathVariable String actorName, Model model) {
-
-        List<ShowDetail> showDetailList = showDetailRepository.findByShowActorContaining(actorName);
-
-        List<Show> showList = new ArrayList<>();
-
-        for (int i = 0 ; i < showDetailList.size(); i++){
-            showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
-        }
-
-        model.addAttribute("shows", showList);
-
-        return "showActorsCategory";
+    @GetMapping("/testHtml")
+    public String testHtml(Model model){
+        return "testMain";
     }
-
-
 
 }

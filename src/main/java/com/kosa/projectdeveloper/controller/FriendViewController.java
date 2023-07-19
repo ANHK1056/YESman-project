@@ -31,8 +31,6 @@ public class FriendViewController {
 
         List<FriendReview> friendReviewList = friendRepository.findAll();
 
-        System.out.println();
-
         model.addAttribute("friends", friends);
         model.addAttribute("friendsList", friendReviewList);
 
