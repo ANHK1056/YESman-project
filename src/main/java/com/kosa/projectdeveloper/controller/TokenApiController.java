@@ -1,3 +1,6 @@
+/*
+토큰으 생성하는 api 클래스
+ */
 package com.kosa.projectdeveloper.controller;
 
 import com.kosa.projectdeveloper.dto.CreateAccessTokenRequest;

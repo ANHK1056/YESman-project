@@ -1,3 +1,6 @@
+/*
+회원 가입 시 필요한 request
+ */
 package com.kosa.projectdeveloper.dto;
 
 import com.kosa.projectdeveloper.domain.User;

@@ -1,3 +1,6 @@
+/*
+OAuth2 로그인시 유저 정보를 저장
+ */
 package com.kosa.projectdeveloper.config.oauth;
 
 import com.kosa.projectdeveloper.domain.User;
@@ -16,8 +19,10 @@ import java.util.Map;
 @Service
 public class OAuth2UserCustomService extends DefaultOAuth2UserService {
 
+    //유저 정보 저장 객체
     private final UserRepository userRepository;
 
+    //유저정보를 저장하는 메서드
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         OAuth2User user = super.loadUser(userRequest); // ❶ 요청을 바탕으로 유저 정보를 담은 객체 반환
@@ -26,7 +31,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
         return user;
     }
 
-    // ❷ 유저가 있으면 업데이트, 없으면 유저 생성
+    // 유저가 있으면 업데이트, 없으면 유저 생성
     private User saveOrUpdate(OAuth2User oAuth2User) {
         BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
         Map<String, Object> attributes = oAuth2User.getAttributes();

@@ -1,3 +1,6 @@
+/*
+토큰을 생성하는 Request
+ */
 package com.kosa.projectdeveloper.dto;
 
 import lombok.Getter;

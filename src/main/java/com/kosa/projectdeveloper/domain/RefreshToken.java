@@ -1,3 +1,6 @@
+/*
+Refresh를 저장하는 클래스
+ */
 package com.kosa.projectdeveloper.domain;
 
 import jakarta.persistence.*;

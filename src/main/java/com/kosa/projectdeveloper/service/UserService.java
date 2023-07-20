@@ -1,3 +1,6 @@
+/*
+유저 정보를 저장, 수정, 삭제하는 service
+ */
 package com.kosa.projectdeveloper.service;
 
 import com.kosa.projectdeveloper.domain.User;
@@ -23,6 +26,8 @@ public class UserService {
     // TODO: 2023-07-06 BCryptPasswordEncoder를 final 상수로 헀을 때 오류 
 //    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 //    BCryptPasswordEncoder endcoder =new BCryptPasswordEncoder();
+
+    //request를 저장하는 메서드
     public User save(AddUserRequest request){
 
         return userRepository.save(request.toEntity());
@@ -41,12 +46,15 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    //id를 찾아 삭제하는 메서드
     public void delete(long id) {
 
         User user = userRepository.findByUserId(id)
                 .orElseThrow(()-> new IllegalArgumentException("not found : " + id));
         userRepository.delete(user);
     }
+
+    // 유저 정보를 수정하는 메서드
     @Transactional
     public User updateUser(long id, UpdateUserRequest request) {
         User user = userRepository.findByUserId(id)

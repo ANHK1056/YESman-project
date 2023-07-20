@@ -1,10 +1,12 @@
+/*
+로그인, OAuth2 로그인을 구성하는 클래스
+ */
 package com.kosa.projectdeveloper.config;
 
 import com.kosa.projectdeveloper.config.jwt.TokenProvider;
 import com.kosa.projectdeveloper.config.oauth.OAuth2AuthorizationRequestBasedOnCookieRepository;
 import com.kosa.projectdeveloper.config.oauth.OAuth2SuccessHandler;
 import com.kosa.projectdeveloper.config.oauth.OAuth2UserCustomService;
-import com.kosa.projectdeveloper.domain.User;
 import com.kosa.projectdeveloper.repository.RefreshTokenRepository;
 import com.kosa.projectdeveloper.service.UserDetailService;
 import com.kosa.projectdeveloper.service.UserService;
@@ -12,20 +14,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
+//AWS 사용으로 제거
+//import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
 @RequiredArgsConstructor
 @Configuration
@@ -39,7 +39,7 @@ public class WebOAuthSecurityConfig {
     @Bean
     public WebSecurityCustomizer configure() {
         return (web) -> web.ignoring()
-                // TODO: 2023-07-12 aws 데이터베이스 사용시 주석 해제 
+                // TODO: 2023-07-12 aws 데이터베이스 사용시 주석
 //               .requestMatchers(toH2Console())
                .requestMatchers("/img/**", "/css/**", "/js/**", "/api/**");
 //             .requestMatchers("/**");
@@ -48,6 +48,7 @@ public class WebOAuthSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        //로그인에서는 방어를 해제
         http.csrf().disable()
                 .httpBasic().disable()
                 .logout().disable();
@@ -59,6 +60,7 @@ public class WebOAuthSecurityConfig {
 
 
         http.authorizeRequests()
+                //인증없이 들어갈 수 있는 주소
                 .requestMatchers("/api/token","/login","/signup","/users", "/**").permitAll()
 //                .requestMatchers("/api/**").authenticated()
                 .anyRequest().permitAll();
@@ -124,6 +126,7 @@ public class WebOAuthSecurityConfig {
         return new OAuth2AuthorizationRequestBasedOnCookieRepository();
     }
 
+    //password를 복호화
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();

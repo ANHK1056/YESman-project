@@ -1,3 +1,6 @@
+/*
+유저 정보를 수정, 삭제,조회하는 api 클래스
+ */
 package com.kosa.projectdeveloper.controller;
 
 import com.kosa.projectdeveloper.domain.User;
@@ -29,25 +32,7 @@ public class UserApiController {
 
     private final UserService userService;
 
-    @PostMapping("/api/user")
-    public ResponseEntity<User> addUser(@RequestBody AddUserRequest request) {
-        User savedUser = userService.save(request);
-
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(savedUser);
-    }
-
-//    @GetMapping("/api/user")
-//    public ResponseEntity<List<UserResponse>> findAllUsers() {
-//        List<UserResponse> users = userService.findAll()
-//                .stream()
-//                .map(UserResponse::new)
-//                .toList();
-//
-//        return ResponseEntity.ok()
-//                .body(users);
-//
-//    }
+    //조회 mapping
     @GetMapping("/api/user/{id}")
     public ResponseEntity<UserResponse> findUser(@PathVariable Long id){
         User user = userService.findByUserId(id);
@@ -56,6 +41,7 @@ public class UserApiController {
                 .body(new UserResponse(user));
     }
 
+    //삭제 mapping
     @DeleteMapping("/api/user/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable long id){
         userService.delete(id);
@@ -64,6 +50,7 @@ public class UserApiController {
                 .build();
     }
 
+    //수정 mapping
     @PutMapping("/api/user/{id}")
     public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody UpdateUserRequest reuest){
         User updateUser  = userService.updateUser(id, reuest);
