@@ -1,10 +1,7 @@
 package com.kosa.projectdeveloper.controller;
 
-import com.kosa.projectdeveloper.Api.Api;
-import com.kosa.projectdeveloper.domain.Show;
 import com.kosa.projectdeveloper.domain.ShowDetail;
 import com.kosa.projectdeveloper.repository.ShowDetailRepository;
-import com.kosa.projectdeveloper.repository.ShowRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,44 +17,7 @@ public class ShowDetailController {
 
     private final ShowDetailRepository showDetailRepository;
 
-    private static Api api = new Api();
-
-    @GetMapping("/test13")
-    public String test13(Model model){
-
-        List<ShowDetail> showdetails = showDetailRepository.findAll();
-
-        model.addAttribute("showDetails", showdetails);
-
-        return "ShowDetail";
-    }
-
-    @GetMapping("/shows/{show_id}")
-    public String test14(Model model, @PathVariable String show_id){
-
-        List<ShowDetail> detailListist = new ArrayList<ShowDetail>();
-
-        ShowDetail showDetail;
-
-        try {
-            showDetail = showDetailRepository.findById(show_id).get();
-        }
-        catch (Exception e) {
-            detailListist = api.ShowDetailAPI(detailListist, show_id);
-            showDetail = detailListist.get(0);
-        }
-
-//        detailListist = api.ShowDetailAPI(detailListist, show_id);
-//
-//        showDetail = detailListist.get(0);
-
-//        showDetailRepository.save(showDetail);
-
-        model.addAttribute("showDetail", showDetail);
-
-        return "ShowDetail";
-    }
-
+    // 공연 상세 조회 페이지 매핑
     @GetMapping("/showList/show/{show_id}")
     public String getShowDetail(Model model, @PathVariable String show_id){
 
@@ -65,19 +25,7 @@ public class ShowDetailController {
 
         ShowDetail showDetail;
 
-        try {
-            showDetail = showDetailRepository.findById(show_id).get();
-        }
-        catch (Exception e) {
-            detailListist = api.ShowDetailAPI(detailListist, show_id);
-            showDetail = detailListist.get(0);
-        }
-
-//        detailListist = api.ShowDetailAPI(detailListist, show_id);
-//
-//        showDetail = detailListist.get(0);
-
-//        showDetailRepository.save(showDetail);
+        showDetail = showDetailRepository.findById(show_id).orElse(ShowDetail.builder().build());
 
         model.addAttribute("showDetail", showDetail);
 

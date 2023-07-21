@@ -20,6 +20,7 @@ public class ShowReviewViewController {
 
     private  final ShowReviewService showReviewService;
 
+    // 공연 후기 목록 조회
     @GetMapping("/show-review")
     public String getShowReviews(Model model){
         List<ShowReviewListViewResponse> showReviews = showReviewService.findAll().stream()
@@ -30,6 +31,7 @@ public class ShowReviewViewController {
         return "showReviewList";
     }
 
+    // 공연 후기 글 조회
     @GetMapping("/show-review/{id}")
     public String getShowReview(@PathVariable Long id, Model model) {
         ShowReview showReview = showReviewService.findByShowReviewId(id);
@@ -39,6 +41,7 @@ public class ShowReviewViewController {
 
     }
 
+    // 공연 후기 글 작성 페이지 연결
     @GetMapping("/new-showReview")
     public String newShowReview(@RequestParam(required = false)Long id, Model model){
         if(id ==null) {

@@ -14,6 +14,7 @@ import java.util.List;
 public class BookListViewController {
     private final BookService bookService;
 
+    // 계정에서 예매 목록 조회
     @GetMapping("/users/userBookList")
     public String getBooks(Model model){
         List<BookListViewResponse> books = bookService.findAllBooks()
@@ -26,15 +27,4 @@ public class BookListViewController {
         return "BookList";
     }
 
-    @GetMapping("/books")
-    public String getBooksTest(Model model){
-        List<BookListViewResponse> books = bookService.findAllBooks()
-                .stream()
-                .map(BookListViewResponse::new)
-                .toList();
-
-        model.addAttribute("books", books);
-
-        return "BookListTest";
-    }
 }

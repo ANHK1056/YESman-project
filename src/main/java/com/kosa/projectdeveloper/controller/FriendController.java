@@ -23,6 +23,7 @@ public class FriendController {
     private final UserRepository userRepository;
     private final FriendRepository friendRepository;
 
+    // 커뮤니티 글 작성
     @PostMapping("/api/friend")
     public ResponseEntity<FriendReview> addFriend(@RequestBody FriendReviewAddResponse friendReviewAddResponse) {
 
@@ -47,6 +48,7 @@ public class FriendController {
     }
 
 
+    // 커뮤니티 글 목록 조회
     @GetMapping("/api/friend")
     public ResponseEntity<List<FriendResponse>> friedResponse() {
         List<FriendResponse> friendResponses = friendService.findAll()
@@ -58,6 +60,7 @@ public class FriendController {
                 .body(friendResponses);
     }
 
+    // 커뮤니티 글 조회
     @GetMapping("/api/friend/{id}")
     public ResponseEntity<FriendResponse> friedResponse(@PathVariable long id) {
         FriendReview friendResponses = friendService.findById(id);
@@ -66,19 +69,18 @@ public class FriendController {
                 .body(new FriendResponse(friendResponses));
     }
 
+    // 커뮤니티 글 수정
     @PutMapping("/api/friend/{id}")
     public ResponseEntity<FriendReview> updateFriendReview(
             @PathVariable Long id, @RequestBody FriendUpdateRequest request) {
         FriendReview updateFriendReview = friendService.updateFriendReview(id, request);
 
-                return ResponseEntity.ok()
+        return ResponseEntity.ok()
                 .body(updateFriendReview);
-
-//        return ResponseEntity.status(HttpStatus.CREATED)
-//                .body(savedfreind);
 
     }
 
+    // 커뮤니티 글 삭제
     @DeleteMapping("/api/friend/{id}")
     public ResponseEntity<Void> deleteFriendReview(@PathVariable Long id) {
         friendService.deleteById(id);
@@ -87,16 +89,7 @@ public class FriendController {
                 .build();
     }
 
-
-
-//    @PutMapping("/api/friend/{id}")
-//    public ResponseEntity<FriendReview> updateArticle(@PathVariable long id,
-//                                                 @RequestBody FriendUpdateRequest request) {
-//        FriendReview updatedFriend = .update(id, request);
-//
-//        return ResponseEntity.ok()
-//                .body(updatedFriend);
-    }
+}
 
 
 

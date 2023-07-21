@@ -18,41 +18,42 @@ import java.util.List;
 public class Show {
 
 
+    // 연극 ID
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "show_id", updatable = false)
     private String showId;
 
+    // 연극명
     @Column(name = "show_name", updatable = false)
     private String showName;
 
+    // 연극 시작 일자
     @Column(name = "show_start_date", updatable = false)
     private String showStartDate;
 
+    // 연극 종료 일자
     @Column(name = "show_end_date", updatable = false)
     private String showEndDate;
 
+    // 시설명
     @Column(name = "facility_name", updatable = false)
     private String facilityName;
 
+    // 오픈런 여부
     @Column(name = "show_open_run", updatable = false)
     private String showOpenRun;
 
+    // 포스터 이미지 URL
     @Column(name = "poster", updatable = false)
     private String poster;
 
+    // 장르
     @Column(name = "show_genre", updatable = false)
     private String showGenre;
 
+    // 연극 상태 (상영 중, 완료 등)
     @Column(name = "show_state", updatable = false)
     private String showState;
-
-//    // ShowReview 랑 Join 위해 넣었어요..!
-//    @OneToMany(mappedBy = "review_Id")
-//    private List<ShowReview> showReviews = new ArrayList<>();
-
-
-
 
     @Builder
     public Show(String showId, String showName,String showStartDate, String showEndDate,

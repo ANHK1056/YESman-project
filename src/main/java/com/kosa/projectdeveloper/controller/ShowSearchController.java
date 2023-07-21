@@ -27,12 +27,8 @@ public class ShowSearchController {
     private final ShowRepository showRepository;
     private final ShowDetailRepository showDetailRepository;
 
-
-    @GetMapping("/searchInput")
-    public String intoSearch() {
-        return "showSearchInput";
-    }
-
+    // 공연 검색에 대한 매핑
+    // 검색어, 검색범위에 대한 인자를 받아 진행
     @RequestMapping("/showSearch")
     public String showSearch(@RequestParam(name = "searchWord", required = false) String searchWord,
                              @RequestParam(name = "range", required = false) String range, Model model) {
@@ -41,6 +37,8 @@ public class ShowSearchController {
         List<ShowDetail> showDetailList = new ArrayList<>();
         List<ShowLocation> showLocationList = new ArrayList<>();
 
+        // 검색어 입력이 없을 경우 검색값이 없게 설정
+        // 시간 부족으로 인해 테스트값 그대로하여 제출
         if (searchWord.isEmpty() || searchWord.isBlank()) searchWord = "아야어여오요우유으이";
 
         if (range.equals("actorName")){
@@ -66,29 +64,14 @@ public class ShowSearchController {
                 showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
             }
         } else {
-            showDetailList = showDetailRepository.findByShowActorContaining(searchWord);
 
-            showDetailList.addAll(showDetailRepository.findByShowNameContaining(searchWord));
-
-            showDetailList.addAll(showDetailRepository.findByFacilityNameContaining(searchWord));
+            showDetailList.addAll(showDetailRepository.findByShowNameContainingOrShowActorContainingOrFacilityNameContaining(searchWord, searchWord, searchWord));
 
             range = "통합 검색";
 
             for (int i = 0 ; i < showDetailList.size(); i++){
                 showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
             }
-
-            // List를 Set으로 변경
-            Set<Show> showSet = new HashSet<Show>(showList);
-
-            // Set을 List로 변경
-            showList =new ArrayList<Show>(showSet);
-
-            // List를 Set으로 변경
-            Set<ShowDetail> showDetailSet = new HashSet<ShowDetail>(showDetailList);
-
-            // Set을 List로 변경
-            showDetailList =new ArrayList<ShowDetail>(showDetailSet);
 
         }
 

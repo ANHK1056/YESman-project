@@ -7,8 +7,6 @@ import com.kosa.projectdeveloper.repository.BookRepository;
 import com.kosa.projectdeveloper.repository.ShowRepository;
 import com.kosa.projectdeveloper.repository.UserRepository;
 import com.kosa.projectdeveloper.service.BookService;
-import com.kosa.projectdeveloper.service.ShowService;
-import com.kosa.projectdeveloper.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

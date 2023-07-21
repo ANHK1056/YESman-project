@@ -31,23 +31,6 @@ public class ShowReview {
     @Column(updatable = false)
     private Long reviewId;
 
-
-    // TODO: 2023-07-07 각 클래스?의 Id 형식 지정 필요할것 같습니다. 클래스명_Id  or  클래스명Id
-
-
-//    // User 엔터티와 N:1(다대일)관계 매핑
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    // ShowReview 테이블의 FK 를 userId 로 지정해 User 엔터티와 연결
-//    @JoinColumn(name = "userId", nullable = false)
-//    private User user;
-
-
-//    // Show 엔터티와 N:1(다대일)관계 매핑
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    // ShowReview 테이블의 FK 를 show_Id 로 지정해 Show 엔터티와 연결
-//    @JoinColumn(name = "show_Id", nullable = false)
-//    private Show show;
-
     // Book 엔터티와 1:1(일대일)관계 매핑
     @OneToOne
     // ShowReview 테이블의 FK 를 bookId 로 지정해 Book 엔터티와 연결

@@ -34,7 +34,6 @@ public class ShowReviewService {
     }
 
     // 리뷰 수정
-
     @Transactional
     public ShowReview update(long id, UpdateShowReviewRequest request) {
 
@@ -46,14 +45,13 @@ public class ShowReviewService {
         return showReview;
     }
 
-    // 리뷰 삭제
-    // Collections.singleton(review_id) 이렇게 쓰는게 맞는지 잘 모르겠어요,,
-    //id 조회
+    //리뷰 글 조회
     public ShowReview findByShowReviewId(long showReviewId){
         return showReviewRepository.findById(showReviewId)
                 .orElseThrow(() -> new IllegalArgumentException("not found : " + showReviewId));
     }
 
+    // 리뷰 삭제
     public void delete(Long review_id) {
         showReviewRepository.deleteById(review_id);
 

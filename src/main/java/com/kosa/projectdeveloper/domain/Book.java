@@ -19,31 +19,29 @@ import java.util.List;
 // 예매 관련 엔티티
 public class Book {
     @Id
-    // TODO: 2023-07-05 키 값 생성하는 방식 검토 필요 date+001 ?
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
     private Long bookId;
-
-    // TODO: 2023-07-05 타입 확인 필요
+    
+    // 예매 일시
     @CreatedDate
     @Column(nullable = false)
     private LocalDateTime bookDate;
-
-
-    // TODO: 2023-07-05 타입 확인 필요
+    
+    // 연극 상영 일자
     @Column(nullable = false)
     private String showDate;
 
-    // TODO: 2023-07-06 좌석 위치 별도 추가, 확인 필요
+    // 좌석
     @Column(nullable = false)
     private String seat;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
+    // 유저 정보
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
+    // 연극 정보
     @ManyToOne
     @JoinColumn(name = "SHOW_ID")
     private Show show;

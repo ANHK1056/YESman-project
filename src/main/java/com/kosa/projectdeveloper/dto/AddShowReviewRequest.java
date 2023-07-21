@@ -16,15 +16,12 @@ import lombok.NoArgsConstructor;
 
 public class AddShowReviewRequest {
 
-
     private String reviewTitle;
     private String reviewContent;
-
-//    private Show show;
     private Book book;
 
+    // 유저 정보, 예매 정보 위한 필드
     private Long bookId;
-
     private String userEmail;
 
 

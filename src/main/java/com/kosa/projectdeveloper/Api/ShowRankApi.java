@@ -24,6 +24,8 @@ public class ShowRankApi {
 
     public static ShowBasicApi showBasicApi = new ShowBasicApi();
 
+    // 공연 랭킹 목록 API 가져오는 메서드
+    // 공연 랭킹 목록 API의 공연 ID를 통해 공연 상세/공연 목록/공연 시설에 대한 API 가져오는 메서드 호출
     public static void showRankApi(List<String> rankIdList, List<ShowDetail> detailList, List<Show> showList, List<ShowLocation> locationList) {
         StringBuffer urlBuffer = new StringBuffer();
         urlBuffer.append(showRankUrl);
@@ -69,6 +71,7 @@ public class ShowRankApi {
 
                     rankIdList.add(rankId);
 
+                    // 공연 랭킹 목록 API의 공연 ID를 통해 공연 상세/공연 목록/공연 시설에 대한 API 가져오는 메서드 호출
                     showDetailAndShowAndLocationApi(detailList, showList, locationList, showId);
 
                 }
@@ -78,6 +81,10 @@ public class ShowRankApi {
         }
     }
 
+    // ShowBasicApi에서는 공연목록-공연상세-공연시설 순으로 API 가져오는 메서드를 호출했으나
+    // ShowRankApi는 연극 목록이 아닌 연극 상세와 조인했기 때문에
+    // 공연상세 API를 가져오고 공연 상세 API의 정보를 토대로 API를 다시 가져오지 않고 공연 목록 엔티티를 저장한 후
+    // ShowBasicApi의 공연 시설 API 가져오는 메서드 호출
     public static List<ShowDetail> showDetailAndShowAndLocationApi(List<ShowDetail> detailList, List<Show> showList, List<ShowLocation> locationList, String fshow_id) {
         StringBuffer urlBuffer = new StringBuffer();
 
@@ -149,11 +156,13 @@ public class ShowRankApi {
 
                     detailList.add(showDetail);
 
+                    //공연 상세 API의 정보를 토대로 API를 다시 가져오지 않고 공연 목록 엔티티를 저장
                     Show show= new Show(showId,showName,showStartDate,showEndDate,
                             facilityName, showOpenRun, poster,  showGenre, showState);
 
                     showList.add(show);
 
+                    // ShowBasicApi의 공연 시설 API 가져오는 메서드 호출
                     showBasicApi.showLocationApi(locationList, showDetail, facilityId);
 
                 }
@@ -165,6 +174,7 @@ public class ShowRankApi {
         return detailList;
     }
 
+    // XML 파일의 태그 파싱 메서드
     private static String getTagValue(String tag, Element eElement) {
         if (eElement.getElementsByTagName(tag).item(0) != null) {
             NodeList nList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
@@ -178,6 +188,7 @@ public class ShowRankApi {
         }
     }
 
+    // XML 파일의 태그가 여러 개일 때 파싱하는 메서드
     private static String[] getTagValues(String tag, Element eElement) {
 //        String[] nValues = new String[eElement.getElementsByTagName(tag).getLength()];
         String[] nValues = new String[4];

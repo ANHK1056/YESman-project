@@ -11,6 +11,7 @@ public class ShowReviewResponse {
     private final String reviewTitle;
     private final String reviewContent;
 
+    // 유저 정보, 예매 정보 위한 필드
     private String userEmail;
     private Long bookId;
 

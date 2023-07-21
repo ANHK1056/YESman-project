@@ -15,15 +15,13 @@ public class FriendUpdateRequest {
     private  User user;
     private  String title;
     private  String content;
-//    private  LocalDateTime createAt;
 
+    // 유저 정보 위한 필드
     private String userEmail;
 
     public FriendUpdateRequest(FriendReview friendReview) {
-//        this.user = friendReview.getUser();
         this.title =  friendReview.getTitle();
         this.content = friendReview.getContent();
-//        this.createdt = friendReview.getCreatedAt();
     }
 
 }
