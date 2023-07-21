@@ -66,7 +66,7 @@ public class WebOAuthSecurityConfig {
                 .anyRequest().permitAll();
 
 
-
+        //OAuth2 로그인
         http.oauth2Login()
                 .loginPage("/login")
                 .authorizationEndpoint()
@@ -75,6 +75,7 @@ public class WebOAuthSecurityConfig {
                 .successHandler(oAuth2SuccessHandler())
                 .userInfoEndpoint()
                 .userService(oAuth2UserCustomService);
+        //로그인 폼폼
         http.formLogin()
                 .loginPage("/login")
                .defaultSuccessUrl("/loginHome/10")
