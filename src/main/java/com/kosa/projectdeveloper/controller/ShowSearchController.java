@@ -60,29 +60,14 @@ public class ShowSearchController {
                 showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
             }
         } else {
-            showDetailList = showDetailRepository.findByShowActorContaining(searchWord);
 
-            showDetailList.addAll(showDetailRepository.findByShowNameContaining(searchWord));
-
-            showDetailList.addAll(showDetailRepository.findByFacilityNameContaining(searchWord));
+            showDetailList.addAll(showDetailRepository.findByShowNameContainingOrShowActorContainingOrFacilityNameContaining(searchWord, searchWord, searchWord));
 
             range = "통합 검색";
 
             for (int i = 0 ; i < showDetailList.size(); i++){
                 showList.add(showRepository.findById(showDetailList.get(i).getShowId()).orElse(null));
             }
-
-            // List를 Set으로 변경
-            Set<Show> showSet = new HashSet<Show>(showList);
-
-            // Set을 List로 변경
-            showList =new ArrayList<Show>(showSet);
-
-            // List를 Set으로 변경
-            Set<ShowDetail> showDetailSet = new HashSet<ShowDetail>(showDetailList);
-
-            // Set을 List로 변경
-            showDetailList =new ArrayList<ShowDetail>(showDetailSet);
 
         }
 
