@@ -20,6 +20,8 @@ public class ShowController {
     private final ShowRepository showRepository;
     private final ShowRankRepository showRankRepository;
 
+    // 공연 메인에 페이지 매핑
+    // 시연에서는 체계적으로 매핑이 되지 않아 진행하지 않음
     @GetMapping("/showMain")
     public String showMain(Model model){
 
@@ -34,6 +36,7 @@ public class ShowController {
         return "ShowMain";
     }
 
+    // 공연 목록 페이지 매핑
     @GetMapping("/showList")
     public String goToShowList(Model model){
 

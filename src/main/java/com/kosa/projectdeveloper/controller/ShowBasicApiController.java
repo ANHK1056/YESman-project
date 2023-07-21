@@ -24,6 +24,9 @@ public class ShowBasicApiController {
 
     private static ShowBasicApi showBasicApi = new ShowBasicApi();
 
+    // 활용한 공공 API 연극 정보 획득 매핑
+    // Api 패키지에서 작성한 클래스 파일 활용
+    // 자세한 건 ShowBasicApi 파일에서 다루고 있음
     @GetMapping("/api/getShowBasic")
     public String getLocation(Model model) {
         List<Show> showList = new ArrayList<>();

@@ -14,6 +14,7 @@ import java.util.List;
 public class BookListViewController {
     private final BookService bookService;
 
+    // 계정에서 예매 목록 조회
     @GetMapping("/users/userBookList")
     public String getBooks(Model model){
         List<BookListViewResponse> books = bookService.findAllBooks()

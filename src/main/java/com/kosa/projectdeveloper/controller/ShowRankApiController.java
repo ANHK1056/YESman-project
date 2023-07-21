@@ -31,6 +31,7 @@ public class ShowRankApiController {
 
     private static ShowRankApi rankApi = new ShowRankApi();
 
+    // 공연 랭크 API 가져오는 페이지 매핑
     @GetMapping("/api/getShowRank")
     public String getRank(Model model) {
         List<String> rankIdList = new ArrayList<>();

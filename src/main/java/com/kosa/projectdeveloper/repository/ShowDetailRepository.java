@@ -18,7 +18,7 @@ public interface ShowDetailRepository extends JpaRepository<ShowDetail, String> 
     // 시설명에 대한 검색어를 이용한 검색
     public List<ShowDetail> findByFacilityNameContaining(String facilityName);
 
-    // 연극명or출연진or시설명을 통해 통합검색 구현
+    // 연극명or출연진or시설명에 대해 모두 검색을 하여 통합검색 구현
     public List<ShowDetail> findByShowNameContainingOrShowActorContainingOrFacilityNameContaining
                                     (String showName, String actorName, String facilityName);
 

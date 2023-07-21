@@ -22,6 +22,7 @@ public class ShowBasicApi {
     public static String showLocationUrl = "http://kopis.or.kr/openApi/restful/prfplc";
 
 
+    // 공연 시설에 대한 공공 API 가져오는 메서드
     public static List<ShowLocation> showLocationApi(List<ShowLocation> locationList, ShowDetail showDetail, String flocation_id){
         StringBuffer urlBuffer = new StringBuffer();
 
@@ -84,6 +85,7 @@ public class ShowBasicApi {
         return locationList;
     }
 
+    // 공연 상세 API를 가져오고, 공연 상세의 공연 시설ID를 통해 공연 시설 API 가져오는 메서드 호출
     public static List<ShowDetail> showDetailAndLocationApi(List<ShowDetail> detailList, List<ShowLocation> locationList, String fshow_id) {
         StringBuffer urlBuffer = new StringBuffer();
 
@@ -152,6 +154,8 @@ public class ShowBasicApi {
                             ,showActor,showAge,runtime,company,showPrice,poster,showGenre,showState,showImage[0],showImage[1],
                             showImage[2],showImage[3], showDate,showContent);
                     detailList.add(showDetail);
+
+                    // 공연 시설 API 가져오는 메서드 호출
                     showLocationApi(locationList, showDetail, facilityId);
 
                 }
@@ -163,6 +167,7 @@ public class ShowBasicApi {
         return detailList;
     }
 
+    // 공연 목록 API를 가져와서 공연 ID를 통해 공연 상세 API 가져오는 메서드 호출
     public static void showAndDetailAndLocationApi(List<Show> list, List<ShowDetail> detailList, List<ShowLocation> locationList, int pageNo) {
         StringBuffer urlBuffer = new StringBuffer();
         urlBuffer.append(showUrl);
@@ -219,6 +224,7 @@ public class ShowBasicApi {
                     String showState = getTagValue("prfstate", eElement);
                     String showOpenRun = getTagValue("openrun", eElement);
 
+                    // 공연 상세 API 가져오는 메서드 호출
                     showDetailAndLocationApi(detailList, locationList, showId);
 
                     Show show= new Show(showId,showName,showStartDate,showEndDate,
@@ -234,6 +240,7 @@ public class ShowBasicApi {
     }
 
 
+    // XML 파일의 태그 파싱 메서드
     private static String getTagValue(String tag, Element eElement) {
         if (eElement.getElementsByTagName(tag).item(0) != null) {
             NodeList nList = eElement.getElementsByTagName(tag).item(0).getChildNodes();
@@ -247,6 +254,7 @@ public class ShowBasicApi {
         }
     }
 
+    // XML 파일의 태그가 여러 개일 때 파싱하는 메서드
     private static String[] getTagValues(String tag, Element eElement) {
 //        String[] nValues = new String[eElement.getElementsByTagName(tag).getLength()];
         String[] nValues = new String[4];

@@ -22,6 +22,7 @@ public class ShowCategoryController {
     private final ShowLocationRepository showLocationRepository;
     private final ShowRepository showRepository;
 
+    // 서울 지역에 대해 구이름이 들어간 경로에 대한 매핑
     @GetMapping("/showList/seoulLocations/{locationAddress}")
     public String categorizeShowLocations(@PathVariable String locationAddress, Model model) {
 
@@ -36,11 +37,6 @@ public class ShowCategoryController {
         model.addAttribute("shows", showList);
 
         return "showLocationsCategory";
-    }
-
-    @GetMapping("/testHtml")
-    public String testHtml(Model model){
-        return "testMain";
     }
 
 }

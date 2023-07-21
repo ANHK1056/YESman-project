@@ -17,8 +17,7 @@ public class ShowDetailController {
 
     private final ShowDetailRepository showDetailRepository;
 
-//    private static Api api = new Api();
-
+    // 공연 상세 조회 페이지 매핑
     @GetMapping("/showList/show/{show_id}")
     public String getShowDetail(Model model, @PathVariable String show_id){
 
@@ -27,14 +26,6 @@ public class ShowDetailController {
         ShowDetail showDetail;
 
         showDetail = showDetailRepository.findById(show_id).orElse(ShowDetail.builder().build());
-
-//        try {
-//            showDetail = showDetailRepository.findById(show_id).get();
-//        }
-//        catch (Exception e) {
-//            detailListist = api.ShowDetailAPI(detailListist, show_id);
-//            showDetail = detailListist.get(0);
-//        }
 
         model.addAttribute("showDetail", showDetail);
 
