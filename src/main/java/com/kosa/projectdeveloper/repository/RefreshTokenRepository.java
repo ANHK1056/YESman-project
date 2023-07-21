@@ -1,3 +1,4 @@
+//토큰을 저장, 조회하는 repository
 package com.kosa.projectdeveloper.repository;
 
 import com.kosa.projectdeveloper.domain.RefreshToken;

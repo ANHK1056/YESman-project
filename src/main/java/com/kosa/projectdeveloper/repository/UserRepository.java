@@ -1,3 +1,4 @@
+//유저 정보를 저장 및 조회하는 repository
 package com.kosa.projectdeveloper.repository;
 
 import com.kosa.projectdeveloper.domain.User;

@@ -1,3 +1,6 @@
+/*
+유저 정보를 저장하는 클래스
+ */
 package com.kosa.projectdeveloper.domain;
 
 import com.kosa.projectdeveloper.dto.AddUserRequest;
@@ -24,7 +27,6 @@ public class User implements UserDetails {
 
     //id is primary key
     @Id
-    // TODO: 2023-07-05 PK 맵핑에 대해 추후 검토
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID", updatable = false)
     private Long userId;
@@ -43,9 +45,6 @@ public class User implements UserDetails {
     private String userPhNm;
 
 
-//    // ShowReview 랑 Join 위해 넣었어요..!
-//    @OneToMany(mappedBy = "review_Id")
-//    private List<ShowReview> showReviews = new ArrayList<>();
 
     @Builder
     public User(String userName, String userEmail,
@@ -100,6 +99,7 @@ public class User implements UserDetails {
 
     }
 
+    //유저 정보를 수정하는 메서드
     public User update(String userPhNm,String userPw){
         BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
         this.userPhNm =userPhNm;

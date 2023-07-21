@@ -1,3 +1,4 @@
+//쿠키를 생성 또는 삭제 등을 클래스
 package com.kosa.projectdeveloper.util;
 
 import jakarta.servlet.http.Cookie;
@@ -9,6 +10,7 @@ import java.util.Base64;
 
 public class CookieUtil {
 
+    //쿠키 생성
     public static void addCookie(HttpServletResponse response, String name, String value, int maxAge) {
         Cookie cookie = new Cookie(name, value);
         cookie.setPath("/");
@@ -17,6 +19,7 @@ public class CookieUtil {
         response.addCookie(cookie);
     }
 
+    //쿠키 삭제
     public static void deleteCookie(HttpServletRequest request, HttpServletResponse response, String name) {
         Cookie[] cookies = request.getCookies();
 
@@ -34,11 +37,13 @@ public class CookieUtil {
         }
     }
 
+    //쿠키를 직렬화
     public static String serialize(Object obj) {
         return Base64.getUrlEncoder()
                 .encodeToString(SerializationUtils.serialize(obj));
     }
 
+    //쿠키를 역직렬화
     public static <T> T deserialize(Cookie cookie, Class<T> cls) {
         return cls.cast(
                 SerializationUtils.deserialize(

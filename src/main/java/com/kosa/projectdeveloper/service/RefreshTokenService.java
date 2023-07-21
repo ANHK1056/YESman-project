@@ -1,3 +1,4 @@
+//refresh 토큰을 저장하는 Service
 package com.kosa.projectdeveloper.service;
 
 import com.kosa.projectdeveloper.domain.RefreshToken;

@@ -1,3 +1,6 @@
+/*
+유저정보를 수정하는 Requset
+ */
 package com.kosa.projectdeveloper.dto;
 
 import lombok.AllArgsConstructor;

@@ -1,3 +1,6 @@
+/*
+로그인, 로그아웃, 회원 가입 mapping을 하는 controller
+ */
 package com.kosa.projectdeveloper.controller;
 
 import com.kosa.projectdeveloper.domain.User;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserLoginController {
     private final UserService userService;
+    //회원 가입 시 request를 받는 mapping
     @PostMapping("/users")
     public String signup(AddUserRequest request){
 
@@ -29,7 +33,7 @@ public class UserLoginController {
         }catch (IllegalArgumentException e){
 
         }
-
+        //유저 정보가 있을 시 다시 회원 가입 창으로
       if(user !=null){
           return "redirect:signup";
       }
@@ -37,6 +41,7 @@ public class UserLoginController {
         userService.save(request);
         return "redirect:/login";
     }
+    //로그아웃 맵핑
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());

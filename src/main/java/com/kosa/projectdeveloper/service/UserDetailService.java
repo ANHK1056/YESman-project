@@ -1,3 +1,4 @@
+//로그인시 저장되는 정보를 유저 정보로 저장하는 Service
 package com.kosa.projectdeveloper.service;
 
 import com.kosa.projectdeveloper.domain.User;
